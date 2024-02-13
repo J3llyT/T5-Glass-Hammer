@@ -1,0 +1,19 @@
+{
+    "Format": "2.0.0",
+    "Changes": [
+        {
+            "LogName": "Jas",
+            "Action": "EditData",
+            "Target": "Characters/Schedules/Marnie",
+            "Entries" : {
+                "Tue": "GOTO spring",
+                "Mon": "GOTO spring",
+                "Wed": "GOTO spring",
+                "Fri": "GOTO spring",
+                "Sat": "GOTO spring",
+                "Sun": "GOTO Sat",
+                "spring": "830 AnimalShop 17 5 0/850 AnimalShop 12 14 2/1200 AnimalShop 12 5 3 marnie_sleep"
+            }
+        }  
+    ]
+}
