@@ -1,0 +1,14 @@
+﻿{
+	"Name": "HopeToRise",
+	"Author": "Tanessa",
+	"Version": "1.0.0",
+	"Description": "Adds custom mails for my mod.",
+	"UniqueID": "Tanessa.HopeToRiseForMailFrameworkMod",
+	"MinimumApiVersion": "3.8.0",
+	"UpdateKeys": [],
+	"Dependencies": [],
+	"ContentPackFor": {
+		"UniqueID": "DIGUS.MailFrameworkMod",
+        "MinimumVersion": "1.16.0-alpha"
+	}
+}

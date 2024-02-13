@@ -1,0 +1,10 @@
+{
+    "Name": "Hope to Rise",
+    "Author": "Glass Hammer",
+    "Description": "Adds new dialog related to the quest",
+    "Version": "1.0.0",
+    "UniqueID": "GlassHammer.HopeToRise",
+    "ContentPackFor": {
+        "UniqueID": "Pathoschild.ContentPatcher"
+     }
+ }
