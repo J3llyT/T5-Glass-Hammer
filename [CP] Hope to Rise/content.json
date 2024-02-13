@@ -1,0 +1,53 @@
+{
+  "Format": "2.0.0",
+  "Changes": [
+    {
+      "Action": "Load",
+      "Target": "Maps/HopeToRise_DreamWorldTest",
+      "FromFile":  "assets/DreamWorldTest.tmx"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Locations",
+      "Entries": {
+        "DreamWorldTest": {
+          "DisplayName": "DreamWorldTest",
+          "DefaultArrivalTile": {
+            "X": 2,
+            "Y": 2
+          },
+          "ExcludeFromNpcPathfinding": false,
+          "CreateOnLoad": {
+            "MapPath": "Maps/HopeToRise_DreamWorldTest",
+            "Type": "StardewValley.GameLocation",
+            "AlwaysActive": false
+          },
+          "FormerLocationNames": [],
+          "CanPlantHere": false,
+          "ArtifactSpots": [],
+          "FishAreas": {},
+          "Fish": [],
+          "Forage": [],
+          "MinDailyWeeds": 2,
+          "MaxDailyWeeds": 5,
+          "FirstDayWeedMultiplier": 15,
+          "MinDailyForageSpawn": 1,
+          "MaxDailyForageSpawn": 4,
+          "MaxSpawnedForageAtOnce": 6,
+          "ChanceForClay": 0.03,
+          "Music": [],
+          "MusicDefault": null,
+          "MusicContext": 0,
+          "MusicIgnoredInRain": false,
+          "MusicIgnoredInSpring": false,
+          "MusicIgnoredInSummer": false,
+          "MusicIgnoredInFall": false,
+          "MusicIgnoredInFallDebris": false,
+          "MusicIgnoredInWinter": false,
+          "MusicIsTownTheme": false,
+          "CustomFields": {}
+        }
+      }
+    }
+  ]
+}
