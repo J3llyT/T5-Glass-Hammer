@@ -1,0 +1,11 @@
+{
+    "Name": "Jas_ScheduleChange",
+    "Author": "Tanessa",
+    "Version": "1.0.0",
+    "Description": "One or two sentences about the mod.",
+    "UniqueID": "Tanessa.Jas_Schedulechange",
+    "UpdateKeys": [], // when you release the mod, see https://stardewvalleywiki.com/Modding:Modder_Guide/APIs/Update_checks
+    "ContentPackFor": {
+        "UniqueID": "Pathoschild.ContentPatcher"
+    }
+}
