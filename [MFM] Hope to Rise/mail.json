@@ -3,7 +3,7 @@
 		"Id": "HopeToRise.HarveyLetter", // Letter id. It's important to be an unique string to avoid conflicts. Also it shouldn't have space characters.
 		"GroupId": "HopeToRise.QuestLetter", // Letter group id. Letters with the same group id are never delivered in the same day. Letters registered first have priority, unless the group id ends with ".Random", in that case, a random letter will be chosen. Default is null.
 		"Title": "Urgent Message from Harvey", // Letter title. Will be shown in the collections menu. Set it null or remove the line if you don't want the letter to appear in the collection. If an translation file is provide, you should put a translation key here, but you can still leave if null for no Title.
-		"Text": "@^If you wake up, come visit me as soon as possible.^- Dr. Harvey", // Text of the letter. You can use @ to put the players name and ^ for line breaks. You can also use the base game commands to add money, items and stuff. If an translation file is provide, you should put a translation key here.
+		"Text": "@^^If you wake up, come visit me as soon as possible.^^- Dr. Harvey", // Text of the letter. You can use @ to put the players name and ^ for line breaks. You can also use the base game commands to add money, items and stuff. If an translation file is provide, you should put a translation key here.
 		"AdditionalMailReceived": ["HopeToRise.AnotherMailId", "VANILLA_FLAG"], // Use this to add additional text to the MailReceived list. Can be useful to add vanilla flags or other MFM letter ids.
 		"WhichBG": 0, //The id of the letter background. 0 = classic, 1 = notepad, 2 = pyramids
 		"CustomTextColorName": "White", //The color of the text.[http://www.foszor.com/blog/xna-color-chart/] Default will use the TextColor property.
