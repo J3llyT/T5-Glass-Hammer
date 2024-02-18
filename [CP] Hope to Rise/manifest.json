@@ -1,9 +1,9 @@
 {
-    "Name": "Hope to Rise",
+    "Name": "CP_HTR",
     "Author": "Glass Hammer",
-    "Description": "Adds new dialog related to the quest",
+    "Description": "All of the Content Patcher dependent JSONS will live here",
     "Version": "1.0.0",
-    "UniqueID": "GlassHammer.HopeToRise",
+    "UniqueID": "GlassHammer.CP_HTR",
     "ContentPackFor": {
         "UniqueID": "Pathoschild.ContentPatcher"
      }

@@ -1,9 +1,9 @@
 ﻿{
-	"Name": "HopeToRise",
+	"Name": "MFM_HTR",
 	"Author": "Tanessa",
 	"Version": "1.0.0",
 	"Description": "Adds custom mails for my mod.",
-	"UniqueID": "Tanessa.HopeToRiseForMailFrameworkMod",
+	"UniqueID": "Tanessa.MFM_HTR",
 	"MinimumApiVersion": "3.8.0",
 	"UpdateKeys": [],
 	"Dependencies": [],
