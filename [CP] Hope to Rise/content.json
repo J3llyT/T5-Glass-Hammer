@@ -17,6 +17,26 @@
       "FromFile": "assets/DreamWorldHub.tmx"
     },
     {
+      "Action": "Load",
+      "Target": "Maps/HopeToRise_DreamWorldEast",
+      "FromFile": "assets/DreamWorldEast.tmx"
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/HopeToRise_DreamWorldNorthEast",
+      "FromFile": "assets/DreamWorldNorthEast.tmx"
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/HopeToRise_DreamWorldWest",
+      "FromFile": "assets/DreamWorldWest.tmx"
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/HopeToRise_DreamWorldNorthWest",
+      "FromFile": "assets/DreamWorldNorthWest.tmx"
+    },
+    {
       "Action": "EditData",
       "Target": "Data/Locations",
       "Entries": {
@@ -66,8 +86,8 @@
         "DreamWorldSpawn": {
           "DisplayName": "DreamWorldSpawn",
           "DefaultArrivalTile": {
-            "X": 2,
-            "Y": 2
+            "X": 4,
+            "Y": 4
           },
           "ExcludeFromNpcPathfinding": false,
           "CreateOnLoad": {
@@ -109,12 +129,184 @@
         "DreamWorldHub": {
           "DisplayName": "DreamWorldHub",
           "DefaultArrivalTile": {
-            "X": 2,
-            "Y": 2
+            "X": 9,
+            "Y": 50
           },
           "ExcludeFromNpcPathfinding": false,
           "CreateOnLoad": {
             "MapPath": "Maps/HopeToRise_DreamWorldHub",
+            "Type": "StardewValley.GameLocation",
+            "AlwaysActive": false
+          },
+          "FormerLocationNames": [],
+          "CanPlantHere": false,
+          "ArtifactSpots": [],
+          "FishAreas": {},
+          "Fish": [],
+          "Forage": [],
+          "MinDailyWeeds": 2,
+          "MaxDailyWeeds": 5,
+          "FirstDayWeedMultiplier": 15,
+          "MinDailyForageSpawn": 1,
+          "MaxDailyForageSpawn": 4,
+          "MaxSpawnedForageAtOnce": 6,
+          "ChanceForClay": 0.03,
+          "Music": [],
+          "MusicDefault": null,
+          "MusicContext": 0,
+          "MusicIgnoredInRain": false,
+          "MusicIgnoredInSpring": false,
+          "MusicIgnoredInSummer": false,
+          "MusicIgnoredInFall": false,
+          "MusicIgnoredInFallDebris": false,
+          "MusicIgnoredInWinter": false,
+          "MusicIsTownTheme": false,
+          "CustomFields": {}
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Locations",
+      "Entries": {
+        "DreamWorldEast": {
+          "DisplayName": "DreamWorldEast",
+          "DefaultArrivalTile": {
+            "X": 3,
+            "Y": 39
+          },
+          "ExcludeFromNpcPathfinding": false,
+          "CreateOnLoad": {
+            "MapPath": "Maps/HopeToRise_DreamWorldEast",
+            "Type": "StardewValley.GameLocation",
+            "AlwaysActive": false
+          },
+          "FormerLocationNames": [],
+          "CanPlantHere": false,
+          "ArtifactSpots": [],
+          "FishAreas": {},
+          "Fish": [],
+          "Forage": [],
+          "MinDailyWeeds": 2,
+          "MaxDailyWeeds": 5,
+          "FirstDayWeedMultiplier": 15,
+          "MinDailyForageSpawn": 1,
+          "MaxDailyForageSpawn": 4,
+          "MaxSpawnedForageAtOnce": 6,
+          "ChanceForClay": 0.03,
+          "Music": [],
+          "MusicDefault": null,
+          "MusicContext": 0,
+          "MusicIgnoredInRain": false,
+          "MusicIgnoredInSpring": false,
+          "MusicIgnoredInSummer": false,
+          "MusicIgnoredInFall": false,
+          "MusicIgnoredInFallDebris": false,
+          "MusicIgnoredInWinter": false,
+          "MusicIsTownTheme": false,
+          "CustomFields": {}
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Locations",
+      "Entries": {
+        "DreamWorldNorthEast": {
+          "DisplayName": "DreamWorldNorthEast",
+          "DefaultArrivalTile": {
+            "X": 10,
+            "Y": 40
+          },
+          "ExcludeFromNpcPathfinding": false,
+          "CreateOnLoad": {
+            "MapPath": "Maps/HopeToRise_DreamWorldNorthEast",
+            "Type": "StardewValley.GameLocation",
+            "AlwaysActive": false
+          },
+          "FormerLocationNames": [],
+          "CanPlantHere": false,
+          "ArtifactSpots": [],
+          "FishAreas": {},
+          "Fish": [],
+          "Forage": [],
+          "MinDailyWeeds": 2,
+          "MaxDailyWeeds": 5,
+          "FirstDayWeedMultiplier": 15,
+          "MinDailyForageSpawn": 1,
+          "MaxDailyForageSpawn": 4,
+          "MaxSpawnedForageAtOnce": 6,
+          "ChanceForClay": 0.03,
+          "Music": [],
+          "MusicDefault": null,
+          "MusicContext": 0,
+          "MusicIgnoredInRain": false,
+          "MusicIgnoredInSpring": false,
+          "MusicIgnoredInSummer": false,
+          "MusicIgnoredInFall": false,
+          "MusicIgnoredInFallDebris": false,
+          "MusicIgnoredInWinter": false,
+          "MusicIsTownTheme": false,
+          "CustomFields": {}
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Locations",
+      "Entries": {
+        "DreamWorldWest": {
+          "DisplayName": "DreamWorldWest",
+          "DefaultArrivalTile": {
+            "X": 52,
+            "Y": 19
+          },
+          "ExcludeFromNpcPathfinding": false,
+          "CreateOnLoad": {
+            "MapPath": "Maps/HopeToRise_DreamWorldWest",
+            "Type": "StardewValley.GameLocation",
+            "AlwaysActive": false
+          },
+          "FormerLocationNames": [],
+          "CanPlantHere": false,
+          "ArtifactSpots": [],
+          "FishAreas": {},
+          "Fish": [],
+          "Forage": [],
+          "MinDailyWeeds": 2,
+          "MaxDailyWeeds": 5,
+          "FirstDayWeedMultiplier": 15,
+          "MinDailyForageSpawn": 1,
+          "MaxDailyForageSpawn": 4,
+          "MaxSpawnedForageAtOnce": 6,
+          "ChanceForClay": 0.03,
+          "Music": [],
+          "MusicDefault": null,
+          "MusicContext": 0,
+          "MusicIgnoredInRain": false,
+          "MusicIgnoredInSpring": false,
+          "MusicIgnoredInSummer": false,
+          "MusicIgnoredInFall": false,
+          "MusicIgnoredInFallDebris": false,
+          "MusicIgnoredInWinter": false,
+          "MusicIsTownTheme": false,
+          "CustomFields": {}
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Locations",
+      "Entries": {
+        "DreamWorldNorthWest": {
+          "DisplayName": "DreamWorldNorthWest",
+          "DefaultArrivalTile": {
+            "X": 41,
+            "Y": 40
+          },
+          "ExcludeFromNpcPathfinding": false,
+          "CreateOnLoad": {
+            "MapPath": "Maps/HopeToRise_DreamWorldNorthWest",
             "Type": "StardewValley.GameLocation",
             "AlwaysActive": false
           },
