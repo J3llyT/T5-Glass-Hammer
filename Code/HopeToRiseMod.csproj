@@ -12,4 +12,10 @@
     <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="ContentPatcher">
+      <HintPath>..\..\..\Steam\steamapps\common\Stardew Valley\mods\ContentPatcher\ContentPatcher.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

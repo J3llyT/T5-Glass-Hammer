@@ -1,6 +1,12 @@
 {
   "Format": "2.0.0",
   "Changes": [
+    // INCLUDE
+    {
+      "Action": "Include",
+      "FromFile": "other/quest.json"
+    },
+    // LOAD
     {
       "Action": "Load",
       "Target": "Maps/HopeToRise_DreamWorldTest",
@@ -46,6 +52,8 @@
       "Target": "Maps/HopeToRise_DreamWorldBoss",
       "FromFile": "assets/DreamWorldBoss.tmx"
     },
+
+    // EDIT DATA
     {
       "Action": "EditData",
       "Target": "Data/Locations",

@@ -1,0 +1,14 @@
+{
+    // QUEST
+    "Changes":[
+        // Adds the 1st quest: Visit Harvey
+        {
+            "Action": "EditData",
+            "Target": "Data/Quests", 
+            "Entries": {
+                "131": "Location/Visit Harvey/You recieved a letter from Dr. Harvey requesting your presence. It sounded urgent./Speak to Harvey at the Hospital/Hospital/-1/0/-1/false"
+            }
+        }
+
+    ]
+}

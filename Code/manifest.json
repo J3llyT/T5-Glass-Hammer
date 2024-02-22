@@ -14,5 +14,7 @@
   "Description": "Hope to Rise Mod for Sten's Class'",
   "MinimumApiVersion": "3.0.0",
   "EntryDll": "HopeToRiseMod.dll",
+  "Dependencies": [
+  ],
   "UpdateKeys": []
 }
