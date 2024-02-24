@@ -1,11 +1,16 @@
 {
   "Format": "2.0.0",
   "Changes": [
-    // INCLUDE
+    // INCLUDES
     {
       "Action": "Include",
       "FromFile": "other/quest.json"
     },
+    {
+      "Action": "Include",
+      "FromFile": "other/events.json"
+    },
+
     // LOAD
     {
       "Action": "Load",

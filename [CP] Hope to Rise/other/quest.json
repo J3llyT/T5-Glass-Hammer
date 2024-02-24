@@ -1,14 +1,42 @@
 {
-    // QUEST
     "Changes":[
+        // ADDING QUEST TO JOURNAL
+
         // Adds the 1st quest: Visit Harvey
+        // This quest get's activated when the player recieves letter from Harvey. Check MFM_HTR
         {
             "Action": "EditData",
             "Target": "Data/Quests", 
             "Entries": {
                 "131": "Location/Visit Harvey/You recieved a letter from Dr. Harvey requesting your presence. It sounded urgent./Speak to Harvey at the Hospital/Hospital/-1/0/-1/false"
             }
-        }
+        },
 
+        // Adds the 1st quest: Visit Harvey
+        // This quest get's activated when the player recieves letter from Harvey. Check MFM_HTR
+        {
+            "Action": "EditData",
+            "Target": "Data/Quests", 
+            "Entries": {
+                "132": "Location/Visit Wizard/ Harvey asked that you go check on him./Go check on the Wizard/WizardHouse/-1/0/-1/false"
+            }
+        },
+
+
+        // ADDING DIALOGUE FOR QUEST
+        // Edit the weekly dialogue for villagers during the duration of the quest
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Harvey, Characters/Dialogue/Shane",
+            "Entries": {
+                "Mon": "I had the strangest dream last night",
+                "Tue": "{{i18n: HTR.VillagerDialogue.02 }}",
+                "Wed": "{{i18n: HTR.VillagerDialogue.03 }}",
+                "Thu": "{{i18n: HTR.VillagerDialogue.04 }}",
+                "Fri": "{{i18n: HTR.VillagerDialogue.06 }}",
+                "Sat": "{{i18n: HTR.VillagerDialogue.05 }}",
+                "Sun": "{{i18n: HTR.VillagerDialogue.07 }}"
+            }
+        }
     ]
 }
