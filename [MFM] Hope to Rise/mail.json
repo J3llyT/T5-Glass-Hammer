@@ -11,9 +11,8 @@
 		"AutoOpen": false, // If true the mod will open the letter at the begin of the day after the conditions are met. The letter id will be marked as read and if there is a recipe set, it will be learned. Since the letter will never show, visual properties like title, text, background... will never be used, as well as the attachments.
 		// CONDITIONS FOR DELIVERY
 		//Below are conditions for the delivery. Remove any of the lines if you don't want to check that condition.
-		"Seasons": ["spring"], // Must be one of the seasons in the list. [spring|summer|fall|winter]
-		"Weather": "sunny", // Must be that game weather. The format is "[sunny|rainy]".
 		"RequireAllMailReceived": false, // If true, require that all mails in the "MailReceived" list to have been received. Default is false.
+		// TODO: Add GlassHammer.HopeToRise as a required mod
 		"HasMods": [ "SMAPI.ConsoleCommands", "SMAPI.SaveBackup" ], // Require one of the mods to be loaded. Should be the mod UniqueID.
 		"RequireAllMods": false // If true, require that all the mods in the "HasMods" list to have been loaded. Default is false.
 	}
