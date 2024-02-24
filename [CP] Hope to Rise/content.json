@@ -99,13 +99,7 @@
           "MusicIgnoredInWinter": false,
           "MusicIsTownTheme": false,
           "CustomFields": {}
-        }
-      }
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/Locations",
-      "Entries": {
+        },
         "DreamWorldSpawn": {
           "DisplayName": "DreamWorldSpawn",
           "DefaultArrivalTile": {
@@ -142,13 +136,7 @@
           "MusicIgnoredInWinter": false,
           "MusicIsTownTheme": false,
           "CustomFields": {}
-        }
-      }
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/Locations",
-      "Entries": {
+        },
         "DreamWorldHub": {
           "DisplayName": "DreamWorldHub",
           "DefaultArrivalTile": {
@@ -185,13 +173,7 @@
           "MusicIgnoredInWinter": false,
           "MusicIsTownTheme": false,
           "CustomFields": {}
-        }
-      }
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/Locations",
-      "Entries": {
+        },
         "DreamWorldEast": {
           "DisplayName": "DreamWorldEast",
           "DefaultArrivalTile": {
@@ -228,13 +210,7 @@
           "MusicIgnoredInWinter": false,
           "MusicIsTownTheme": false,
           "CustomFields": {}
-        }
-      }
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/Locations",
-      "Entries": {
+        },
         "DreamWorldNorthEast": {
           "DisplayName": "DreamWorldNorthEast",
           "DefaultArrivalTile": {
@@ -271,13 +247,7 @@
           "MusicIgnoredInWinter": false,
           "MusicIsTownTheme": false,
           "CustomFields": {}
-        }
-      }
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/Locations",
-      "Entries": {
+        },
         "DreamWorldWest": {
           "DisplayName": "DreamWorldWest",
           "DefaultArrivalTile": {
@@ -314,13 +284,7 @@
           "MusicIgnoredInWinter": false,
           "MusicIsTownTheme": false,
           "CustomFields": {}
-        }
-      }
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/Locations",
-      "Entries": {
+        },
         "DreamWorldNorthWest": {
           "DisplayName": "DreamWorldNorthWest",
           "DefaultArrivalTile": {
@@ -357,13 +321,7 @@
           "MusicIgnoredInWinter": false,
           "MusicIsTownTheme": false,
           "CustomFields": {}
-        }
-      }
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/Locations",
-      "Entries": {
+        },
         "DreamWorldCore": {
           "DisplayName": "DreamWorldCore",
           "DefaultArrivalTile": {
@@ -400,13 +358,7 @@
           "MusicIgnoredInWinter": false,
           "MusicIsTownTheme": false,
           "CustomFields": {}
-        }
-      }
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/Locations",
-      "Entries": {
+        },
         "DreamWorldBoss": {
           "DisplayName": "DreamWorldBoss",
           "DefaultArrivalTile": {

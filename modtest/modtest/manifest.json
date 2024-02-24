@@ -1,0 +1,10 @@
+{
+  "Name": "modtest",
+  "Author": "jess",
+  "Version": "1.0.0",
+  "Description": "something something idk",
+  "UniqueID": "jess.modtest",
+  "EntryDll": "modtest.dll",
+  "MinimumApiVersion": "3.0.0",
+  "UpdateKeys": []
+}
