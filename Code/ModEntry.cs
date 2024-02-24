@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
-using QuestFramework.Api;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
@@ -16,7 +15,6 @@ namespace HopeToRiseMod
          * We can override these two methods later. Or I can create a testing folder and give this class access to it sow
          * we can get rid of them here. I'll put it on the back burner for now though.
          */
-        private HTRQuest questItems;
         
 
         /*********
@@ -27,7 +25,6 @@ namespace HopeToRiseMod
         public override void Entry(IModHelper helper)
         {
             helper.Events.GameLoop.GameLaunched += this.OnGameStarted;
-            questItems = new HTRQuest();
 
         }
 
