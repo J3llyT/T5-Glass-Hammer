@@ -6,6 +6,10 @@
       "Action": "Include",
       "FromFile": "other/quest.json"
     },
+    {
+      "Action": "Include",
+      "FromFile": "other/tile.json"
+    },
     // LOAD
     {
       "Action": "Load",

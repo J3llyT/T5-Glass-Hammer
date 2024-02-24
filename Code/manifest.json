@@ -15,6 +15,10 @@
   "MinimumApiVersion": "3.0.0",
   "EntryDll": "HopeToRiseMod.dll",
   "Dependencies": [
+    {
+      "UniqueID": "Pathoschild.ContentPatcher",
+      "MinimumVersion": "2.0.0"
+    }
   ],
   "UpdateKeys": []
 }

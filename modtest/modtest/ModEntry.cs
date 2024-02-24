@@ -56,6 +56,7 @@ namespace modtest
                     Speed = { -10 }
                 }
             );
+            Game1.player.applyBuff(buff);
 
             // Check if the player is on the poisoned tile
             if (farmLocation.doesTileHaveProperty((int)playerTile.X, (int)playerTile.Y, "Paths", "Poison") != null)

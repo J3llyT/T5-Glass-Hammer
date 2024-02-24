@@ -1,10 +1,11 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
-using QuestFramework.Api;
+using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
+using StardewValley.Buffs;
 
 
 
@@ -12,32 +13,29 @@ namespace HopeToRiseMod
 {
     public class ModEntry : Mod
     {
-        /*
-         * We can override these two methods later. Or I can create a testing folder and give this class access to it sow
-         * we can get rid of them here. I'll put it on the back burner for now though.
-         */
-        private HTRQuest questItems;
-        
-
-        /*********
-      ** Public methods
-      *********/
         /// <summary>The mod entry point, called after the mod is first loaded.</summary>
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
         {
-            helper.Events.GameLoop.GameLaunched += this.OnGameStarted;
-            questItems = new HTRQuest();
-
+            GameLocation.RegisterTouchAction("poison", GiveBuff);
         }
-
-        /// <summary>
-        //  Loads Quest when the game launches
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnGameStarted(object sender, GameLaunchedEventArgs e)
+        private void GiveBuff(GameLocation location, string[] args, Farmer player, Vector2 tile)
         {
+            Buff buff = new Buff(
+                id: "poison",
+                displayName: "poison",
+                iconTexture: this.Helper.ModContent.Load<Texture2D>("assets/poison.png"),
+                iconSheetIndex: 0,
+                duration: 5_000,
+                effects: new BuffEffects()
+                {
+                    Speed = { -10 }
+                }
+            );
+
+            player.applyBuff(buff);
+
+            Monitor.Log("asdhsahedajskhdejkawedhjkawehdkwa");
         }
     }
 }
