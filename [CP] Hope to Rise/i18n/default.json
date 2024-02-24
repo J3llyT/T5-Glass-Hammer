@@ -1,0 +1,33 @@
+// NPC Dialogue for HTR quest
+{
+    // GENERIC VILLAGER DIALOGUE 
+    "HTR.VillagerDialogue.01": "I had the strangest dream last night",
+    "HTR.VillagerDialogue.02": "It's kinda quiet without Vincent around. I hope they wake up soon.",
+    "HTR.VillagerDialogue.03": "Ugh, I had to drag myself out of bed this morning.",
+    "HTR.VillagerDialogue.04": "Wish I could sleep the day away, but there's too much to do.",
+    "HTR.VillagerDialogue.05": "Glad to see you up and about. I almost didn't get out of bed myself, this morning.",
+    "HTR.VillagerDialogue.06": "Don't worry. I'm sure Jas will wake up before you know it.",
+    "HTR.VillagerDialogue.07": "I like to sleep with a dream catcher. Keeps the bad dreams at bay",
+
+    // DREAM WORLD DIALOGUE - Location based
+    "HTR.DreamworldDialogue_Vincent.01": "Woah this place is crazy. I could stay here forever!",
+    "HTR.DreamworldDialogue_Jas.01": "Wow...I wonder what kind of cute animals are here.",
+
+    // GENERIC VANA DIALOGUE
+    "HTR.VanaDialogue.01": "Sometimes, I wish I could stay here forever...Endlessly dreaming a good dream.",
+    "HTR.VanaDialogue.02": "Lord Somnia's bad at making friends, but he's a pretty sweet guy once you get to know him.",
+    "HTR.VanaDialogue.03": "Dreams can be a lot better than reality.",
+    "HTR.VanaDialogue.04": "The Dream World can be dangerous sometimes, so make sure you have the right tools.",
+
+    // GENERIC LORD SOMNIA DIALOGUE
+    "HTR.LordSomniaDialogue.01": "The best way to fight a nightmare is to look it right in the eyes.",
+    "HTR.LordSomniaDialogue.02": "I'm the Lord of Dreams but sometimes I wish I was a god...Then I could make everyone's dream a reality.",
+    "HTR.LordSomniaDialogue.03": "Your determination to help is admirable",
+    "HTR.LordSomniaDialogue.04": "Do come back, human. I'm counting on you.",
+
+    // HARVEY HOSPITAL QUEST DIALOGUE
+    "HTR.HospitalEvent_Harvey.01": "{{Player_Name}}! Glad you're healthy and awake.",
+    "HTR.HospitalEvent_Harvey.02": "Jas and Vincent are sleeping...No amount of shaking, prodding or yelling will wake them. $b I've examined them thoroughly and nothing's wrong with them medically. They're just...asleep!$b Anyway, I've been checking in with everyone to make sure they're okay. Remeber to take care of yourself", 
+    
+
+}
