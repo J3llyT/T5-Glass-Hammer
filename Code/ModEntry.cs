@@ -26,6 +26,8 @@ namespace HopeToRiseMod
         public override void Entry(IModHelper helper)
         {
             GameLocation.RegisterTouchAction("poison", GiveBuff);
+            helper.Events.GameLoop.UpdateTicked += OnUpdateTicked;
+            helper.Events.Display.MenuChanged += OnMenuChanged;
         }
         private void GiveBuff(GameLocation location, string[] args, Farmer player, Vector2 tile)
         {
