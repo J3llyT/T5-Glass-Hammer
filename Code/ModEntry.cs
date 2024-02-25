@@ -46,8 +46,6 @@ namespace HopeToRiseMod
             player.applyBuff(buff);
 
             Monitor.Log("asdhsahedajskhdejkawedhjkawehdkwa");
-            helper.Events.GameLoop.UpdateTicked += OnUpdateTicked;
-            helper.Events.Display.MenuChanged += OnMenuChanged;
 
         }
 
