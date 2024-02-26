@@ -26,8 +26,20 @@
     "HTR.LordSomniaDialogue.04": "Do come back, human. I'm counting on you.",
 
     // HARVEY HOSPITAL QUEST DIALOGUE
-    "HTR.HospitalEvent_Harvey.01": "{{Player_Name}}! Glad you're healthy and awake.",
-    "HTR.HospitalEvent_Harvey.02": "Jas and Vincent are sleeping...No amount of shaking, prodding or yelling will wake them. $b I've examined them thoroughly and nothing's wrong with them medically. They're just...asleep!$b Anyway, I've been checking in with everyone to make sure they're okay. Remeber to take care of yourself", 
+    "HTR.HospitalEvent_Harvey.01": "@! Glad you're healthy and awake.",
+    "HTR.HospitalEvent_Harvey.02": "Jas and Vincent are sleeping...No amount of shaking, prodding or yelling will wake them.",
+    "HTR.HospitalEvent_Harvey.03": "$s I've examined them thoroughly and nothing's wrong with them medically. They're just...asleep!",
+    "HTR.HospitalEvent_Harvey.04": "Anyway, I've been checking in with everyone to make sure they're okay.",
+    "HTR.HospitalEvent_Harvey.05": "Since you're okay, would you mind doing me a favor? Could you go talk to the Wizard?",
+    "HTR.HospitalEvent_Harvey.06": "$s I feel a little out of my depth. He might know what's going on.",
+
+    // WIZARD TEDDY BEAR QUEST DIALOGUE
+    "HTR.TeddyEvent_Wizard.01": "Ah yes, I was expecting you.",
+    "HTR.TeddyEvent_Wizard.02": "It's unfortunate what's happening to Vincent and Jas",
+    "HTR.TeddyEvent_Wizard.03": "Sleeping without protection can be dangerous.",
+    "HTR.TeddyEvent_Wizard.04": "All these questions. Be patient and you will have your answers",
+    "HTR.TeddyEvent_Wizard.05": "Rest assured, I will be alright. But you are vulnerable",
+    "HTR.TeddyEvent_Wizard.06": "Here...Take this. Keep it with you while you sleep."
     
 
 }

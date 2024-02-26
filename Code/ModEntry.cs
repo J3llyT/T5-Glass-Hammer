@@ -1,9 +1,11 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
+using StardewValley.Buffs;
 
 
 
@@ -11,31 +13,29 @@ namespace HopeToRiseMod
 {
     public class ModEntry : Mod
     {
-      /*********
-        ** Public methods
-        *********/
         /// <summary>The mod entry point, called after the mod is first loaded.</summary>
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
         {
-            helper.Events.Input.ButtonPressed += this.OnButtonPressed;
+            GameLocation.RegisterTouchAction("poison", GiveBuff);
         }
-
-
-        /*********
-        ** Private methods
-        *********/
-        /// <summary>Raised after the player presses a button on the keyboard, controller, or mouse.</summary>
-        /// <param name="sender">The event sender.</param>
-        /// <param name="e">The event data.</param>
-        private void OnButtonPressed(object sender, ButtonPressedEventArgs e)
+        private void GiveBuff(GameLocation location, string[] args, Farmer player, Vector2 tile)
         {
-            // ignore if player hasn't loaded a save yet
-            if (!Context.IsWorldReady)
-                return;
+            Buff buff = new Buff(
+                id: "poison",
+                displayName: "poison",
+                iconTexture: this.Helper.ModContent.Load<Texture2D>("assets/poison.png"),
+                iconSheetIndex: 0,
+                duration: 5_000,
+                effects: new BuffEffects()
+                {
+                    Speed = { -10 }
+                }
+            );
 
-            // print button presses to the console window
-            this.Monitor.Log($"{Game1.player.Name} pressed {e.Button}.", LogLevel.Debug);
+            player.applyBuff(buff);
+
+            Monitor.Log("asdhsahedajskhdejkawedhjkawehdkwa");
         }
     }
 }

@@ -18,7 +18,7 @@
             "Action": "EditData",
             "Target": "Data/Quests", 
             "Entries": {
-                "132": "Location/Visit Wizard/ Harvey asked that you go check on him./Go check on the Wizard/WizardHouse/-1/0/-1/false"
+                "132": "Location/Visit Wizard/ Harvey asked that you go check on the Wizard. He might know something./Speak to the Wizard/WizardHouse/-1/0/-1/false"
             }
         },
 
@@ -29,13 +29,7 @@
             "Action": "EditData",
             "Target": "Characters/Dialogue/Harvey, Characters/Dialogue/Shane",
             "Entries": {
-                "Mon": "I had the strangest dream last night",
-                "Tue": "{{i18n: HTR.VillagerDialogue.02 }}",
-                "Wed": "{{i18n: HTR.VillagerDialogue.03 }}",
-                "Thu": "{{i18n: HTR.VillagerDialogue.04 }}",
-                "Fri": "{{i18n: HTR.VillagerDialogue.06 }}",
-                "Sat": "{{i18n: HTR.VillagerDialogue.05 }}",
-                "Sun": "{{i18n: HTR.VillagerDialogue.07 }}"
+                "Mon": "I had the strangest dream last night"
             }
         }
     ]
