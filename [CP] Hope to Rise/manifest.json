@@ -1,10 +1,16 @@
 {
-    "Name": "CP_HTR",
-    "Author": "Glass Hammer",
-    "Description": "All of the Content Patcher dependent JSONS will live here",
-    "Version": "1.0.0",
-    "UniqueID": "GlassHammer.CP_HTR",
-    "ContentPackFor": {
-        "UniqueID": "Pathoschild.ContentPatcher"
+  "Name": "CP_HTR",
+  "Author": "Glass Hammer",
+  "Description": "All of the Content Patcher dependent JSONS will live here",
+  "Version": "1.0.0",
+  "UniqueID": "GlassHammer.CP_HTR",
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher"
+  },
+  "Dependencies": [
+    {
+      "UniqueID": "Pathoschild.ContentPatcher",
+      "MinimumVersion": "2.0.0-alpha.20240220"
     }
- }
+  ]
+}

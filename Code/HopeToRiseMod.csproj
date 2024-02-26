@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <Reference Include="ContentPatcher">
-      <HintPath>..\..\..\Steam\steamapps\common\Stardew Valley\mods\ContentPatcher\ContentPatcher.dll</HintPath>
+      <HintPath>E:\SteamLibrary\steamapps\common\Stardew Valley\Mods\ContentPatcher\ContentPatcher.dll</HintPath>
     </Reference>
   </ItemGroup>
 

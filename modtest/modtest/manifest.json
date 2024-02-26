@@ -4,7 +4,14 @@
   "Version": "1.0.0",
   "Description": "something something idk",
   "UniqueID": "jess.modtest",
-  "EntryDll": "modtest.dll",
-  "MinimumApiVersion": "3.0.0",
-  "UpdateKeys": []
+  "Dependencies": [
+    {
+      "UniqueID": "Pathoschild.ContentPatcher",
+      "MinimumVersion": "2.0.0-alpha.20240220"
+    }
+  ],
+  "UpdateKeys": [],
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher"
+  }
 }

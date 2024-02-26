@@ -8,6 +8,8 @@
     },
     {
       "Action": "Include",
+      "FromFile": "other/tile.json"
+    },
       "FromFile": "other/events.json"
     },
 
