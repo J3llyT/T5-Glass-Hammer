@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
+using StardewValley.Buffs;
+
+
 using StardewValley.GameData.LocationContexts;
 using StardewValley.Locations;
 using StardewValley.Menus;
@@ -21,8 +25,27 @@ namespace HopeToRiseMod
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
         {
+            GameLocation.RegisterTouchAction("poison", GiveBuff);
             helper.Events.GameLoop.UpdateTicked += OnUpdateTicked;
             helper.Events.Display.MenuChanged += OnMenuChanged;
+        }
+        private void GiveBuff(GameLocation location, string[] args, Farmer player, Vector2 tile)
+        {
+            Buff buff = new Buff(
+                id: "poison",
+                displayName: "poison",
+                iconTexture: this.Helper.ModContent.Load<Texture2D>("assets/poison.png"),
+                iconSheetIndex: 0,
+                duration: 5_000,
+                effects: new BuffEffects()
+                {
+                    Speed = { -10 }
+                }
+            );
+
+            player.applyBuff(buff);
+
+            Monitor.Log("asdhsahedajskhdejkawedhjkawehdkwa");
 
         }
 

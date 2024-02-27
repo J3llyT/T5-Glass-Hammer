@@ -1,5 +1,11 @@
 {
   "Format": "2.0.0",
+  "ConfigSchema": {
+    "EnableNPCSleep": {
+      "AllowValues": "true, false",
+      "Default": true
+    }
+  },
   "Changes": [
     // INCLUDES
     {
@@ -8,8 +14,14 @@
     },
     {
       "Action": "Include",
-      "FromFile": "other/events.json"
+      "FromFile": "other/tile.json"
     },
+    {
+      "Action": "Include",
+      "FromFile": "other/npcSleep.json"
+    },
+    //"FromFile": "other/events.json"
+//},
 
     // LOAD
     {
