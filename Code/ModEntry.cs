@@ -75,8 +75,9 @@ namespace HopeToRiseMod
 
         private void OnMenuChanged(object sender, MenuChangedEventArgs e)
         {
-            // Handles sleep warp logic.
-            if (Game1.player.isInBed.Value && Game1.currentLocation.lastQuestionKey != null && Game1.currentLocation.lastQuestionKey.StartsWith("Sleep"))
+            // Handles sleep warp logic. (CHANGE ITEM ID TO TEDDY BEAR)
+            if (Game1.player.isInBed.Value && Game1.currentLocation.lastQuestionKey != null && Game1.currentLocation.lastQuestionKey.StartsWith("Sleep")
+                && Game1.player.ActiveObject != null && Game1.player.ActiveObject.ParentSheetIndex.Equals(69))
             {
                 Game1.currentLocation.afterQuestion += SleepWarp;
             }
