@@ -1,0 +1,62 @@
+{
+	"Format": "2.0.0",
+	"Changes": [
+		// Dream Lord
+		{
+			// Disposition
+			"Logname": "DreamLordDispo",
+			"Action": "EditData",
+			"Target": "Data/NPCDispositions",
+			"Entries": {
+				// Birthday: Spring 1
+				// LOCATION is null
+			  "DreamLord": "adult/rude/neutral/neutral/male/non-datable/null/Town/spring 1//LOCATION/{{i18n:DreamLord.DreamLordName}}"
+			}
+		},
+		{
+			// Gift Taste
+			// Love: Frozen Tear #84, Pineapple #832, Pearl #797, Fairy Rose #595
+			// Like: Tea Leaves #815
+			// Neutral: Crab #717
+			// Dislike: Blobfish #800, 
+			// Hate: Pumpkin Pie #608
+			"LogName": "DreamLordGiftTastes",
+			"Action": "EditData",
+			"Target": "Data/NPCGiftTastes",
+			"Entries": {
+			  "DreamLord": "{{i18n:DreamLord.GiftLove}}/84 832 797 595/{{i18n:DreamLord.GiftLike}}/815/{{i18n:DreamLord.GiftDislike}}/800/{{i18n:DreamLord.GiftHate}}/608/{{i18n:DreamLord.GiftNeutral}}/717/"
+			}
+		},
+		{
+			// Portrait
+			"LogName": "DreamLordPortrait",
+			"Action": "Load",
+			"Target": "Portraits/DreamLord",
+			"FromFile": "assets/Portrait/DreamLord.png"
+		},
+		{
+			// Sprite
+			"LogName": "DreamLordSprite",
+			"Action": "Load",
+			"Target": "Characters/DreamLord",
+			"FromFile": "assets/Character/DreamLord.png"
+		},
+		{
+			// Schedule
+			"LogName": "DreamLordSchedule",
+			"Action": "Load",
+			"Target": "Characters/schedules/DreamLord",
+			"FromFile": "assets/Schedules/schedule.json"
+		},
+		{
+			// Dialogue
+			"LogName": "DreamLordDialogue",
+			"Action": "Load",
+			"Target": "Characters/Dialogue/DreamLord",
+			"FromFile": "assets/Dialogue/dialogue.json"
+		},
+		// TO DO
+		// 2 Heart Event
+		// 4 Heart Event
+	]
+}
