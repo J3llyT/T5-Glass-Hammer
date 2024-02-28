@@ -1,0 +1,64 @@
+// reskin for now
+{
+	"Changes": [
+		{
+			// single bed -> dreamybed.png
+			"Action": "EditImage",
+			"Target": "TileSheets/furniture",
+			"FromFile": "assets/DreamyBed.png",
+			"ToArea": {
+                "X" : 0, 
+                "Y" : 1031, 
+                "Width": 32, 
+                "Height": 57 
+            }
+		},
+		{
+			// single bed sheet -> dreamybedsheet.png
+			"Action": "EditImage",
+			"Target": "TileSheets/furniture",
+			"FromFile": "assets/DreamyBedSheet.png",
+			"ToArea": {
+                "X" : 32, 
+                "Y" : 1048, 
+                "Width": 32, 
+                "Height": 40 
+            }
+		},
+		{
+			// futan bear -> TeddyBear.png
+			"Action": "EditImage",
+			"Target": "TileSheets/furniture",
+			"FromFile": "assets/TeddyBear.png",
+			"ToArea": {
+				"X": 336,
+				"Y": 672,
+				"Width": 16,
+				"Height": 16
+			}
+		},
+		{
+			"Action": "EditImage",
+			"Target": "townInterior",
+			"FromFile": "assets/TeddyBear.png",
+			"ToArea": {
+				"X": 0,
+				"Y": 272,
+				"Width": 16,
+				"Height": 16
+			}
+		},
+		{
+			// corn -> TeddyBear.png
+			"Action": "EditImage",
+			"Target": "Maps/springobjects",
+			"FromFile": "assets/TeddyBear.png",
+			"ToArea": {
+				"X": 96,
+				"Y": 176,
+				"Width": 16,
+				"Height": 16
+			}
+		}
+	]
+}
