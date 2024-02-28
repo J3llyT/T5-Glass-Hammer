@@ -1,0 +1,11 @@
+{
+	"Name": "NPC - Vanna",
+	"Author": "Glass Hammer",
+	"Version": "2.0.0",
+	"Description": ";)",
+	"UniqueID": "YourName.YourProjectName",
+	"UpdateKeys": [],
+	"ContentPackFor": {
+		"UniqueID": "Pathoschild.ContentPatcher"
+	}
+}
