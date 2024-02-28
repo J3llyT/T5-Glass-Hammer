@@ -6,6 +6,7 @@ using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
+using StardewValley.Monsters;
 using StardewValley.Buffs;
 
 
@@ -20,6 +21,9 @@ namespace HopeToRiseMod
     internal sealed class ModEntry : Mod
     {
         private int staminaThreshold = 3; // Adjust this value as needed
+
+        private bool bossSpawned = false;
+
 
         /// <summary>The mod entry point, called after the mod is first loaded.</summary>
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
@@ -72,6 +76,14 @@ namespace HopeToRiseMod
             if (e.IsOneSecond)
             {
                 PlayerLocation();
+
+            // Spawn in a boss if the player is in the boss arena and there is no boss spawned
+            if (Game1.currentLocation != null && Game1.currentLocation.Name == "DreamWorldBoss" && !bossSpawned)
+            {
+                bossSpawned = true;
+                
+                Monster somnia = new SquidKid(new Vector2(15f, 15f) * 64f);
+                Game1.currentLocation.characters.Add(somnia);
             }
         }
 
