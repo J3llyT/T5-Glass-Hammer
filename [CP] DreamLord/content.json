@@ -9,8 +9,8 @@
 			"Target": "Data/Characters",
 			"Entries": {
 				// Birthday: Spring 1
-				"{{ModId}}_DreamLord": {
-					"DisplayName": "DreamLord", // this would normally use {{i18n:}} to support translations
+				"DreamLord": {
+					"DisplayName": "DreamLord", 
 					"BirthSeason": "Spring",
 					"BirthDay": 1,
 					"HomeRegion": "Town",
@@ -32,7 +32,7 @@
 							"Id": "DreamWorldSpawn",
 							"Location": "DreamWorldSpawn",
 							"Tile": {
-								"X": 9,
+								"X": 12,
 								"Y": 9
 							},
 							"Direction": "Down"
