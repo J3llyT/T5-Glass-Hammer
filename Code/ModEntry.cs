@@ -40,7 +40,7 @@ namespace HopeToRiseMod
             Buff buff = new Buff(
                 id: "poison",
                 displayName: "Poison",
-                iconTexture: this.Helper.ModContent.Load<Texture2D>("assets/poison.png"),
+                iconTexture: this.Helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonBuff.png"),
                 iconSheetIndex: 0,
                 duration: 5_000,
                 effects: new BuffEffects()
