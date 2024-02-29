@@ -73,9 +73,8 @@ namespace HopeToRiseMod
                 // Reset the player's stamina to prevent further passouts
                 Game1.player.stamina = Game1.player.MaxStamina;
             }
-            if (e.IsOneSecond)
-            {
-                PlayerLocation();
+
+            PlayerLocation();
 
             // Spawn in a boss if the player is in the boss arena and there is no boss spawned
             if (Game1.currentLocation != null && Game1.currentLocation.Name == "DreamWorldBoss" && !bossSpawned)
