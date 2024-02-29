@@ -15,6 +15,8 @@ using StardewValley.Locations;
 using StardewValley.Menus;
 using StardewValley.Tools;
 
+using HopeToRiseMod.Monsters;
+
 namespace HopeToRiseMod
 {
     /// <summary>The mod entry point.</summary>
@@ -73,16 +75,16 @@ namespace HopeToRiseMod
                 // Reset the player's stamina to prevent further passouts
                 Game1.player.stamina = Game1.player.MaxStamina;
             }
-            if (e.IsOneSecond)
-            {
-                PlayerLocation();
-
+            //if (e.IsOneSecond)
+            //{
+            //    PlayerLocation();
+            //}
             // Spawn in a boss if the player is in the boss arena and there is no boss spawned
             if (Game1.currentLocation != null && Game1.currentLocation.Name == "DreamWorldBoss" && !bossSpawned)
             {
                 bossSpawned = true;
                 
-                Monster somnia = new SquidKid(new Vector2(15f, 15f) * 64f);
+                Monster somnia = new DreamLord(new Vector2(15f, 15f) * 64f);
                 Game1.currentLocation.characters.Add(somnia);
             }
         }
