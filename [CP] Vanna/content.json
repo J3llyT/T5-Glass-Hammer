@@ -6,13 +6,50 @@
 			// Disposition
 			"Logname": "VannaDispo",
 			"Action": "EditData",
-			"Target": "Data/NPCDispositions",
+			"Target": "Data/Characters",
 			"Entries": {
 				// Birthday: Winter 22
-				// LOCATION is null
-			  "Vanna": "adult/polite/neutral/neutral/female/non-datable/null/Town/winter 22//LOCATION/{{i18n:Vanna.VannaName}}"
-			}
-		},
+				"Vanna": {
+					"DisplayName": "Vanna",
+					"BirthSeason": "Winter",
+					"BirthDay": 22,
+					"HomeRegion": "Town",
+					"Gender": "Female",
+					"Age": "Teen",
+					"Manner": "Polite",
+					"SocialAnxiety": "Shy",
+					"Optimism": "Neutral",
+					"CanBeRomanced": false,
+					"CanVisitIsland": false,
+					"Calender": "HiddenUntilMet",
+					"SocialTab": "UnknownUntilMet",
+					"IntroductionsQuest": false,
+					"PerfectionScore": false,
+					"EndSlideShow": "TrailingGroup",
+					"WinterStarParticipant": false,
+					"Home": [
+						{
+							"Id": "DreamWorldSpawn",
+							"Location": "DreamWorldSpawn",
+							"Tile": {
+								"X": 9,
+								"Y": 9
+							},
+							"Direction": "Down"
+						}
+					],
+					"Appearance": [
+						{
+							"Id": "Default",
+							"Portrait": "Portraits/Vanna",
+							"Sprite": "Characters/Vanna"
+						}
+					]
+				}
+					// LOCATION is null
+					//"Vanna": "adult/polite/neutral/neutral/female/non-datable/null/Town/winter 22//LOCATION/{{i18n:Vanna.VannaName}}"
+				}
+			},
 		{
 			// Gift Taste
 			// Love: Dandelion #22, Jade #70, Hazelnut #408
@@ -54,7 +91,7 @@
 			"Action": "Load",
 			"Target": "Characters/Dialogue/Vanna",
 			"FromFile": "assets/Dialogue/dialogue.json"
-		},
+		}
 		// TO DO
 		// 2 Heart Event
 		// 4 Heart Event

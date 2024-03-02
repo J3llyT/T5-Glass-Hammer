@@ -6,11 +6,48 @@
 			// Disposition
 			"Logname": "DreamLordDispo",
 			"Action": "EditData",
-			"Target": "Data/NPCDispositions",
+			"Target": "Data/Characters",
 			"Entries": {
 				// Birthday: Spring 1
+				"DreamLord": {
+					"DisplayName": "DreamLord", 
+					"BirthSeason": "Spring",
+					"BirthDay": 1,
+					"HomeRegion": "Town",
+					"Gender": "Male",
+					"Age": "Adult",
+					"Manner": "Rude",
+					"SocialAnxiety": "Outgoing",
+					"Optimism": "Neutral",
+					"CanBeRomanced": false,
+					"CanVisitIsland": false,
+					"Calender": "HiddenUntilMet",
+					"SocialTab": "UnknownUntilMet",
+					"IntroductionsQuest": false,
+					"PerfectionScore": false,
+					"EndSlideShow": "TrailingGroup",
+					"WinterStarParticipant": false,
+					"Home": [
+						{
+							"Id": "DreamWorldSpawn",
+							"Location": "DreamWorldSpawn",
+							"Tile": {
+								"X": 12,
+								"Y": 9
+							},
+							"Direction": "Down"
+						}
+					],
+					"Appearance": [
+						{
+							"Id": "Default",
+							"Portrait": "Portraits/DreamLord",
+							"Sprite": "Characters/DreamLord"
+						}
+					]
+				}
 				// LOCATION is null
-			  "DreamLord": "adult/rude/neutral/neutral/male/non-datable/null/Town/spring 1//LOCATION/{{i18n:DreamLord.DreamLordName}}"
+				//"DreamLord": "adult/rude/neutral/neutral/male/non-datable/null/Town/spring 1//LOCATION/{{i18n:DreamLord.DreamLordName}}"
 			}
 		},
 		{
@@ -54,7 +91,7 @@
 			"Action": "Load",
 			"Target": "Characters/Dialogue/DreamLord",
 			"FromFile": "assets/Dialogue/dialogue.json"
-		},
+		}
 		// TO DO
 		// 2 Heart Event
 		// 4 Heart Event

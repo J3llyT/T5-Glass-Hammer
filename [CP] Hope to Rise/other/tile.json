@@ -13,7 +13,8 @@
           "SetProperties": {
             "TouchAction": "poison"
           },
-          "SetIndex": "622"
+          //"SetIndex": "622",
+          "FromAsset": "assets/poison.png"
         }
       ]
     }

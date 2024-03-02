@@ -15,6 +15,8 @@ using StardewValley.Locations;
 using StardewValley.Menus;
 using StardewValley.Tools;
 
+using HopeToRiseMod.Monsters;
+
 namespace HopeToRiseMod
 {
     /// <summary>The mod entry point.</summary>
@@ -33,6 +35,23 @@ namespace HopeToRiseMod
             GameLocation.RegisterTouchAction("poison", GiveBuff);
             helper.Events.GameLoop.UpdateTicked += OnUpdateTicked;
             helper.Events.Display.MenuChanged += OnMenuChanged;
+        }
+        private void GiveBuff(GameLocation location, string[] args, Farmer player, Vector2 tile)
+        {
+            Buff buff = new Buff(
+                id: "poison",
+                displayName: "Poison",
+                iconTexture: this.Helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonBuff.png"),
+                iconSheetIndex: 0,
+                duration: 5_000,
+                effects: new BuffEffects()
+                {
+                    Speed = { -5 },
+                    Defense = { -3 }
+                }
+            );
+
+            player.applyBuff(buff);
         }
 
         /// <summary>Raised after the player presses a button on the keyboard, controller, or mouse.</summary>
@@ -58,6 +77,10 @@ namespace HopeToRiseMod
                 // Reset the player's stamina to prevent further passouts
                 Game1.player.stamina = Game1.player.MaxStamina;
             }
+            //if (e.IsOneSecond)
+            //{
+            //    PlayerLocation();
+            //}
             #endregion
 
             #region // Boss Logic
@@ -66,7 +89,7 @@ namespace HopeToRiseMod
             {
                 bossSpawned = true;
                 
-                Monster somnia = new SquidKid(new Vector2(15f, 15f) * 64f);
+                Monster somnia = new DreamLord(new Vector2(15f, 15f) * 64f);
                 Game1.currentLocation.characters.Add(somnia);
             }
             #endregion
@@ -152,7 +175,42 @@ namespace HopeToRiseMod
                 WarpPlayerToNewLocation("dreamworldspawn", 4, 4);
             }
         }
-        #endregion
+        private void PlayerLocation()
+        {
+            try
+            {
+                if (Game1.player == null || Game1.currentGameTime.TotalGameTime.TotalSeconds < 5)
+                {
+                    return;
+                }
+
+                GameLocation playerLocation = Game1.currentLocation;
+
+                if (playerLocation == null)
+                {
+                    //Monitor.Log("Player location is null.", LogLevel.Warn);
+                    return;
+                }
+
+                Vector2 playerTileCoordinates = Game1.player.getLocalPosition(Game1.viewport);
+
+                if (playerTileCoordinates.X < 0 || playerTileCoordinates.Y < 0)
+                {
+                    Monitor.Log("Invalid player tile coordinates.", LogLevel.Warn);
+                    return;
+                }
+
+                int tileSize = 64;
+                Vector2 playerTile = new Vector2((int)(playerTileCoordinates.X / tileSize), (int)(playerTileCoordinates.Y / tileSize));
+
+                string locationName = playerLocation.Name;
+                //Monitor.Log($"Player is in {locationName}/{playerTileCoordinates}/{playerTile}/{Game1.player.position}", LogLevel.Info);
+            }
+            catch (Exception ex)
+            {
+                Monitor.Log($"Exception in PlayerLocation: {ex}", LogLevel.Error);
+            }
+        }
     }
 
     // WATERING CAN INFO
