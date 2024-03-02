@@ -23,6 +23,7 @@ namespace HopeToRiseMod
         private int staminaThreshold = 3; // Adjust this value as needed
 
         private bool bossSpawned = false;
+        private bool poisonTilesSpawned = false;
 
 
         /// <summary>The mod entry point, called after the mod is first loaded.</summary>
@@ -33,31 +34,13 @@ namespace HopeToRiseMod
             helper.Events.GameLoop.UpdateTicked += OnUpdateTicked;
             helper.Events.Display.MenuChanged += OnMenuChanged;
         }
-        private void GiveBuff(GameLocation location, string[] args, Farmer player, Vector2 tile)
-        {
-            Buff buff = new Buff(
-                id: "poison",
-                displayName: "poison",
-                iconTexture: this.Helper.ModContent.Load<Texture2D>("assets/poison.png"),
-                iconSheetIndex: 0,
-                duration: 5_000,
-                effects: new BuffEffects()
-                {
-                    Speed = { -10 }
-                }
-            );
-
-            player.applyBuff(buff);
-
-            Monitor.Log("asdhsahedajskhdejkawedhjkawehdkwa");
-
-        }
 
         /// <summary>Raised after the player presses a button on the keyboard, controller, or mouse.</summary>
         /// <param name="sender">The event sender.</param>
         /// <param name="e">The event data.</param>
         private void OnUpdateTicked(object sender, EventArgs e)
         {
+            #region // Warp Logic
             if (Game1.player.stamina <= staminaThreshold && Game1.currentLocation != null
                 && Game1.currentLocation.Name == "DreamWorldSpawn")
             {
@@ -75,7 +58,9 @@ namespace HopeToRiseMod
                 // Reset the player's stamina to prevent further passouts
                 Game1.player.stamina = Game1.player.MaxStamina;
             }
+            #endregion
 
+            #region // Boss Logic
             // Spawn in a boss if the player is in the boss arena and there is no boss spawned
             if (Game1.currentLocation != null && Game1.currentLocation.Name == "DreamWorldBoss" && !bossSpawned)
             {
@@ -84,8 +69,65 @@ namespace HopeToRiseMod
                 Monster somnia = new SquidKid(new Vector2(15f, 15f) * 64f);
                 Game1.currentLocation.characters.Add(somnia);
             }
+            #endregion
+
+            #region // Tile Logic
+            if (bossSpawned && Game1.currentLocation != null && Game1.currentLocation.Name == "DreamWorldBoss" && !poisonTilesSpawned)
+            {
+                // Access the current game location
+                GameLocation currentLocation = Game1.currentLocation;
+
+                // Define the location and size of the target area
+                int targetX = 15;
+                int targetY = 12;
+                int areaSize = 10;
+
+                // Define the number of tiles to replace
+                int numTilesToReplace = 75;
+
+                // Randomly select tiles within the target area and replace them
+                Random random = new Random();
+                for (int i = 0; i < numTilesToReplace; i++)
+                {
+                    int randomX = targetX - areaSize + random.Next(2 * areaSize + 1);
+                    int randomY = targetY - areaSize + random.Next(2 * areaSize + 1);
+
+                    // Check if the randomly selected tile is within the target area
+                    if (randomX >= targetX - areaSize && randomX <= targetX + areaSize && randomY >= targetY - areaSize && randomY <= targetY + areaSize)
+                    {
+                        // Change the tile at the randomly selected position
+                        currentLocation.setMapTileIndex(randomX, randomY, 622, "Back");
+                    }
+                }
+
+                poisonTilesSpawned = true;
+            }
+            #endregion
         }
 
+        #region // Tile Methods
+        private void GiveBuff(GameLocation location, string[] args, Farmer player, Vector2 tile)
+        {
+            Buff buff = new Buff(
+                id: "poison",
+                displayName: "poison",
+                iconTexture: this.Helper.ModContent.Load<Texture2D>("assets/poison.png"),
+                iconSheetIndex: 0,
+                duration: 5_000,
+                effects: new BuffEffects()
+                {
+                    Speed = { -10 }
+                }
+            );
+
+            player.applyBuff(buff);
+
+            Monitor.Log("Poison Applied");
+
+        }
+        #endregion
+
+        #region // Warp Methods
         private void OnMenuChanged(object sender, MenuChangedEventArgs e)
         {
             // Handles sleep warp logic. (CHANGE ITEM ID TO TEDDY BEAR)
@@ -110,5 +152,11 @@ namespace HopeToRiseMod
                 WarpPlayerToNewLocation("dreamworldspawn", 4, 4);
             }
         }
+        #endregion
     }
+
+    // WATERING CAN INFO
+    // VolcanoDungeon
+    // OnLightningStrike
+    // Ladders in mines
 }
