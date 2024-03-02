@@ -36,23 +36,7 @@ namespace HopeToRiseMod
             helper.Events.GameLoop.UpdateTicked += OnUpdateTicked;
             helper.Events.Display.MenuChanged += OnMenuChanged;
         }
-        private void GiveBuff(GameLocation location, string[] args, Farmer player, Vector2 tile)
-        {
-            Buff buff = new Buff(
-                id: "poison",
-                displayName: "Poison",
-                iconTexture: this.Helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonBuff.png"),
-                iconSheetIndex: 0,
-                duration: 5_000,
-                effects: new BuffEffects()
-                {
-                    Speed = { -5 },
-                    Defense = { -3 }
-                }
-            );
-
-            player.applyBuff(buff);
-        }
+        
 
         /// <summary>Raised after the player presses a button on the keyboard, controller, or mouse.</summary>
         /// <param name="sender">The event sender.</param>
@@ -77,11 +61,9 @@ namespace HopeToRiseMod
                 // Reset the player's stamina to prevent further passouts
                 Game1.player.stamina = Game1.player.MaxStamina;
             }
-            //if (e.IsOneSecond)
-            //{
-            //    PlayerLocation();
-            //}
             #endregion
+
+            PlayerLocation();
 
             #region // Boss Logic
             // Spawn in a boss if the player is in the boss arena and there is no boss spawned
@@ -133,20 +115,18 @@ namespace HopeToRiseMod
         {
             Buff buff = new Buff(
                 id: "poison",
-                displayName: "poison",
-                iconTexture: this.Helper.ModContent.Load<Texture2D>("assets/poison.png"),
+                displayName: "Poison",
+                iconTexture: this.Helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonBuff.png"),
                 iconSheetIndex: 0,
                 duration: 5_000,
                 effects: new BuffEffects()
                 {
-                    Speed = { -10 }
+                    Speed = { -5 },
+                    Defense = { -3 }
                 }
             );
 
             player.applyBuff(buff);
-
-            Monitor.Log("Poison Applied");
-
         }
         #endregion
 
@@ -175,6 +155,8 @@ namespace HopeToRiseMod
                 WarpPlayerToNewLocation("dreamworldspawn", 4, 4);
             }
         }
+        #endregion
+
         private void PlayerLocation()
         {
             try
