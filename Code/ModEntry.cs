@@ -41,7 +41,7 @@ namespace HopeToRiseMod
         /// <summary>Raised after the player presses a button on the keyboard, controller, or mouse.</summary>
         /// <param name="sender">The event sender.</param>
         /// <param name="e">The event data.</param>
-        private void OnUpdateTicked(object sender, EventArgs e)
+        private void OnUpdateTicked(object? sender, EventArgs e)
         {
             #region // Warp Logic
             if (Game1.player.stamina <= staminaThreshold && Game1.currentLocation != null
@@ -127,11 +127,34 @@ namespace HopeToRiseMod
             );
 
             player.applyBuff(buff);
+            if (args.Length > 1 && args[1] == "deactivatePoison")
+            {
+                DeactivatePoisonTile((int)tile.X, (int)tile.Y);
+            }
+        }
+        private void DeactivatePoisonTile(int x, int y)
+        {
+            if (Game1.currentLocation != null)
+            {
+                // Set the "Poison" property of the specified tile coordinates to null
+                Game1.currentLocation.setTileProperty(x, y, "Path", "Poison", null);
+            }
+        }
+
+        private void OnToolUsed(object sender, EventArgs e)
+        {
+            if (Game1.player.CurrentTool is WateringCan)
+            {
+                // Get the tile coordinates where the watering can is used
+                Vector2 tileCoordinates = Game1.currentCursorTile;
+
+                DeactivatePoisonTile((int)tileCoordinates.X, (int)tileCoordinates.Y);
+            }
         }
         #endregion
 
         #region // Warp Methods
-        private void OnMenuChanged(object sender, MenuChangedEventArgs e)
+        private void OnMenuChanged(object? sender, MenuChangedEventArgs e)
         {
             // Handles sleep warp logic. (CHANGE ITEM ID TO TEDDY BEAR)
             if (Game1.player.isInBed.Value && Game1.currentLocation.lastQuestionKey != null && Game1.currentLocation.lastQuestionKey.StartsWith("Sleep")
