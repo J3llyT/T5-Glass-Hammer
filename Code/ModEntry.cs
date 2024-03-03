@@ -16,6 +16,9 @@ using StardewValley.Menus;
 using StardewValley.Tools;
 
 using HopeToRiseMod.Monsters;
+using xTile.Dimensions;
+using xTile.ObjectModel;
+
 
 namespace HopeToRiseMod
 {
@@ -27,6 +30,8 @@ namespace HopeToRiseMod
         private bool bossSpawned = false;
         private bool poisonTilesSpawned = false;
 
+        private Vector2 lastMouseTile;
+
 
         /// <summary>The mod entry point, called after the mod is first loaded.</summary>
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
@@ -35,6 +40,14 @@ namespace HopeToRiseMod
             GameLocation.RegisterTouchAction("poison", GiveBuff);
             helper.Events.GameLoop.UpdateTicked += OnUpdateTicked;
             helper.Events.Display.MenuChanged += OnMenuChanged;
+
+            //for watering can logic
+            helper.Events.Input.CursorMoved += OnCursorMoved;
+            helper.Events.Input.ButtonPressed += WateringPoison;
+
+            //loading in textures
+            Texture2D PoisonTile = helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonTile.png");
+            Texture2D PoisonTileCooled = helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonTileCooled.png");
         }
         
 
@@ -102,6 +115,8 @@ namespace HopeToRiseMod
                     {
                         // Change the tile at the randomly selected position
                         currentLocation.setMapTileIndex(randomX, randomY, 622, "Back");
+                        //add the poison to the tile
+                        currentLocation.setTileProperty(randomX, randomY, "Back", "TouchAction", "poison");
                     }
                 }
 
@@ -109,7 +124,6 @@ namespace HopeToRiseMod
             }
             #endregion
         }
-
         #region // Tile Methods
         private void GiveBuff(GameLocation location, string[] args, Farmer player, Vector2 tile)
         {
@@ -132,23 +146,40 @@ namespace HopeToRiseMod
                 DeactivatePoisonTile((int)tile.X, (int)tile.Y);
             }
         }
+        private void WateringPoison(object? sender, ButtonPressedEventArgs e)
+        {
+            if (e.Button == SButton.MouseLeft)
+            {
+                if (lastMouseTile != Vector2.Zero)
+                {
+                    //deactivate the poison with water
+                    if (Game1.player.CurrentTool is WateringCan && Game1.currentLocation != null)
+                    {
+                        // Get the tile coordinates where the watering can is used
+                        Vector2 tileCoordinates = Game1.currentCursorTile;
+                        if (Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "TouchAction", "Back") == "poison")
+                        {
+                            DeactivatePoisonTile((int)tileCoordinates.X, (int)tileCoordinates.Y);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void OnCursorMoved(object? sender, CursorMovedEventArgs e)
+        {
+            Vector2 mouseTile = Game1.currentCursorTile;
+            lastMouseTile = mouseTile;
+        }
+
         private void DeactivatePoisonTile(int x, int y)
         {
             if (Game1.currentLocation != null)
             {
-                // Set the "Poison" property of the specified tile coordinates to null
-                Game1.currentLocation.setTileProperty(x, y, "Path", "Poison", null);
-            }
-        }
-
-        private void OnToolUsed(object sender, EventArgs e)
-        {
-            if (Game1.player.CurrentTool is WateringCan)
-            {
-                // Get the tile coordinates where the watering can is used
-                Vector2 tileCoordinates = Game1.currentCursorTile;
-
-                DeactivatePoisonTile((int)tileCoordinates.X, (int)tileCoordinates.Y);
+                Game1.currentLocation.removeTileProperty(x, y, "Back", "TouchAction");
+                //asset needs to be changed back from the poison tile
+                int originalIndex = 0; 
+                Game1.currentLocation.setMapTileIndex(x, y, originalIndex, "Back");
             }
         }
         #endregion

@@ -15,7 +15,7 @@
             "DeactivateAction": "deactivatePoison"
           },
           "SetIndex": "622",
-          "FromAsset": "assets/poison.png"
+          //"FromAsset": "assets/poison.png"
         }
       ]
     }
