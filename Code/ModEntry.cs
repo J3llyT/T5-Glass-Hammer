@@ -18,6 +18,8 @@ using StardewValley.Tools;
 using HopeToRiseMod.Monsters;
 using xTile.Dimensions;
 using xTile.ObjectModel;
+using xTile.Tiles;
+using xTile.Layers;
 
 
 namespace HopeToRiseMod
@@ -32,6 +34,8 @@ namespace HopeToRiseMod
 
         private Vector2 lastMouseTile;
 
+        Texture2D PoisonTile;
+        Texture2D PoisonTileCooled;
 
         /// <summary>The mod entry point, called after the mod is first loaded.</summary>
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
@@ -46,8 +50,8 @@ namespace HopeToRiseMod
             helper.Events.Input.ButtonPressed += WateringPoison;
 
             //loading in textures
-            Texture2D PoisonTile = helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonTile.png");
-            Texture2D PoisonTileCooled = helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonTileCooled.png");
+            PoisonTile = helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonTile.png");
+            PoisonTileCooled = helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonTileCooled.png");
         }
         
 
@@ -114,9 +118,10 @@ namespace HopeToRiseMod
                     if (randomX >= targetX - areaSize && randomX <= targetX + areaSize && randomY >= targetY - areaSize && randomY <= targetY + areaSize)
                     {
                         // Change the tile at the randomly selected position
-                        currentLocation.setMapTileIndex(randomX, randomY, 622, "Back");
+                        currentLocation.setMapTileIndex(randomX, randomY, 923467, "Back");
                         //add the poison to the tile
                         currentLocation.setTileProperty(randomX, randomY, "Back", "TouchAction", "poison");
+                        currentLocation.setTileProperty(randomX, randomY, "Back", "Asset", "../[CP] Hope to Rise/assets/PoisonTile.png");
                     }
                 }
 
