@@ -11,11 +11,10 @@
           },
           "Layer": "Back",
           "SetProperties": {
-            "TouchAction": "poison",
-            "DeactivateAction": "deactivatePoison"
+            "TouchAction": "poison"
           },
-          "SetIndex": "622",
-          //"FromAsset": "assets/poison.png"
+          //"SetIndex": "622",
+          "FromAsset": "assets/poison.png"
         }
       ]
     }
