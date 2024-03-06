@@ -20,8 +20,14 @@
       "Action": "Include",
       "FromFile": "other/npcSleep.json"
     },
-    //"FromFile": "other/events.json"
-//},
+    {
+      "Action": "Include",
+      "FromFile": "other/events.json"
+    },
+    {
+      "Action": "Include",
+      "FromFile": "assets/tileSheets"
+    },
 
     // LOAD
     {
