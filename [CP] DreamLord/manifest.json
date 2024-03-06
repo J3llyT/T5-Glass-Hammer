@@ -1,0 +1,11 @@
+{
+	"Name": "NPC - DreamLord",
+	"Author": "Glass Hammer",
+	"Version": "2.0.0",
+	"Description": ";)",
+	"UniqueID": "DreamLord.HopeToRise",
+	"UpdateKeys": [],
+	"ContentPackFor": {
+		"UniqueID": "Pathoschild.ContentPatcher"
+	}
+}

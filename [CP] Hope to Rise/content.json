@@ -415,6 +415,13 @@
           "CustomFields": {}
         }
       }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Monsters",
+      "Entries": {
+        "Dream Lord": "100/18/0/0/false/6000/768 .75 814 .2 336 .05 287 .1 288 .05 98 .005 99 .001/5/0/6/10/.01/true/50/Dream Lord"
+      }
     }
   ]
 }

@@ -1,0 +1,14 @@
+{
+  "DreamLord.DreamLordName": "Dream Lord",
+
+  // Gift Tastes
+  "DreamLord.GiftLove": "Thank you. It seems like centuries since I was last this happy.",
+  "DreamLord.GiftLike": "This is actually kinda cool.",
+  "DreamLord.GiftDislike": "Well... that's... a thing.",
+  "DreamLord.GiftHate": "...Is this a joke?",
+  "DreamLord.GiftNeutral": "Thanks.",
+
+  // TO DO
+  // 2 Heart Event
+  // 4 Heart Event
+}

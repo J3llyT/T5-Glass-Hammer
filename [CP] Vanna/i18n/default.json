@@ -1,0 +1,14 @@
+{
+  "Vanna.VannaName": "Vanna",
+
+  // Gift Tastes
+  "Vanna.GiftLove": "How do you know I loved this? Thanks!",
+  "Vanna.GiftLike": "Thanks.. But I have nothing to give you as a gift.",
+  "Vanna.GiftDislike": "Is this the most popular item right now, anyway thanks.",
+  "Vanna.GiftHate": "What am I supposed to do with this?",
+  "Vanna.GiftNeutral": "Thanks."
+  
+  // TO DO
+  // 2 Heart Event
+  // 4 Heart Event
+}

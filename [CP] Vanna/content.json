@@ -1,0 +1,99 @@
+{
+	"Format": "2.0.0",
+	"Changes": [
+		// Vanna
+		{
+			// Disposition
+			"Logname": "VannaDispo",
+			"Action": "EditData",
+			"Target": "Data/Characters",
+			"Entries": {
+				// Birthday: Winter 22
+				"Vanna": {
+					"DisplayName": "Vanna",
+					"BirthSeason": "Winter",
+					"BirthDay": 22,
+					"HomeRegion": "Town",
+					"Gender": "Female",
+					"Age": "Teen",
+					"Manner": "Polite",
+					"SocialAnxiety": "Shy",
+					"Optimism": "Neutral",
+					"CanBeRomanced": false,
+					"CanVisitIsland": false,
+					"Calender": "HiddenUntilMet",
+					"SocialTab": "UnknownUntilMet",
+					"IntroductionsQuest": false,
+					"PerfectionScore": false,
+					"EndSlideShow": "TrailingGroup",
+					"WinterStarParticipant": false,
+					"Home": [
+						{
+							"Id": "DreamWorldSpawn",
+							"Location": "DreamWorldSpawn",
+							"Tile": {
+								"X": 9,
+								"Y": 9
+							},
+							"Direction": "Down"
+						}
+					],
+					"Appearance": [
+						{
+							"Id": "Default",
+							"Portrait": "Portraits/Vanna",
+							"Sprite": "Characters/Vanna"
+						}
+					]
+				}
+					// LOCATION is null
+					//"Vanna": "adult/polite/neutral/neutral/female/non-datable/null/Town/winter 22//LOCATION/{{i18n:Vanna.VannaName}}"
+				}
+			},
+		{
+			// Gift Taste
+			// Love: Dandelion #22, Jade #70, Hazelnut #408
+			// Like: Diamond #72, Dinosaur Egg #107, Strawberry #400
+			// Neutral: Purple Mushroom #422
+			// Dislike: Hops #304, Wool #440
+			// Hate: Winter Root #412
+			"LogName": "VannaGiftTastes",
+			"Action": "EditData",
+			"Target": "Data/NPCGiftTastes",
+			"Entries": {
+				"Vanna": "{{i18n:Vanna.GiftLove}}/22 70 408/{{i18n:Vanna.GiftLike}}/72 107 400/{{i18n:Vanna.GiftDislike}}/304 440/{{i18n:Vanna.GiftHate}}/412/{{i18n:Vanna.GiftNeutral}}/422/"
+			}
+		},
+		{
+			// Portrait
+			"LogName": "VannaPortrait",
+			"Action": "Load",
+			"Target": "Portraits/Vanna",
+			"FromFile": "assets/Portrait/Vanna.png"
+		},
+		{
+			// Sprite
+			"LogName": "VannaSprite",
+			"Action": "Load",
+			"Target": "Characters/Vanna",
+			"FromFile": "assets/Character/Vanna.png"
+		},
+		{
+			// Schedule
+			"LogName": "VannaSchedule",
+			"Action": "Load",
+			"Target": "Characters/schedules/Vanna",
+			"FromFile": "assets/Schedules/schedule.json"
+		},
+		{
+			// Dialogue
+			"LogName": "VannaDialogue",
+			"Action": "Load",
+			"Target": "Characters/Dialogue/Vanna",
+			"FromFile": "assets/Dialogue/dialogue.json"
+		}
+		// TO DO
+		// 2 Heart Event
+		// 4 Heart Event
+	]
+}
