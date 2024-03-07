@@ -32,6 +32,8 @@ namespace HopeToRiseMod
         private bool bossSpawned = false;
         private bool poisonTilesSpawned = false;
 
+        private DreamLord somnia;
+
         private Vector2 lastMouseTile;
 
         Texture2D PoisonTile;
@@ -51,7 +53,7 @@ namespace HopeToRiseMod
 
             //loading in textures
             PoisonTile = helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonTile.png");
-            PoisonTileCooled = helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonTileCooled.png");
+            //PoisonTileCooled = helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonTileCooled.png");
         }
         
 
@@ -88,8 +90,12 @@ namespace HopeToRiseMod
             {
                 bossSpawned = true;
                 
-                Monster somnia = new DreamLord(new Vector2(15f, 15f) * 64f);
+                somnia = new DreamLord(new Vector2(15f, 15f) * 64f);
                 Game1.currentLocation.characters.Add(somnia);
+            }
+            if (Game1.currentLocation != null &&  Game1.currentLocation.characters.Contains(somnia))
+            {
+                //Monitor.Log(somnia.numHitsToStagger.ToString());
             }
             #endregion
 
