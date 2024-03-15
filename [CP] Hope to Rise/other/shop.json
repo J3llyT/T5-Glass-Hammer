@@ -1,0 +1,51 @@
+{
+  "Changes": [
+    {
+      "Action": "EditData",
+      "Target": "Data/Shops",
+      "Entries": {
+        "VannaShop": {
+          "Owners": [
+            {
+              "Name": "Vanna",
+              "Dialogues": [
+                {
+                  "Id": "VannaShopDefault",
+                  "Dialogue": "What would you like to purchase?"
+                }
+              ]
+            }
+          ],
+
+          "Items": [
+            {
+              "Id": "DreamWateringCan",
+              "ItemId": "(O)128",
+              "Price": 1000,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player"
+            }
+          ]
+        }
+      }
+    }//,
+   //{
+   //  "Action": "EditMap",
+   //  "Target": "Maps/HopeToRise_DreamWorldSpawn",
+   //  "MapTiles": [
+   //    {
+   //      "Position": {
+   //        "X": 6,
+   //        "Y": 4
+   //      },
+   //      "Layer": "Buildings",
+   //      "SetProperties": {
+   //        "Action": "OpenShop VannaShop down",
+   //        "SetTilesheet": "Maps/springobjects",
+   //        "SetIndex": 32
+   //      }
+   //    }
+   //  ]
+   //}
+  ]
+}

@@ -14,15 +14,15 @@
     },
     {
       "Action": "Include",
-      "FromFile": "other/tile.json"
-    },
-    {
-      "Action": "Include",
       "FromFile": "other/npcSleep.json"
     },
     {
       "Action": "Include",
       "FromFile": "other/events.json"
+    },
+    {
+      "Action": "Include",
+      "FromFile": "other/shop.json"
     },
     {
       "Action": "Include",
