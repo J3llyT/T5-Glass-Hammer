@@ -24,10 +24,6 @@
       "Action": "Include",
       "FromFile": "other/shop.json"
     },
-    {
-      "Action": "Include",
-      "FromFile": "assets/tileSheets"
-    },
 
     // LOAD
     {
