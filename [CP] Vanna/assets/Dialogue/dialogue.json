@@ -2,12 +2,22 @@
     // Weekly Generic
     "Mon": "It's Monday. Nobody is happy on Monday.",
     "Tue": "Hey, @. I always try to stay as far away from people as possible..",
-    "Wed": "*sigh*",
+    "Wed": "*sigh*#$b#How about..?#$b#Oh, I was just talking to myself.",
     "Thu": "The weekend's coming up!",
-    "Fri": "Hey, @. It's Friday.",
-    "Sat": "It's Saturday.",
+    "Fri": "Hey, @.#$e#Hm? Oh, sorry, I was lost in thought.#$e#...",
+    "Sat": "It's Saturday.#$e#I'm starting to miss my family...",
     "Sun": "It's gonna be a new week again...",
     
+    // Special 
+    "spring_5": "I don't know if you know this, but Harvey actually loves coffee and wine..",
+
     // Birthdays
     "winter_22": "It's my birthday today.. I wish I had someone with me.",
+    "winter_14": "It's Harvey's birthday today and I really hope he has a wonderful day.",
+
+    // Festivals
+    "spring_12": "I hadn't heard of anything like the egg festival until I moved.#$e#I think I'd rather stay home.",
+    "spring_23": "You said today is the flower dance..#$e#No, I'm not going.#$e#I like to dance, but when no one else is around.$s",
+    "summer_28": "(whispering to herself) But there's gonna be so many people there...$s#$e#Huh? Did you say something?$4",
+    "winter_25": "Happy Winter Star!#$e#It's so cold outside."
 }
