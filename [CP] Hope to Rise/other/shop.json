@@ -19,33 +19,40 @@
 
           "Items": [
             {
-              "Id": "DreamWateringCan",
-              "ItemId": "(O)128",
-              "Price": 1000,
+              "Id": "RisenBlade",
+              "ItemId": "RisenBlade",
+              "Price": 100,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player"
+            },
+            {
+              "Id": "DreamCan",
+              "ItemId": "DreamCan",
+              "Price": 100,
               "AvailableStock": 1,
               "AvailableStockLimit": "Player"
             }
           ]
         }
       }
-    }//,
-   //{
-   //  "Action": "EditMap",
-   //  "Target": "Maps/HopeToRise_DreamWorldSpawn",
-   //  "MapTiles": [
-   //    {
-   //      "Position": {
-   //        "X": 6,
-   //        "Y": 4
-   //      },
-   //      "Layer": "Buildings",
-   //      "SetProperties": {
-   //        "Action": "OpenShop VannaShop down",
-   //        "SetTilesheet": "Maps/springobjects",
-   //        "SetIndex": 32
-   //      }
-   //    }
-   //  ]
-   //}
+    } //,
+    //{
+    //  "Action": "EditMap",
+    //  "Target": "Maps/HopeToRise_DreamWorldSpawn",
+    //  "MapTiles": [
+    //    {
+    //      "Position": {
+    //        "X": 6,
+    //        "Y": 4
+    //      },
+    //      "Layer": "Buildings",
+    //      "SetProperties": {
+    //        "Action": "OpenShop VannaShop down",
+    //        "SetTilesheet": "Maps/springobjects",
+    //        "SetIndex": 32
+    //      }
+    //    }
+    //  ]
+    //}
   ]
 }

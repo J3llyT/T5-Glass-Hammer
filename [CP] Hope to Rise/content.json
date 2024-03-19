@@ -444,6 +444,28 @@
           "CanBeLostOnDeath": "false"
         }
       }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Tools",
+      "Entries": {
+        "DreamCan": {
+          "ClassName": "WateringCan",
+          "Name": "DreamCan",
+          "DisplayName": "Dream Can",
+          "Description": "Magic watering can of your dreams.",
+          "Texture": "TileSheets/tools",
+          "SpriteIndex": "343",
+          "UpgradeLevel": "4",
+          "ApplyUpgradeLevelToDisplayName": false,
+          "ConventionalUpgradeFrom": "(T)GoldWateringCan",
+          "CanBeLostOnDeath": "false",
+          "SetProperties": {
+            "IsEfficient": true,
+            "IsBottomless": true
+          }
+        }
+      }
     }
   ]
 }
