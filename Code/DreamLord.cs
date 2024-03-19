@@ -85,6 +85,12 @@ namespace HopeToRiseMod.Monsters
 
         public override int takeDamage(int damage, int xTrajectory, int yTrajectory, bool isBomb, double addedPrecision, Farmer who)
         {
+            // If the player is not attacking with the Risen Blade, then deal no damage
+            if (Game1.player.CurrentTool.ItemId != "RisenBlade")
+            {
+                return 1;
+            }
+
             // Decrease stagger counter if not already staggered
             if (staggerTimer <= 0)
             {

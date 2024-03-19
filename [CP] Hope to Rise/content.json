@@ -420,7 +420,29 @@
       "Action": "EditData",
       "Target": "Data/Monsters",
       "Entries": {
-        "Dream Lord": "100/18/0/0/false/6000/768 .75 814 .2 336 .05 287 .1 288 .05 98 .005 99 .001/5/0/6/10/.01/true/50/Dream Lord"
+        "Dream Lord": "1000/18/0/0/false/6000/768 .75 814 .2 336 .05 287 .1 288 .05 98 .005 99 .001/5/0/6/10/.01/true/50/Dream Lord"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Weapons",
+      "Entries": {
+        "RisenBlade": {
+          "Name": "Risen Blade",
+          "DisplayName": "Risen Blade",
+          "Description": "Forged in nightmares to cut through dreams.",
+          "Type": "3",
+          "Texture": "TileSheets/weapons",
+          "SpriteIndex": "4",
+          "MinDamage": "15",
+          "MaxDamage": "30",
+          "Knockback": "0.5",
+          "Speed": "1",
+          "Defense": "1",
+          "AreaOfEffect": "1",
+          "CritChance": "0.05",
+          "CanBeLostOnDeath": "false"
+        }
       }
     }
   ]
