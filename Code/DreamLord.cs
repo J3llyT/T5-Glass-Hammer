@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HopeToRiseMod.UI;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Netcode;
@@ -45,6 +46,8 @@ namespace HopeToRiseMod.Monsters
 
         private float staggerTimer;
 
+        private HealthBarElement healthBar;
+        
         // Fields related to behavior and monsters summoned
         private List<Monster> monsterList = new List<Monster>();
 
@@ -80,6 +83,10 @@ namespace HopeToRiseMod.Monsters
             numHitsToStagger = nextMaxStagger;
             // Now set a new max stagger based on how many times boss has been staggered
             nextMaxStagger = nextMaxStagger + (4 + numTimesStaggered) / 2;
+
+            this.healthBar = new HealthBarElement(this);
+            this.healthBar.width = 200; // Adjust the width of the health bar as needed
+            this.healthBar.height = 30; // Adjust the height of the health bar as needed
 
             // Add warp positions to list
             warpPoints.Add(new Vector2(10, 5) * 64f);
@@ -198,6 +205,13 @@ namespace HopeToRiseMod.Monsters
 
         public override void drawAboveAllLayers(SpriteBatch b)
         {
+            base.drawAboveAllLayers(b);
+
+            if (this.healthBar != null)
+            {
+                this.healthBar.draw(Game1.spriteBatch);
+            }
+
             int standingY = base.StandingPixel.Y;
             //b.Draw(this.Sprite.Texture, base.getLocalPosition(Game1.viewport) + new Vector2(32f, 21 + this.yOffset), this.Sprite.SourceRect, Color.White, 0f, new Vector2(8f, 16f), Math.Max(0.2f, base.scale.Value) * 4f, base.flip ? SpriteEffects.FlipHorizontally : SpriteEffects.None, Math.Max(0f, base.drawOnTop ? 0.991f : ((float)standingY / 10000f)));
             b.Draw(Game1.shadowTexture, base.getLocalPosition(Game1.viewport) + new Vector2(32f, 64f), Game1.shadowTexture.Bounds, Color.White, 0f, new Vector2(Game1.shadowTexture.Bounds.Center.X, Game1.shadowTexture.Bounds.Center.Y), 3f + (float)this.yOffset / 20f, SpriteEffects.None, (float)(standingY - 1) / 10000f);
