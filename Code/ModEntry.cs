@@ -90,7 +90,7 @@ namespace HopeToRiseMod
             {
                 bossSpawned = true;
                 
-                somnia = new DreamLord(new Vector2(15f, 15f) * 64f);
+                somnia = new DreamLord(new Vector2(15f, 12f) * 64f);
                 Game1.currentLocation.characters.Add(somnia);
             }
             if (Game1.currentLocation != null &&  Game1.currentLocation.characters.Contains(somnia))

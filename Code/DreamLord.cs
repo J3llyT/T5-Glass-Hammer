@@ -17,7 +17,8 @@ namespace HopeToRiseMod.Monsters
     {
         Idle = 0,
         SquidKid = 1,
-        SpawnEnemies = 2
+        SpawnEnemies = 2,
+        Warp = 3
     }
 
     public class DreamLord : Monster
@@ -35,6 +36,7 @@ namespace HopeToRiseMod.Monsters
 
         private float firingTimer;
 
+        // Fields related to stagger mechanic
         public int numHitsToStagger;
 
         private int nextMaxStagger = 5;
@@ -43,11 +45,17 @@ namespace HopeToRiseMod.Monsters
 
         private float staggerTimer;
 
+        // Fields related to behavior and monsters summoned
         private List<Monster> monsterList = new List<Monster>();
 
         public Behavior behavior;
 
         private float behaviorTimer;
+
+        // Fields related to warping
+        private List<Vector2> warpPoints = new List<Vector2>();
+
+        private int warpIndex;
 
         // Constructors
         public DreamLord()
@@ -72,6 +80,15 @@ namespace HopeToRiseMod.Monsters
             numHitsToStagger = nextMaxStagger;
             // Now set a new max stagger based on how many times boss has been staggered
             nextMaxStagger = nextMaxStagger + (4 + numTimesStaggered) / 2;
+
+            // Add warp positions to list
+            warpPoints.Add(new Vector2(10, 5) * 64f);
+            warpPoints.Add(new Vector2(20, 5) * 64f);
+            warpPoints.Add(new Vector2(15, 12) * 64f);
+            warpPoints.Add(new Vector2(10, 19) * 64f);
+            warpPoints.Add(new Vector2(20, 19) * 64f);
+            warpPoints.Add(new Vector2(5, 12) * 64f);
+            warpPoints.Add(new Vector2(26, 12) * 64f);
         }
 
         protected override void initNetFields()
@@ -261,7 +278,7 @@ namespace HopeToRiseMod.Monsters
         public override void behaviorAtGameTick(GameTime time)
         {
             // If the boss is staggered, emote and then do nothing
-            if (staggerTimer > 0)
+            if (staggerTimer >= 0)
             {
                 // Emote on 'em
                 base.doEmote(sleepEmote, true);
@@ -275,6 +292,12 @@ namespace HopeToRiseMod.Monsters
                     base.CurrentEmote = exclamationEmote;
                     base.emoteInterval = 4f;
                     base.doEmote(exclamationEmote, true);
+                    base.updateEmote(time);
+
+                    // After a wakeup, have the boss always teleport
+                    behavior = Behavior.Warp;
+                    behaviorTimer = 1000;
+                    warpIndex = Game1.random.Next(0, warpPoints.Count);
                 }
                 else
                 {
@@ -302,12 +325,12 @@ namespace HopeToRiseMod.Monsters
             {
                 // Randomize behavior (Next generates up to but not including the max)
                 Behavior prevBehavior = behavior;
-                behavior = (Behavior) (Game1.random.Next(0, 3));
+                behavior = (Behavior) (Game1.random.Next(0, 4));
 
                 // Loop through and make sure the behavior is different from last time
                 while (behavior == prevBehavior)
                 {
-                    behavior = (Behavior)(Game1.random.Next(0, 3));
+                    behavior = (Behavior)(Game1.random.Next(0, 4));
                 }
 
                 switch (behavior)
@@ -327,6 +350,12 @@ namespace HopeToRiseMod.Monsters
                     case Behavior.SpawnEnemies:
                         // Wait for a few moments, then summon bats
                         behaviorTimer = 3000;
+                        break;
+                    case Behavior.Warp:
+                        // Set time for warp to occur
+                        behaviorTimer = 1000;
+                        // Choose a point to warp to
+                        warpIndex = Game1.random.Next(0, warpPoints.Count);
                         break;
                 }
             }
@@ -348,6 +377,29 @@ namespace HopeToRiseMod.Monsters
                     // Wait for a few moments, then summon bats
                     SpawnMonsterBehavior(time);
                     break;
+                case Behavior.Warp:
+                    WarpBehavior(time);
+                    break;
+            }
+        }
+
+        private void WarpBehavior(GameTime time)
+        {
+            // Wait for half the time to warp
+            if (behaviorTimer <= 800)
+            {
+                // Warp (move really quickly to) the determined warp point
+                //base.position.Set(warpPoints[warpIndex]);
+                Point standingTile = base.StandingPixel;
+                base.setTrajectory(
+                        (int)Utility.getVelocityTowardPoint(standingTile, warpPoints[warpIndex], 40f).X,
+                        (int)(0f - Utility.getVelocityTowardPoint(standingTile, warpPoints[warpIndex], 40f).Y)
+                    );
+
+                if (base.Position.X - warpPoints[warpIndex].X < 1 && base.Position.Y - warpPoints[warpIndex].Y < 1)
+                {
+                    behaviorTimer = 0;
+                }
             }
         }
 
@@ -369,8 +421,16 @@ namespace HopeToRiseMod.Monsters
                 Game1.currentLocation.characters.Add(monsterList[1]);
                 Game1.currentLocation.characters.Add(monsterList[2]);
                 Game1.currentLocation.characters.Add(monsterList[3]);
-
-                // Set behavior timer to 0
+            }
+            else
+            {
+                // Have the dream lord back away from the player
+                base.Slipperiness = 8;
+                Point standingTile = base.StandingPixel;
+                base.setTrajectory(
+                        -(int)Utility.getVelocityTowardPlayer(standingTile, 2f, base.Player).X,
+                        -(int)(0f - Utility.getVelocityTowardPlayer(standingTile, 2f, base.Player).Y)
+                    );
             }
         }
 
@@ -415,11 +475,11 @@ namespace HopeToRiseMod.Monsters
                     projectile.height.Value = 48f;
                     base.currentLocation.projectiles.Add(projectile);
                     base.currentLocation.playSound("fireball");
-                    this.firingTimer = 400f;
+                    this.firingTimer = 200f;
                     // If there are no fireballs left, set a delay till next one can be fired
                     if (this.numFireballsLeft <= 0)
                     {
-                        this.lastFireball = Game1.random.Next(3000, 6500);
+                        this.lastFireball = Game1.random.Next(1500, 3250);
                     }
                 }
             }
@@ -441,7 +501,7 @@ namespace HopeToRiseMod.Monsters
                 projectile2.height.Value = 48f;
                 base.currentLocation.projectiles.Add(projectile2);
                 base.currentLocation.playSound("fireball");
-                this.lastFireball = Game1.random.Next(1200, 3500);
+                this.lastFireball = Game1.random.Next(600, 1750);
             }
             // If the player is not nearby, check for movement opportunity and move
             else if (this.lastFireball != 0f)
@@ -452,7 +512,10 @@ namespace HopeToRiseMod.Monsters
                 {
                     base.Slipperiness = 8;
                     Point standingTile = base.StandingPixel;
-                    base.setTrajectory((int)Utility.getVelocityTowardPlayer(standingTile, 4f, base.Player).X, (int)(0f - Utility.getVelocityTowardPlayer(standingTile, 4f, base.Player).Y));
+                    base.setTrajectory(
+                        (int)Utility.getVelocityTowardPlayer(standingTile, 4f, base.Player).X, 
+                        (int)(0f - Utility.getVelocityTowardPlayer(standingTile, 4f, base.Player).Y)
+                    );
                 }
             }
         }
