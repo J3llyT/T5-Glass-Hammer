@@ -76,6 +76,21 @@
       "Target": "TileSheets/DreamCan",
       "FromFile": "assets/DreamCan.png"
     },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/Potion",
+      "FromFile": "assets/Potion.png"
+    },
+    //{
+      //"Action": "Load",
+      //"Target": "TileSheets/DreamBoots",
+      //"FromFile": "assets/DreamBoots.png"
+    //},
+    {
+      "Action": "Load",
+      "Target": "TileSheets/DreamRing",
+      "FromFile": "assets/DreamRing.png"
+    },
 
     // EDIT DATA
     {
@@ -468,12 +483,62 @@
         }
       }
     },
+    //{
+      //"Action": "EditData",
+      //"Target": "Data/Boots",
+      //"Entries": {
+        //"1024": "Dream Boots/These dream boots sparkle beautifully./750/5/5/10",
+      //}
+    //},
+    //{
+      //"Action": "EditData",
+      //"Target": "Data/Boots",
+      //"Entries": {
+        //"DreamBoots": {
+          //"Name": "DreamBoots",
+          //"DisplayName": "Dream Boots",
+          //"Description": "These dream boots sparkle beautifully.",
+          //"Price": 750,
+          //"AddedDefense": 5,
+          //"AddedImmunity": 5,
+          //"Texture": "TileSheets/DreamBoots",
+          //"SpriteIndex": "0",
+          //"CanBeLostOnDeath": "false"
+        //}
+      //}
+    //},
     {
       "Action": "EditData",
-      "Target": "Data/Boots",
+      "Target": "Data/Objects",
       "Entries": {
-        "1024": "Dream Boots/These dream boots sparkle beautifully./750/5/5/10",
+        "Potion": {
+          "Name": "Potion",
+          "DisplayName": "Potion",
+          "Description": "Red liquid that looks toxic, but tastes good.",
+          "Price": 100,
+          "Type": "Cooking",
+          "Edibility": 50,
+          "Texture": "TileSheets/Potion",
+          "SpriteIndex": "0",
+          "CanBeLostOnDeath": "true"
+          }
+        }
+      },
+      {
+        "Action": "EditData",
+        "Target": "Data/Objects",
+        "Entries": {
+          "DreamRing": {
+            "Name": "DreamRing",
+            "Type": -96, //ring
+            "DisplayName": "Dream Ring",
+            "Description": "A ring made of a special material.",
+            "Price": 500,
+            "Texture": "TileSheets/DreamRing",
+            "SpriteIndex": "0",
+            "CanBeLostOnDeath": "false"
+          }
+        }
       }
-    }
   ]
 }
