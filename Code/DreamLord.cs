@@ -13,6 +13,13 @@ using StardewValley.Projectiles;
 
 namespace HopeToRiseMod.Monsters
 {
+    public enum Behavior
+    {
+        Idle = 0,
+        SquidKid = 1,
+        SpawnEnemies = 2
+    }
+
     public class DreamLord : Monster
     {
         // Fields
@@ -30,11 +37,17 @@ namespace HopeToRiseMod.Monsters
 
         public int numHitsToStagger;
 
-        private int nextMaxStagger = 3;
+        private int nextMaxStagger = 5;
 
         private int numTimesStaggered = 0;
 
         private float staggerTimer;
+
+        private List<Monster> monsterList = new List<Monster>();
+
+        public Behavior behavior;
+
+        private float behaviorTimer;
 
         // Constructors
         public DreamLord()
@@ -50,6 +63,10 @@ namespace HopeToRiseMod.Monsters
             this.Sprite.UpdateSourceRect();
             //base.HideShadow = true;
             base.shouldShadowBeOffset = true;
+
+            // Set behavior to Idle
+            behavior = Behavior.Idle;
+            behaviorTimer = 1000;
 
             // Set the initial numHitsToStagger
             numHitsToStagger = nextMaxStagger;
@@ -88,7 +105,7 @@ namespace HopeToRiseMod.Monsters
             // If the player is not attacking with the Risen Blade, then deal no damage
             if (Game1.player.CurrentTool.ItemId != "RisenBlade")
             {
-                return 1;
+                return 0;
             }
 
             // Decrease stagger counter if not already staggered
@@ -100,6 +117,9 @@ namespace HopeToRiseMod.Monsters
             if (numHitsToStagger <= 0)
             {
                 staggerTimer = Game1.random.Next(6000, 9500);
+
+                // Increase numTimesStaggered
+                numTimesStaggered++;
 
                 // Set next number of hits to stagger and next max stagger threshold
                 numHitsToStagger = nextMaxStagger;
@@ -252,9 +272,9 @@ namespace HopeToRiseMod.Monsters
                 // if stagger timer is now below 0, wake up boss
                 if (staggerTimer <= 0)
                 {
-                    base.CurrentEmote = angryEmote;
+                    base.CurrentEmote = exclamationEmote;
                     base.emoteInterval = 4f;
-                    base.doEmote(angryEmote, true);
+                    base.doEmote(exclamationEmote, true);
                 }
                 else
                 {
@@ -266,6 +286,96 @@ namespace HopeToRiseMod.Monsters
             base.behaviorAtGameTick(time);
             base.faceGeneralDirection(base.Player.Position);
 
+            // Loop through list of monsters
+            for (int i = 0; i < monsterList.Count; i++)
+            {
+                // If monster is dead, remove it from list so more can spawn
+                if (monsterList[i].Health <= 0)
+                {
+                    monsterList.RemoveAt(i--);
+                }
+            }
+
+            // Decrement behavior timer to next behavior
+            behaviorTimer -= (float)time.ElapsedGameTime.TotalMilliseconds;
+            if (behaviorTimer <= 0)
+            {
+                // Randomize behavior (Next generates up to but not including the max)
+                Behavior prevBehavior = behavior;
+                behavior = (Behavior) (Game1.random.Next(0, 3));
+
+                // Loop through and make sure the behavior is different from last time
+                while (behavior == prevBehavior)
+                {
+                    behavior = (Behavior)(Game1.random.Next(0, 3));
+                }
+
+                switch (behavior)
+                {
+                    // Idle
+                    case Behavior.Idle:
+                        // Do nothing and set behavior timer for 1000 millisecond
+                        base.doEmote(angryEmote, true);
+                        behaviorTimer = 1000;
+                        break;
+                    // SquidKid 
+                    case Behavior.SquidKid:
+                        // Set timer for a decent amount of time and let it play out
+                        behaviorTimer = Game1.random.Next(8000, 12000);
+                        break;
+                    // Spawn Enemies
+                    case Behavior.SpawnEnemies:
+                        // Wait for a few moments, then summon bats
+                        behaviorTimer = 3000;
+                        break;
+                }
+            }
+
+            // Actually do the behavior
+            switch (behavior)
+            {
+                // Idle
+                case Behavior.Idle:
+                    // Do nothing and set behavior timer for 1000 millisecond
+                    break;
+                // SquidKid 
+                case Behavior.SquidKid:
+                    // Set timer for a decent amount of time and let it play out
+                    SquidKidBehavior(time);
+                    break;
+                // Spawn Enemies
+                case Behavior.SpawnEnemies:
+                    // Wait for a few moments, then summon bats
+                    SpawnMonsterBehavior(time);
+                    break;
+            }
+        }
+
+        private void SpawnMonsterBehavior(GameTime time)
+        {
+            // Wait until half the time to spawn enemy
+            if (behaviorTimer <= 1500 && monsterList.Count <= 2)
+            {
+                // Get the boss's position
+                Vector2 bossPosition = this.Position;
+                // Spawn the monsters around the boss
+                monsterList.Add(new Bat(new Vector2(bossPosition.X + 3 * 64f, bossPosition.Y)));
+                monsterList.Add(new Bat(new Vector2(bossPosition.X - 3 * 64f, bossPosition.Y)));
+                monsterList.Add(new Bat(new Vector2(bossPosition.X, bossPosition.Y + 3 * 64f)));
+                monsterList.Add(new Bat(new Vector2(bossPosition.X, bossPosition.Y - 3 * 64f)));
+
+                // Add the monsters to the list of monsters in the fight
+                Game1.currentLocation.characters.Add(monsterList[0]);
+                Game1.currentLocation.characters.Add(monsterList[1]);
+                Game1.currentLocation.characters.Add(monsterList[2]);
+                Game1.currentLocation.characters.Add(monsterList[3]);
+
+                // Set behavior timer to 0
+            }
+        }
+
+        private void SquidKidBehavior (GameTime time) 
+        {
             // Subtract time from last fireball shot
             this.lastFireball = Math.Max(0f, this.lastFireball - (float)time.ElapsedGameTime.Milliseconds);
 

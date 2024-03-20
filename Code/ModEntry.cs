@@ -96,6 +96,7 @@ namespace HopeToRiseMod
             if (Game1.currentLocation != null &&  Game1.currentLocation.characters.Contains(somnia))
             {
                 //Monitor.Log(somnia.numHitsToStagger.ToString());
+                //Monitor.Log(somnia.behavior.ToString());
             }
             #endregion
 
