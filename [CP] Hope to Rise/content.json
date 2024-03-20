@@ -24,10 +24,6 @@
       "Action": "Include",
       "FromFile": "other/shop.json"
     },
-    {
-      "Action": "Include",
-      "FromFile": "assets/tileSheets"
-    },
 
     // LOAD
     {
@@ -74,6 +70,11 @@
       "Action": "Load",
       "Target": "Maps/HopeToRise_DreamWorldBoss",
       "FromFile": "assets/DreamWorldBoss.tmx"
+    },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/DreamCan",
+      "FromFile": "assets/DreamCan.png"
     },
 
     // EDIT DATA
@@ -420,7 +421,7 @@
       "Action": "EditData",
       "Target": "Data/Monsters",
       "Entries": {
-        "Dream Lord": "1000/18/0/0/false/6000/768 .75 814 .2 336 .05 287 .1 288 .05 98 .005 99 .001/5/0/6/10/.01/true/50/Dream Lord"
+        "Dream Lord": "1000/18/0/0/false/6000/768 .75 814 .2 336 .05 287 .1 288 .05 98 .005 99 .001/5/0/10/10/.01/true/50/Dream Lord"
       }
     },
     {
@@ -443,6 +444,35 @@
           "CritChance": "0.05",
           "CanBeLostOnDeath": "false"
         }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Tools",
+      "Entries": {
+        "DreamCan": {
+          "ClassName": "WateringCan",
+          "Name": "DreamCan",
+          "DisplayName": "Dream Can",
+          "Description": "Magic watering can of your dreams.",
+          "Texture": "TileSheets/DreamCan",
+          "SpriteIndex": "308",
+          "UpgradeLevel": "4",
+          "ApplyUpgradeLevelToDisplayName": false,
+          "ConventionalUpgradeFrom": "(T)GoldWateringCan",
+          "CanBeLostOnDeath": "false",
+          "SetProperties": {
+            "IsEfficient": true,
+            "IsBottomless": true
+          }
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Boots",
+      "Entries": {
+        "1024": "Dream Boots/These dream boots sparkle beautifully./750/5/5/10",
       }
     }
   ]
