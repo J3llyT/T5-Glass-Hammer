@@ -259,9 +259,4 @@ namespace HopeToRiseMod
             }
         }
     }
-
-    // WATERING CAN INFO
-    // VolcanoDungeon
-    // OnLightningStrike
-    // Ladders in mines
 }
