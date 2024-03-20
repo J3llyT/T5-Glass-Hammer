@@ -467,6 +467,13 @@
           }
         }
       }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Boots",
+      "Entries": {
+        "1024": "Dream Boots/These dream boots sparkle beautifully./750/5/5/10",
+      }
     }
   ]
 }
