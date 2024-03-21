@@ -45,6 +45,14 @@
               "Price": 500,
               "AvailableStock": 1,
               "AvailableStockLimit": "Player"
+            },
+            {
+              // will be remove later
+              "Id": "TeddyBear",
+              "ItemId": "TeddyBear",
+              "Price": 100,
+              "AvailableStock": 1,
+              "AvailableStockLimit": "Player"
             }//,
             //{
               //"Id": "DreamBoots",
