@@ -82,14 +82,19 @@
       "FromFile": "assets/Potion.png"
     },
     //{
-      //"Action": "Load",
-      //"Target": "TileSheets/DreamBoots",
-      //"FromFile": "assets/DreamBoots.png"
+    //"Action": "Load",
+    //"Target": "TileSheets/DreamBoots",
+    //"FromFile": "assets/DreamBoots.png"
     //},
     {
       "Action": "Load",
       "Target": "TileSheets/DreamRing",
       "FromFile": "assets/DreamRing.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/DreamSword",
+      "FromFile": "assets/DreamSword.png"
     },
 
     // EDIT DATA
@@ -436,7 +441,7 @@
       "Action": "EditData",
       "Target": "Data/Monsters",
       "Entries": {
-        "Dream Lord": "1000/18/0/0/false/6000/768 .75 814 .2 336 .05 287 .1 288 .05 98 .005 99 .001/5/0/10/10/.01/true/50/Dream Lord"
+        "Dream Lord": "1500/12/0/0/false/6000/768 .75 814 .2 336 .05 287 .1 288 .05 98 .005 99 .001/5/0/10/10/.01/true/50/Dream Lord"
       }
     },
     {
@@ -446,10 +451,10 @@
         "RisenBlade": {
           "Name": "Risen Blade",
           "DisplayName": "Risen Blade",
-          "Description": "Forged in nightmares to cut through dreams.",
+          "Description": "Forged in hope to cut through dreams.",
           "Type": "3",
-          "Texture": "TileSheets/weapons",
-          "SpriteIndex": "4",
+          "Texture": "TileSheets/DreamSword",
+          "SpriteIndex": "0",
           "MinDamage": "15",
           "MaxDamage": "30",
           "Knockback": "0.5",
@@ -484,28 +489,28 @@
       }
     },
     //{
-      //"Action": "EditData",
-      //"Target": "Data/Boots",
-      //"Entries": {
-        //"1024": "Dream Boots/These dream boots sparkle beautifully./750/5/5/10",
-      //}
+    //"Action": "EditData",
+    //"Target": "Data/Boots",
+    //"Entries": {
+    //"1024": "Dream Boots/These dream boots sparkle beautifully./750/5/5/10",
+    //}
     //},
     //{
-      //"Action": "EditData",
-      //"Target": "Data/Boots",
-      //"Entries": {
-        //"DreamBoots": {
-          //"Name": "DreamBoots",
-          //"DisplayName": "Dream Boots",
-          //"Description": "These dream boots sparkle beautifully.",
-          //"Price": 750,
-          //"AddedDefense": 5,
-          //"AddedImmunity": 5,
-          //"Texture": "TileSheets/DreamBoots",
-          //"SpriteIndex": "0",
-          //"CanBeLostOnDeath": "false"
-        //}
-      //}
+    //"Action": "EditData",
+    //"Target": "Data/Boots",
+    //"Entries": {
+    //"DreamBoots": {
+    //"Name": "DreamBoots",
+    //"DisplayName": "Dream Boots",
+    //"Description": "These dream boots sparkle beautifully.",
+    //"Price": 750,
+    //"AddedDefense": 5,
+    //"AddedImmunity": 5,
+    //"Texture": "TileSheets/DreamBoots",
+    //"SpriteIndex": "0",
+    //"CanBeLostOnDeath": "false"
+    //}
+    //}
     //},
     {
       "Action": "EditData",
@@ -521,24 +526,24 @@
           "Texture": "TileSheets/Potion",
           "SpriteIndex": "0",
           "CanBeLostOnDeath": "true"
-          }
-        }
-      },
-      {
-        "Action": "EditData",
-        "Target": "Data/Objects",
-        "Entries": {
-          "DreamRing": {
-            "Name": "DreamRing",
-            "Type": -96, //ring
-            "DisplayName": "Dream Ring",
-            "Description": "A ring made of a special material.",
-            "Price": 500,
-            "Texture": "TileSheets/DreamRing",
-            "SpriteIndex": "0",
-            "CanBeLostOnDeath": "false"
-          }
         }
       }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "Entries": {
+        "DreamRing": {
+          "Name": "DreamRing",
+          "Type": -96, //ring
+          "DisplayName": "Dream Ring",
+          "Description": "A ring made of a special material.",
+          "Price": 500,
+          "Texture": "TileSheets/DreamRing",
+          "SpriteIndex": "0",
+          "CanBeLostOnDeath": "false"
+        }
+      }
+    }
   ]
 }

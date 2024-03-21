@@ -72,7 +72,7 @@ namespace HopeToRiseMod.Monsters
             this.Sprite.SpriteHeight = 32;
             base.IsWalkingTowardPlayer = false;
             this.Sprite.UpdateSourceRect();
-            //base.HideShadow = true;
+            base.HideShadow = true;
             base.shouldShadowBeOffset = true;
 
             // Set behavior to Idle
@@ -312,6 +312,8 @@ namespace HopeToRiseMod.Monsters
                     behavior = Behavior.Warp;
                     behaviorTimer = 1000;
                     warpIndex = Game1.random.Next(0, warpPoints.Count);
+                    base.DamageToFarmer = 0;
+                    base.setInvincibleCountdown(800);
                 }
                 else
                 {
@@ -370,6 +372,9 @@ namespace HopeToRiseMod.Monsters
                         behaviorTimer = 1000;
                         // Choose a point to warp to
                         warpIndex = Game1.random.Next(0, warpPoints.Count);
+                        // Make it so the boss doesn't damage the player while warping, or take damage itself
+                        base.DamageToFarmer = 0;
+                        base.setInvincibleCountdown(800);
                         break;
                 }
             }
@@ -399,20 +404,25 @@ namespace HopeToRiseMod.Monsters
 
         private void WarpBehavior(GameTime time)
         {
-            // Wait for half the time to warp
+            // Wait for a moment then warp
             if (behaviorTimer <= 800)
             {
                 // Warp (move really quickly to) the determined warp point
                 //base.position.Set(warpPoints[warpIndex]);
                 Point standingTile = base.StandingPixel;
                 base.setTrajectory(
-                        (int)Utility.getVelocityTowardPoint(standingTile, warpPoints[warpIndex], 40f).X,
-                        (int)(0f - Utility.getVelocityTowardPoint(standingTile, warpPoints[warpIndex], 40f).Y)
+                        (int)Utility.getVelocityTowardPoint(standingTile, warpPoints[warpIndex], 60f).X,
+                        (int)(0f - Utility.getVelocityTowardPoint(standingTile, warpPoints[warpIndex], 60f).Y)
                     );
 
+                // If the boss has reached the point, stop warping
                 if (base.Position.X - warpPoints[warpIndex].X < 1 && base.Position.Y - warpPoints[warpIndex].Y < 1)
                 {
+                    // Set behaviorTimer to 0 to end the warp
                     behaviorTimer = 0;
+                    // Restore the damage to farmer so boss can hurt with contact damage and be hurt itself
+                    base.DamageToFarmer = 12;
+                    base.setInvincibleCountdown(1);
                 }
             }
         }
