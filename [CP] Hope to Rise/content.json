@@ -96,6 +96,11 @@
       "Target": "TileSheets/DreamSword",
       "FromFile": "assets/DreamSword.png"
     },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/TeddyBear",
+      "FromFile": "assets/TeddyBear.png"
+    },
 
     // EDIT DATA
     {
@@ -535,11 +540,27 @@
       "Entries": {
         "DreamRing": {
           "Name": "DreamRing",
-          "Type": -96, //ring
+          "Type": "Ring",
           "DisplayName": "Dream Ring",
           "Description": "A ring made of a special material.",
           "Price": 500,
           "Texture": "TileSheets/DreamRing",
+          "SpriteIndex": "0",
+          "CanBeLostOnDeath": "false"
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "Entries": {
+        "TeddyBear": {
+          "Name": "TeddyBear",
+          "Type": "Basic",
+          "DisplayName": "Teddy Bear",
+          "Description": "It looks like a teddy bear.",
+          "Price": 100,
+          "Texture": "TileSheets/TeddyBear",
           "SpriteIndex": "0",
           "CanBeLostOnDeath": "false"
         }
