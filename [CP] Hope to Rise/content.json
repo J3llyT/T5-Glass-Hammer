@@ -96,6 +96,12 @@
       "Target": "TileSheets/DreamSword",
       "FromFile": "assets/DreamSword.png"
     },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/PoisonTile",
+      "FromFile": "assets/PoisonTile.png"
+    },
+
 
     // EDIT DATA
     {
