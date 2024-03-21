@@ -81,11 +81,11 @@
       "Target": "TileSheets/Potion",
       "FromFile": "assets/Potion.png"
     },
-    //{
-    //"Action": "Load",
-    //"Target": "TileSheets/DreamBoots",
-    //"FromFile": "assets/DreamBoots.png"
-    //},
+    {
+    "Action": "Load",
+    "Target": "TileSheets/DreamBoots",
+    "FromFile": "assets/DreamBoots.png"
+    },
     {
       "Action": "Load",
       "Target": "TileSheets/DreamRing",
@@ -493,30 +493,31 @@
         }
       }
     },
+    // wearable but the image of the boots does not show
+    // use "debug createdebris 1024" to spawn the dream boots at current position
     //{
     //"Action": "EditData",
     //"Target": "Data/Boots",
     //"Entries": {
-    //"1024": "Dream Boots/These dream boots sparkle beautifully./750/5/5/10",
+    //"1024": "Dream Boots/These dream boots sparkle beautifully./400/5/5/10",
     //}
     //},
-    //{
-    //"Action": "EditData",
-    //"Target": "Data/Boots",
-    //"Entries": {
-    //"DreamBoots": {
-    //"Name": "DreamBoots",
-    //"DisplayName": "Dream Boots",
-    //"Description": "These dream boots sparkle beautifully.",
-    //"Price": 750,
-    //"AddedDefense": 5,
-    //"AddedImmunity": 5,
-    //"Texture": "TileSheets/DreamBoots",
-    //"SpriteIndex": "0",
-    //"CanBeLostOnDeath": "false"
-    //}
-    //}
-    //},
+    {
+    // not wearable
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "Entries": {
+      "DreamBoots": {
+        "Name": "DreamBoots",
+        "DisplayName": "Dream Boots",
+        "Description": "These dream boots sparkle beautifully.",
+        "Price": 400,
+        "Texture": "TileSheets/DreamBoots",
+        "SpriteIndex": "0",
+        "CanBeLostOnDeath": "false"
+        }
+      }
+    },
     {
       "Action": "EditData",
       "Target": "Data/Objects",
