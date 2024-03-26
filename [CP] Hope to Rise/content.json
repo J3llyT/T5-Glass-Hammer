@@ -343,7 +343,13 @@
           },
           "FormerLocationNames": [],
           "CanPlantHere": false,
-          "ArtifactSpots": [],
+          "ArtifactSpots": [
+            {
+              "ItemId": "DreamRing",
+              "MinStack": 1,
+              "MaxStack": 1
+            }
+          ],
           "FishAreas": {},
           "Fish": [],
           "Forage": [],
