@@ -258,5 +258,6 @@ namespace HopeToRiseMod
                 Monitor.Log($"Exception in PlayerLocation: {ex}", LogLevel.Error);
             }
         }
+
     }
 }

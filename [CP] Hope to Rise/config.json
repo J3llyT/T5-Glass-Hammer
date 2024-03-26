@@ -1,3 +1,4 @@
 {
-  "EnableNPCSleep": "true"
+  "EnableNPCSleep": "true",
+  "DisableBlueGrassRecolorMod": "true"
 }
