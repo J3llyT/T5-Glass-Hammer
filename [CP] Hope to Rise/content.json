@@ -71,6 +71,36 @@
       "Target": "Maps/HopeToRise_DreamWorldBoss",
       "FromFile": "assets/DreamWorldBoss.tmx"
     },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/DreamCan",
+      "FromFile": "assets/DreamCan.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/Potion",
+      "FromFile": "assets/Potion.png"
+    },
+    {
+    "Action": "Load",
+    "Target": "TileSheets/DreamBoots",
+    "FromFile": "assets/DreamBoots.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/DreamRing",
+      "FromFile": "assets/DreamRing.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/DreamSword",
+      "FromFile": "assets/DreamSword.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/TeddyBear",
+      "FromFile": "assets/TeddyBear.png"
+    },
 
     // EDIT DATA
     {
@@ -416,7 +446,7 @@
       "Action": "EditData",
       "Target": "Data/Monsters",
       "Entries": {
-        "Dream Lord": "1000/18/0/0/false/6000/768 .75 814 .2 336 .05 287 .1 288 .05 98 .005 99 .001/5/0/6/10/.01/true/50/Dream Lord"
+        "Dream Lord": "1500/12/0/0/false/6000/768 .75 814 .2 336 .05 287 .1 288 .05 98 .005 99 .001/5/0/10/10/.01/true/50/Dream Lord"
       }
     },
     {
@@ -426,10 +456,10 @@
         "RisenBlade": {
           "Name": "Risen Blade",
           "DisplayName": "Risen Blade",
-          "Description": "Forged in nightmares to cut through dreams.",
+          "Description": "Forged in hope to cut through dreams.",
           "Type": "3",
-          "Texture": "TileSheets/weapons",
-          "SpriteIndex": "4",
+          "Texture": "TileSheets/DreamSword",
+          "SpriteIndex": "0",
           "MinDamage": "15",
           "MaxDamage": "30",
           "Knockback": "0.5",
@@ -450,8 +480,8 @@
           "Name": "DreamCan",
           "DisplayName": "Dream Can",
           "Description": "Magic watering can of your dreams.",
-          "Texture": "TileSheets/tools",
-          "SpriteIndex": "343",
+          "Texture": "TileSheets/DreamCan",
+          "SpriteIndex": "308",
           "UpgradeLevel": "4",
           "ApplyUpgradeLevelToDisplayName": false,
           "ConventionalUpgradeFrom": "(T)GoldWateringCan",
@@ -460,6 +490,80 @@
             "IsEfficient": true,
             "IsBottomless": true
           }
+        }
+      }
+    },
+    // wearable but the image of the boots does not show
+    // use "debug createdebris 1024" to spawn the dream boots at current position
+    //{
+    //"Action": "EditData",
+    //"Target": "Data/Boots",
+    //"Entries": {
+    //"1024": "Dream Boots/These dream boots sparkle beautifully./400/5/5/10",
+    //}
+    //},
+    {
+    // not wearable
+    "Action": "EditData",
+    "Target": "Data/Objects",
+    "Entries": {
+      "DreamBoots": {
+        "Name": "DreamBoots",
+        "DisplayName": "Dream Boots",
+        "Description": "These dream boots sparkle beautifully.",
+        "Price": 400,
+        "Texture": "TileSheets/DreamBoots",
+        "SpriteIndex": "0",
+        "CanBeLostOnDeath": "false"
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "Entries": {
+        "Potion": {
+          "Name": "Potion",
+          "DisplayName": "Potion",
+          "Description": "Red liquid that looks toxic, but tastes good.",
+          "Price": 100,
+          "Type": "Cooking",
+          "Edibility": 50,
+          "Texture": "TileSheets/Potion",
+          "SpriteIndex": "0",
+          "CanBeLostOnDeath": "true"
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "Entries": {
+        "DreamRing": {
+          "Name": "DreamRing",
+          "Type": "Ring",
+          "DisplayName": "Dream Ring",
+          "Description": "A ring made of a special material.",
+          "Price": 500,
+          "Texture": "TileSheets/DreamRing",
+          "SpriteIndex": "0",
+          "CanBeLostOnDeath": "false"
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "Entries": {
+        "TeddyBear": {
+          "Name": "TeddyBear",
+          "Type": "Basic",
+          "DisplayName": "Teddy Bear",
+          "Description": "It looks like a teddy bear.",
+          "Price": 100,
+          "Texture": "TileSheets/TeddyBear",
+          "SpriteIndex": "0",
+          "CanBeLostOnDeath": "false"
         }
       }
     }

@@ -63,6 +63,7 @@ namespace HopeToRiseMod
         private void OnUpdateTicked(object? sender, EventArgs e)
         {
             #region // Warp Logic
+            // NEED TO UPDATE TO ACCOMADATE FOR ALL OF THE LOCATIONS
             if (Game1.player.stamina <= staminaThreshold && Game1.currentLocation != null
                 && Game1.currentLocation.Name == "DreamWorldSpawn")
             {
@@ -90,12 +91,13 @@ namespace HopeToRiseMod
             {
                 bossSpawned = true;
                 
-                somnia = new DreamLord(new Vector2(15f, 15f) * 64f);
+                somnia = new DreamLord(new Vector2(15f, 12f) * 64f);
                 Game1.currentLocation.characters.Add(somnia);
             }
             if (Game1.currentLocation != null &&  Game1.currentLocation.characters.Contains(somnia))
             {
                 //Monitor.Log(somnia.numHitsToStagger.ToString());
+                //Monitor.Log(somnia.behavior.ToString());
             }
             #endregion
 
@@ -200,7 +202,7 @@ namespace HopeToRiseMod
         {
             // Handles sleep warp logic. (CHANGE ITEM ID TO TEDDY BEAR)
             if (Game1.player.isInBed.Value && Game1.currentLocation.lastQuestionKey != null && Game1.currentLocation.lastQuestionKey.StartsWith("Sleep")
-                && Game1.player.ActiveObject != null && Game1.player.ActiveObject.ParentSheetIndex.Equals(69))
+                && Game1.player.ActiveObject != null && Game1.player.ActiveObject.Name == "TeddyBear")
             {
                 Game1.currentLocation.afterQuestion += SleepWarp;
             }
