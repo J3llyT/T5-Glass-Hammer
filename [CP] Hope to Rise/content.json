@@ -101,6 +101,11 @@
       "Target": "TileSheets/TeddyBear",
       "FromFile": "assets/TeddyBear.png"
     },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/Maidmer",
+      "FromFile": "assets/Maidmer.PNG"
+    },
 
     // EDIT DATA
     {
@@ -350,7 +355,13 @@
           },
           "FormerLocationNames": [],
           "CanPlantHere": false,
-          "ArtifactSpots": [],
+          "ArtifactSpots": [
+            {
+              "ItemId": "DreamRing",
+              "MinStack": 1,
+              "MaxStack": 1
+            }
+          ],
           "FishAreas": {},
           "Fish": [],
           "Forage": [],
@@ -571,6 +582,21 @@
           "Texture": "TileSheets/TeddyBear",
           "SpriteIndex": "0",
           "CanBeLostOnDeath": "false"
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "Entries": {
+        "Maidmer": {
+          "Name": "Maidmer",
+          "DisplayName": "Maidmer",
+          "Description": "Legendary creatures, but they look a bit strange.",
+          "Price": 90,
+          "Texture": "TileSheets/Maidmer",
+          "SpriteIndex": "0",
+          "CanBeLostOnDeath": "true"
         }
       }
     }

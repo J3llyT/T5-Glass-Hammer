@@ -11,6 +11,10 @@
     {
       "UniqueID": "Pathoschild.ContentPatcher",
       "MinimumVersion": "2.0.0-alpha.20240220"
+    },
+    {
+      "UniqueID": "hxw.tilesheets",
+      "MinimumVersion": "1.0.2"
     }
   ]
 }
