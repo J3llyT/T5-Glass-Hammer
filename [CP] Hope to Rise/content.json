@@ -308,7 +308,14 @@
           "CanPlantHere": false,
           "ArtifactSpots": [],
           "FishAreas": {},
-          "Fish": [],
+            "Fish": [
+                {
+                    "Chance": 0.20,
+                    "Id": "DreamBoots",
+                    "ItemId": "DreamBoots",
+                    "CatchLimit": 1
+                }
+            ],
           "Forage": [],
           "MinDailyWeeds": 2,
           "MaxDailyWeeds": 5,
