@@ -129,7 +129,12 @@ namespace HopeToRiseMod
                         currentLocation.setMapTileIndex(randomX, randomY, 923467, "Back");
                         //add the poison to the tile
                         currentLocation.setTileProperty(randomX, randomY, "Back", "TouchAction", "poison");
-                        currentLocation.setTileProperty(randomX, randomY, "Back", "Asset", "../[CP] Hope to Rise/assets/PoisonTile.png");
+
+                        currentLocation.removeTile(randomX, randomY, "Back");
+
+                        Layer layer = currentLocation.map.GetLayer("Back");
+                        TileSheet tilesheet = currentLocation.map.GetTileSheet("z_PoisonTile");
+                        layer.Tiles[randomX, randomY] = new StaticTile(layer, tilesheet, BlendMode.Alpha, tileIndex: 0);
                     }
                 }
 
@@ -191,8 +196,9 @@ namespace HopeToRiseMod
             {
                 Game1.currentLocation.removeTileProperty(x, y, "Back", "TouchAction");
                 //asset needs to be changed back from the poison tile
-                int originalIndex = 0; 
-                Game1.currentLocation.setMapTileIndex(x, y, originalIndex, "Back");
+                //int originalIndex = 0; 
+                //Game1.currentLocation.setMapTileIndex(x, y, originalIndex, "Back");
+                Game1.currentLocation.removeTile(x, y, "Back");
             }
         }
         #endregion
