@@ -38,51 +38,33 @@
               "Price": 100,
               "AvailableStock": 10,
               "AvailableStockLimit": "Player"
-            },
-            {
-              "Id": "DreamRing",
-              "ItemId": "DreamRing",
-              "Price": 500,
-              "AvailableStock": 1,
-              "AvailableStockLimit": "Player"
-            },
-            {
-              // will be remove later
-              "Id": "TeddyBear",
-              "ItemId": "TeddyBear",
-              "Price": 100,
-              "AvailableStock": 1,
-              "AvailableStockLimit": "Player"
-            },
-            {
-              // will be remove later
-              "Id": "DreamBoots",
-              "ItemId": "DreamBoots",
-              "Price": 400,
-              "AvailableStock": 1,
-              "AvailableStockLimit": "Player"
             }
+            //{
+            //  "Id": "DreamRing",
+            //  "ItemId": "DreamRing",
+            //  "Price": 500,
+            //  "AvailableStock": 1,
+            //  "AvailableStockLimit": "Player"
+            //},
+            //{
+            //  // will be remove later
+            //  "Id": "TeddyBear",
+            //  "ItemId": "TeddyBear",
+            //  "Price": 100,
+            //  "AvailableStock": 1,
+            //  "AvailableStockLimit": "Player"
+            //},
+            //{
+            //  // will be remove later
+            //  "Id": "DreamBoots",
+            //  "ItemId": "DreamBoots",
+            //  "Price": 400,
+            //  "AvailableStock": 1,
+            //  "AvailableStockLimit": "Player"
+            //}
           ]
         }
       }
-    } //,
-    //{
-    //  "Action": "EditMap",
-    //  "Target": "Maps/HopeToRise_DreamWorldSpawn",
-    //  "MapTiles": [
-    //    {
-    //      "Position": {
-    //        "X": 6,
-    //        "Y": 4
-    //      },
-    //      "Layer": "Buildings",
-    //      "SetProperties": {
-    //        "Action": "OpenShop VannaShop down",
-    //        "SetTilesheet": "Maps/springobjects",
-    //        "SetIndex": 32
-    //      }
-    //    }
-    //  ]
-    //}
+    }
   ]
 }
