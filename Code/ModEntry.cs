@@ -128,13 +128,15 @@ namespace HopeToRiseMod
                         // Change the tile at the randomly selected position
                         currentLocation.setMapTileIndex(randomX, randomY, 923467, "Back");
                         //add the poison to the tile
-                        currentLocation.setTileProperty(randomX, randomY, "Back", "TouchAction", "poison");
+                        
 
                         currentLocation.removeTile(randomX, randomY, "Back");
 
                         Layer layer = currentLocation.map.GetLayer("Back");
                         TileSheet tilesheet = currentLocation.map.GetTileSheet("z_PoisonTile");
                         layer.Tiles[randomX, randomY] = new StaticTile(layer, tilesheet, BlendMode.Alpha, tileIndex: 0);
+
+                        currentLocation.setTileProperty(randomX, randomY, "Back", "TouchAction", "poison");
                     }
                 }
 
