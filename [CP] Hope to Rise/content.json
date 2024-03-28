@@ -337,6 +337,7 @@
         "DreamWorldNorthWest": {
           "DisplayName": "DreamWorldNorthWest",
           "DefaultArrivalTile": {
+            "X": 23,
             "Y": 40
           },
           "ExcludeFromNpcPathfinding": false,
