@@ -191,7 +191,7 @@ namespace HopeToRiseMod
                         {
                             if (clicks < 1)
                             {
-                                Game1.addHUDMessage(new HUDMessage("Why would you want to cut down such a beautiful tree?.", 2));
+                                Game1.addHUDMessage(new HUDMessage("Why would you want to cut down such a beautiful tree?", 2));
                             }
                             else if (clicks < 2)
                             {
@@ -205,11 +205,31 @@ namespace HopeToRiseMod
                             {
                                 Game1.addHUDMessage(new HUDMessage("STOPPPPP!!!!!", 2));
                             }
-                            else
+                            else if (clicks < 5)
                             {
                                 Game1.addHUDMessage(new HUDMessage("OKAY THAT'S IT! NO MORE AXE FOR MEANIES LIKE YOU!", 2));
                                 Game1.player.CurrentTool = new WateringCan();
-                                Game1.playSound("toolSwap");
+                            }
+                            else if (clicks < 6)
+                            {
+                                Game1.addHUDMessage(new HUDMessage("HOW DID YOU EVEN GET ANOTHER AXE?!?!?", 2));
+                                Game1.addHUDMessage(new HUDMessage("DIEEE!!!!!!!!!", 2));
+                                for(int i =0; i < 5;  i++)
+                                {
+                                    Monster temp = new Skeleton(new Vector2(16+i, 18));
+                                    temp.BuffForAdditionalDifficulty(1000);
+                                    Game1.currentLocation.characters.Add(temp);
+                                }
+                            }
+                            else
+                            {
+                                Game1.addHUDMessage(new HUDMessage("DIEEE!!!!!!!!!", 2));
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    Monster temp = new Skeleton(new Vector2(16 + i, 18));
+                                    temp.BuffForAdditionalDifficulty(1000);
+                                    Game1.currentLocation.characters.Add(temp);
+                                }
                             }
                             clicks++;
                         }
