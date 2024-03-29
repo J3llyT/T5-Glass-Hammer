@@ -170,6 +170,69 @@ namespace HopeToRiseMod
                 DeactivatePoisonTile((int)tile.X, (int)tile.Y);
             }
         }
+        private void LeftClick(object? sender, ButtonPressedEventArgs e)
+        {
+            if (e.Button == SButton.MouseLeft)
+            {
+                isMouseLeftButtonDown = true;
+                if (lastMouseTile != Vector2.Zero)
+                {
+                    WateringPoison();
+                    Vector2 tileCoordinates = Game1.currentCursorTile;
+                    //for the tree in northwest
+                    if (Game1.player.CurrentTool is Axe && Game1.currentLocation != null)
+                    {
+                        if (Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "SpawnTree", "Paths") == "wild DreamTree 5 5")
+                        {
+                            if (clicks < 1)
+                            {
+                                Game1.addHUDMessage(new HUDMessage("Why would you want to cut down such a beautiful tree?", 2));
+                            }
+                            else if (clicks < 2)
+                            {
+                                Game1.addHUDMessage(new HUDMessage("Do you really have no conscience??", 2));
+                            }
+                            else if (clicks < 3)
+                            {
+                                Game1.addHUDMessage(new HUDMessage("You will regret this...", 2));
+                            }
+                            else if (clicks < 4)
+                            {
+                                Game1.addHUDMessage(new HUDMessage("STOPPPPP!!!!!", 2));
+                            }
+                            else if (clicks < 5)
+                            {
+                                Game1.addHUDMessage(new HUDMessage("OKAY THAT'S IT! NO MORE AXE FOR MEANIES LIKE YOU!", 2));
+                                Game1.player.CurrentTool = new WateringCan();
+                            }
+                            else if (clicks < 6)
+                            {
+                                Game1.addHUDMessage(new HUDMessage("HOW DID YOU EVEN GET ANOTHER AXE?!?!?", 2));
+                                Game1.addHUDMessage(new HUDMessage("DIEEE!!!!!!!!!", 2));
+                                for(int i =0; i < 5;  i++)
+                                {
+                                    Monster temp = new Skeleton(new Vector2(16+i, 18));
+                                    temp.BuffForAdditionalDifficulty(1000);
+                                    Game1.currentLocation.characters.Add(temp);
+                                }
+                            }
+                            else
+                            {
+                                Game1.addHUDMessage(new HUDMessage("DIEEE!!!!!!!!!", 2));
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    Monster temp = new Skeleton(new Vector2(16 + i, 18));
+                                    temp.BuffForAdditionalDifficulty(1000);
+                                    Game1.currentLocation.characters.Add(temp);
+                                }
+                            }
+                            clicks++;
+                        }
+                    }
+                }
+            }
+        }
+        #region //Watering Can Methods
         List<Vector2> tilesAffected(Vector2 tileLocation, int power, Farmer who)
         {
             power++;
@@ -332,68 +395,6 @@ namespace HopeToRiseMod
             }
             return tileLocations;
         }
-        private void LeftClick(object? sender, ButtonPressedEventArgs e)
-        {
-            if (e.Button == SButton.MouseLeft)
-            {
-                isMouseLeftButtonDown = true;
-                if (lastMouseTile != Vector2.Zero)
-                {
-                    WateringPoison();
-                    Vector2 tileCoordinates = Game1.currentCursorTile;
-                    //for the tree in northwest
-                    if (Game1.player.CurrentTool is Axe && Game1.currentLocation != null)
-                    {
-                        if (Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "SpawnTree", "Paths") == "wild DreamTree 5 5")
-                        {
-                            if (clicks < 1)
-                            {
-                                Game1.addHUDMessage(new HUDMessage("Why would you want to cut down such a beautiful tree?", 2));
-                            }
-                            else if (clicks < 2)
-                            {
-                                Game1.addHUDMessage(new HUDMessage("Do you really have no conscience??", 2));
-                            }
-                            else if (clicks < 3)
-                            {
-                                Game1.addHUDMessage(new HUDMessage("You will regret this...", 2));
-                            }
-                            else if (clicks < 4)
-                            {
-                                Game1.addHUDMessage(new HUDMessage("STOPPPPP!!!!!", 2));
-                            }
-                            else if (clicks < 5)
-                            {
-                                Game1.addHUDMessage(new HUDMessage("OKAY THAT'S IT! NO MORE AXE FOR MEANIES LIKE YOU!", 2));
-                                Game1.player.CurrentTool = new WateringCan();
-                            }
-                            else if (clicks < 6)
-                            {
-                                Game1.addHUDMessage(new HUDMessage("HOW DID YOU EVEN GET ANOTHER AXE?!?!?", 2));
-                                Game1.addHUDMessage(new HUDMessage("DIEEE!!!!!!!!!", 2));
-                                for(int i =0; i < 5;  i++)
-                                {
-                                    Monster temp = new Skeleton(new Vector2(16+i, 18));
-                                    temp.BuffForAdditionalDifficulty(1000);
-                                    Game1.currentLocation.characters.Add(temp);
-                                }
-                            }
-                            else
-                            {
-                                Game1.addHUDMessage(new HUDMessage("DIEEE!!!!!!!!!", 2));
-                                for (int i = 0; i < 5; i++)
-                                {
-                                    Monster temp = new Skeleton(new Vector2(16 + i, 18));
-                                    temp.BuffForAdditionalDifficulty(1000);
-                                    Game1.currentLocation.characters.Add(temp);
-                                }
-                            }
-                            clicks++;
-                        }
-                    }
-                }
-            }
-        }
         private void WateringPoison()
         {
             //deactivate the poison with water
@@ -439,6 +440,7 @@ namespace HopeToRiseMod
                 Game1.currentLocation.removeTile(x, y, "Back");
             }
         }
+        #endregion
         #endregion
 
         #region // Warp Methods
