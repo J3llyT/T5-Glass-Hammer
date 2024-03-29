@@ -24,6 +24,10 @@
       "Action": "Include",
       "FromFile": "other/shop.json"
     },
+    {
+      "Action": "Include",
+      "FromFile": "other/tree.json"
+    },
 
     // LOAD
     {
@@ -106,6 +110,7 @@
       "Target": "TileSheets/Maidmer",
       "FromFile": "assets/Maidmer.PNG"
     },
+    
 
     // EDIT DATA
     {
@@ -592,74 +597,6 @@
           "CanBeLostOnDeath": "true"
         }
       }
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/WildTrees",
-      "Entries": {
-        "DreamTree": {
-          "Textures": [
-            {
-              "Texture": "TerrainFeatures/tree1_summer"
-            }
-          ],
-          "IsLeafy": true,
-          "GrowsInWinter": true,
-          "IsLeafyInWinter": true,
-          "ShakeItems": [
-            {
-              "ID": "DreamRing",
-              "ItemId": "DreamRing",
-              "Chance": 1.0
-            }
-          ]
-        },
-        "FishTree": {
-          "Textures": [
-            {
-              "Texture": "TerrainFeatures/tree1_summer"
-            }
-          ],
-          "IsLeafy": true,
-          "GrowsInWinter": true,
-          "IsLeafyInWinter": true,
-          "ShakeItems": [
-            {
-              "ID": "Maidmer",
-              "ItemId": "Maidmer",
-              "Chance": 1.0
-            }
-          ]
-        }
-      }
-    },
-    //{
-    //  "Action": "EditData",
-    //  "Target": "Data/GarbageCans",
-    //  "TargetField": [ "GarbageCans" ],
-    //  "Entries": {
-    //    "DreamRingTrash": {
-    //      "BaseChance": 1.0,
-    //      "Items": [
-    //        {
-    //          "ID": "DreamRing",
-    //          "ItemId": "DreamRing",
-    //          "IsDoubleMegaSuccess": "true",
-    //          "AddToInventoryDirectly": "true"
-    //        }
-    //      ]
-    //    },
-    //    "FishTrash": {
-    //      "BaseChance": 1.0,
-    //      "Items": [
-    //        {
-    //          "ID": "Maidmer",
-    //          "ItemId": "Maidmer",
-    //          "AddToInventoryDirectly": "true"
-    //        }
-    //      ]
-    //    }
-    //  }
-    //}
+    }
   ]
 }

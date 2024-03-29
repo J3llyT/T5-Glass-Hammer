@@ -1,0 +1,213 @@
+{
+  "Changes": [
+    //tree loading
+    {
+      "Action": "Load",
+      "Target": "TileSheets/DreamTree",
+      "FromFile": "assets/dreamTree.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/Tree1",
+      "FromFile": "assets/BlueGrassRecolourAssets/TerrainFeatures/tree1_summer.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/Tree2",
+      "FromFile": "assets/BlueGrassRecolourAssets/TerrainFeatures/tree1_winter.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/Tree3",
+      "FromFile": "assets/BlueGrassRecolourAssets/TerrainFeatures/tree2_fall.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/Tree4",
+      "FromFile": "assets/BlueGrassRecolourAssets/TerrainFeatures/tree1_spring.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/Tree5",
+      "FromFile": "assets/BlueGrassRecolourAssets/TerrainFeatures/tree2_summer.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/Tree6",
+      "FromFile": "assets/BlueGrassRecolourAssets/TerrainFeatures/tree2_winter.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/Tree7",
+      "FromFile": "assets/BlueGrassRecolourAssets/TerrainFeatures/tree8_winter.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "TileSheets/Tree8",
+      "FromFile": "assets/BlueGrassRecolourAssets/TerrainFeatures/tree8_spring.png"
+    },
+
+    //tree adding
+    {
+      "Action": "EditData",
+      "Target": "Data/WildTrees",
+      "Entries": {
+        "DreamTree": {
+          "Textures": [
+            {
+              "Texture": "TileSheets/DreamTree"
+            }
+          ],
+          "DropWoodOnChop": false,
+          "DropHardwoodOnLumberChop": false,
+          "IsLeafy": true,
+          "GrowsInWinter": true,
+          "IsLeafyInWinter": true,
+          "ShakeItems": [
+            {
+              "ID": "DreamRing",
+              "ItemId": "DreamRing",
+              "Chance": 1.0
+            }
+          ]
+        },
+        "FishTree": {
+          "Textures": [
+            {
+              "Texture": "TileSheets/Tree1"
+            }
+          ],
+          "IsLeafy": true,
+          "GrowsInWinter": true,
+          "IsLeafyInWinter": true,
+          "ShakeItems": [
+            {
+              "ID": "Maidmer",
+              "ItemId": "Maidmer",
+              "Chance": 1.0
+            }
+          ]
+        },
+        "FishTree1": {
+          "Textures": [
+            {
+              "Texture": "TileSheets/Tree2"
+            }
+          ],
+          "IsLeafy": true,
+          "GrowsInWinter": true,
+          "IsLeafyInWinter": true,
+          "ShakeItems": [
+            {
+              "ID": "Maidmer",
+              "ItemId": "Maidmer",
+              "Chance": 1.0
+            }
+          ]
+        },
+        "FishTree2": {
+          "Textures": [
+            {
+              "Texture": "TileSheets/Tree3"
+            }
+          ],
+          "IsLeafy": true,
+          "GrowsInWinter": true,
+          "IsLeafyInWinter": true,
+          "ShakeItems": [
+            {
+              "ID": "Maidmer",
+              "ItemId": "Maidmer",
+              "Chance": 1.0
+            }
+          ]
+        },
+        "FishTree3": {
+          "Textures": [
+            {
+              "Texture": "TileSheets/Tree4"
+            }
+          ],
+          "IsLeafy": true,
+          "GrowsInWinter": true,
+          "IsLeafyInWinter": true,
+          "ShakeItems": [
+            {
+              "ID": "Maidmer",
+              "ItemId": "Maidmer",
+              "Chance": 1.0
+            }
+          ]
+        },
+        "FishTree4": {
+          "Textures": [
+            {
+              "Texture": "TileSheets/Tree5"
+            }
+          ],
+          "IsLeafy": true,
+          "GrowsInWinter": true,
+          "IsLeafyInWinter": true,
+          "ShakeItems": [
+            {
+              "ID": "Maidmer",
+              "ItemId": "Maidmer",
+              "Chance": 1.0
+            }
+          ]
+        },
+        "FishTree5": {
+          "Textures": [
+            {
+              "Texture": "TileSheets/Tree6"
+            }
+          ],
+          "IsLeafy": true,
+          "GrowsInWinter": true,
+          "IsLeafyInWinter": true,
+          "ShakeItems": [
+            {
+              "ID": "Maidmer",
+              "ItemId": "Maidmer",
+              "Chance": 1.0
+            }
+          ]
+        },
+        "FishTree6": {
+          "Textures": [
+            {
+              "Texture": "TileSheets/Tree7"
+            }
+          ],
+          "IsLeafy": true,
+          "GrowsInWinter": true,
+          "IsLeafyInWinter": true,
+          "ShakeItems": [
+            {
+              "ID": "Maidmer",
+              "ItemId": "Maidmer",
+              "Chance": 1.0
+            }
+          ]
+        },
+        "FishTree7": {
+          "Textures": [
+            {
+              "Texture": "TileSheets/Tree8"
+            }
+          ],
+          "IsLeafy": true,
+          "GrowsInWinter": true,
+          "IsLeafyInWinter": true,
+          "ShakeItems": [
+            {
+              "ID": "Maidmer",
+              "ItemId": "Maidmer",
+              "Chance": 1.0
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -39,6 +39,7 @@ namespace HopeToRiseMod
         Texture2D PoisonTile;
         Texture2D PoisonTileCooled;
 
+        private int clicks = 0;
         /// <summary>The mod entry point, called after the mod is first loaded.</summary>
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
@@ -180,6 +181,37 @@ namespace HopeToRiseMod
                         if (Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "TouchAction", "Back") == "poison")
                         {
                             DeactivatePoisonTile((int)tileCoordinates.X, (int)tileCoordinates.Y);
+                        }
+                    }
+                    //for the tree in northwest
+                    if (Game1.player.CurrentTool is Axe && Game1.currentLocation != null)
+                    {
+                        Vector2 tileCoordinates = Game1.currentCursorTile;
+                        if (Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "SpawnTree", "Paths") == "wild DreamTree 5 5")
+                        {
+                            if (clicks < 1)
+                            {
+                                Game1.addHUDMessage(new HUDMessage("Why would you want to cut down such a beautiful tree?.", 2));
+                            }
+                            else if (clicks < 2)
+                            {
+                                Game1.addHUDMessage(new HUDMessage("Do you really have no conscience??", 2));
+                            }
+                            else if (clicks < 3)
+                            {
+                                Game1.addHUDMessage(new HUDMessage("You will regret this...", 2));
+                            }
+                            else if (clicks < 4)
+                            {
+                                Game1.addHUDMessage(new HUDMessage("STOPPPPP!!!!!", 2));
+                            }
+                            else
+                            {
+                                Game1.addHUDMessage(new HUDMessage("OKAY THAT'S IT! NO MORE AXE FOR MEANIES LIKE YOU!", 2));
+                                Game1.player.CurrentTool = new WateringCan();
+                                Game1.playSound("toolSwap");
+                            }
+                            clicks++;
                         }
                     }
                 }
