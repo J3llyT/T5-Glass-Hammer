@@ -1,0 +1,78 @@
+{
+	"Format": "2.0.0",
+	"Changes": [
+		{
+			// Disposition
+			"Logname": "SajDispo",
+			"Action": "EditData",
+			"Target": "Data/Characters",
+			"Entries": {
+				"Saj": {
+					"DisplayName": "Jas",
+					"BirthSeason": "Summer",
+					"BirthDay": 4,
+					"HomeRegion": "Town",
+					"Gender": "Female",
+					"Age": "Teen",
+					"Manner": "Polite",
+					"SocialAnxiety": "Shy",
+					"Optimism": "Neutral",
+					"CanBeRomanced": false,
+					"CanVisitIsland": false,
+					"Calender": "HiddenUntilMet",
+					"SocialTab": "UnknownUntilMet",
+					"IntroductionsQuest": false,
+					"PerfectionScore": false,
+					"EndSlideShow": "TrailingGroup",
+					"WinterStarParticipant": false,
+					"Home": [
+						{
+							"Id": "DreamWorldSpawn",
+							"Location": "DreamWorldSpawn",
+							"Tile": {
+								"X": 13,
+								"Y": 13
+							},
+							"Direction": "Down"
+						}
+					],
+					"Appearance": [
+						{
+							"Id": "Default",
+							"Portrait": "Portraits/Saj",
+							"Sprite": "Characters/Saj"
+						}
+					]
+				}
+				}
+			},
+		{
+			// Portrait
+			"LogName": "SajPortrait",
+			"Action": "Load",
+			"Target": "Portraits/Saj",
+			"FromFile": "assets/Portrait/Saj.png"
+		},
+		{
+			// Sprite
+			"LogName": "SajSprite",
+			"Action": "Load",
+			"Target": "Characters/Saj",
+			"FromFile": "assets/Character/Saj.png"
+		},
+		{
+			// Schedule
+			"LogName": "JasSchedule",
+			"Action": "Load",
+			"Target": "Characters/schedules/Saj",
+			"FromFile": "assets/Schedules/schedule.json"
+		},
+		{
+			// Dialogue
+			"LogName": "SajDialogue",
+			"Action": "Load",
+			"Target": "Characters/Dialogue/Saj",
+			"FromFile": "assets/Dialogue/dialogue.json"
+		}
+	]
+}

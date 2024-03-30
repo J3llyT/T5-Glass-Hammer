@@ -1,0 +1,11 @@
+{
+	"Name": "NPC - Tnecniv",
+	"Author": "Glass Hammer",
+	"Version": "2.0.0",
+	"Description": ";)",
+	"UniqueID": "Tnecniv.HopeToRise",
+	"UpdateKeys": [],
+	"ContentPackFor": {
+		"UniqueID": "Pathoschild.ContentPatcher"
+	}
+}
