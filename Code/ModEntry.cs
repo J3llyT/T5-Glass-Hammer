@@ -39,6 +39,8 @@ namespace HopeToRiseMod
         Texture2D PoisonTile;
         Texture2D PoisonTileCooled;
 
+        private bool isMouseLeftButtonDown = false;
+        private int clicks = 0;
         /// <summary>The mod entry point, called after the mod is first loaded.</summary>
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
@@ -49,7 +51,8 @@ namespace HopeToRiseMod
 
             //for watering can logic
             helper.Events.Input.CursorMoved += OnCursorMoved;
-            helper.Events.Input.ButtonPressed += WateringPoison;
+            helper.Events.Input.ButtonPressed += LeftClick;
+            helper.Events.Input.ButtonReleased += WateringPoisonRelease;
 
             //loading in textures
             PoisonTile = helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonTile.png");
@@ -128,19 +131,22 @@ namespace HopeToRiseMod
                         // Change the tile at the randomly selected position
                         currentLocation.setMapTileIndex(randomX, randomY, 923467, "Back");
                         //add the poison to the tile
-                        currentLocation.setTileProperty(randomX, randomY, "Back", "TouchAction", "poison");
+                        
 
                         currentLocation.removeTile(randomX, randomY, "Back");
 
                         Layer layer = currentLocation.map.GetLayer("Back");
                         TileSheet tilesheet = currentLocation.map.GetTileSheet("z_PoisonTile");
                         layer.Tiles[randomX, randomY] = new StaticTile(layer, tilesheet, BlendMode.Alpha, tileIndex: 0);
+
+                        currentLocation.setTileProperty(randomX, randomY, "Back", "TouchAction", "poison");
                     }
                 }
 
                 poisonTilesSpawned = true;
             }
             #endregion
+
         }
         #region // Tile Methods
         private void GiveBuff(GameLocation location, string[] args, Farmer player, Vector2 tile)
@@ -164,26 +170,259 @@ namespace HopeToRiseMod
                 DeactivatePoisonTile((int)tile.X, (int)tile.Y);
             }
         }
-        private void WateringPoison(object? sender, ButtonPressedEventArgs e)
+        private void LeftClick(object? sender, ButtonPressedEventArgs e)
         {
             if (e.Button == SButton.MouseLeft)
             {
+                isMouseLeftButtonDown = true;
                 if (lastMouseTile != Vector2.Zero)
                 {
-                    //deactivate the poison with water
-                    if (Game1.player.CurrentTool is WateringCan && Game1.currentLocation != null)
+                    WateringPoison();
+                    Vector2 tileCoordinates = Game1.currentCursorTile;
+                    //for the tree in northwest
+                    if (Game1.player.CurrentTool is Axe && Game1.currentLocation != null)
                     {
-                        // Get the tile coordinates where the watering can is used
-                        Vector2 tileCoordinates = Game1.currentCursorTile;
-                        if (Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "TouchAction", "Back") == "poison")
+                        if (Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "SpawnTree", "Paths") == "wild DreamTree 5 5")
                         {
-                            DeactivatePoisonTile((int)tileCoordinates.X, (int)tileCoordinates.Y);
+                            if (clicks < 1)
+                            {
+                                Game1.addHUDMessage(new HUDMessage("Why would you want to cut down such a beautiful tree?", 2));
+                            }
+                            else if (clicks < 2)
+                            {
+                                Game1.addHUDMessage(new HUDMessage("Do you really have no conscience??", 2));
+                            }
+                            else if (clicks < 3)
+                            {
+                                Game1.addHUDMessage(new HUDMessage("You will regret this...", 2));
+                            }
+                            else if (clicks < 4)
+                            {
+                                Game1.addHUDMessage(new HUDMessage("STOPPPPP!!!!!", 2));
+                            }
+                            else if (clicks < 5)
+                            {
+                                Game1.addHUDMessage(new HUDMessage("OKAY THAT'S IT! NO MORE AXE FOR MEANIES LIKE YOU!", 2));
+                                Game1.player.CurrentTool = new WateringCan();
+                            }
+                            else if (clicks < 6)
+                            {
+                                Game1.addHUDMessage(new HUDMessage("HOW DID YOU EVEN GET ANOTHER AXE?!?!?", 2));
+                                Game1.addHUDMessage(new HUDMessage("DIEEE!!!!!!!!!", 2));
+                                for(int i =0; i < 5;  i++)
+                                {
+                                    Monster temp = new Skeleton(new Vector2(16+i, 18));
+                                    temp.BuffForAdditionalDifficulty(1000);
+                                    Game1.currentLocation.characters.Add(temp);
+                                }
+                            }
+                            else
+                            {
+                                Game1.addHUDMessage(new HUDMessage("DIEEE!!!!!!!!!", 2));
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    Monster temp = new Skeleton(new Vector2(16 + i, 18));
+                                    temp.BuffForAdditionalDifficulty(1000);
+                                    Game1.currentLocation.characters.Add(temp);
+                                }
+                            }
+                            clicks++;
                         }
                     }
                 }
             }
         }
-
+        #region //Watering Can Methods
+        List<Vector2> tilesAffected(Vector2 tileLocation, int power, Farmer who)
+        {
+            power++;
+            List<Vector2> tileLocations = new List<Vector2>();
+            tileLocations.Add(tileLocation);
+            Vector2 extremePowerPosition = Vector2.Zero;
+            switch (who.FacingDirection)
+            {
+                case 0:
+                    if (power >= 6)
+                    {
+                        extremePowerPosition = new Vector2(tileLocation.X, tileLocation.Y - 2f);
+                        break;
+                    }
+                    if (power >= 2)
+                    {
+                        tileLocations.Add(tileLocation + new Vector2(0f, -1f));
+                        tileLocations.Add(tileLocation + new Vector2(0f, -2f));
+                    }
+                    if (power >= 3)
+                    {
+                        tileLocations.Add(tileLocation + new Vector2(0f, -3f));
+                        tileLocations.Add(tileLocation + new Vector2(0f, -4f));
+                    }
+                    if (power >= 4)
+                    {
+                        tileLocations.RemoveAt(tileLocations.Count - 1);
+                        tileLocations.RemoveAt(tileLocations.Count - 1);
+                        tileLocations.Add(tileLocation + new Vector2(1f, -2f));
+                        tileLocations.Add(tileLocation + new Vector2(1f, -1f));
+                        tileLocations.Add(tileLocation + new Vector2(1f, 0f));
+                        tileLocations.Add(tileLocation + new Vector2(-1f, -2f));
+                        tileLocations.Add(tileLocation + new Vector2(-1f, -1f));
+                        tileLocations.Add(tileLocation + new Vector2(-1f, 0f));
+                    }
+                    if (power >= 5)
+                    {
+                        for (int l = tileLocations.Count - 1; l >= 0; l--)
+                        {
+                            tileLocations.Add(tileLocations[l] + new Vector2(0f, -3f));
+                        }
+                    }
+                    break;
+                case 1:
+                    if (power >= 6)
+                    {
+                        extremePowerPosition = new Vector2(tileLocation.X + 2f, tileLocation.Y);
+                        break;
+                    }
+                    if (power >= 2)
+                    {
+                        tileLocations.Add(tileLocation + new Vector2(1f, 0f));
+                        tileLocations.Add(tileLocation + new Vector2(2f, 0f));
+                    }
+                    if (power >= 3)
+                    {
+                        tileLocations.Add(tileLocation + new Vector2(3f, 0f));
+                        tileLocations.Add(tileLocation + new Vector2(4f, 0f));
+                    }
+                    if (power >= 4)
+                    {
+                        tileLocations.RemoveAt(tileLocations.Count - 1);
+                        tileLocations.RemoveAt(tileLocations.Count - 1);
+                        tileLocations.Add(tileLocation + new Vector2(0f, -1f));
+                        tileLocations.Add(tileLocation + new Vector2(1f, -1f));
+                        tileLocations.Add(tileLocation + new Vector2(2f, -1f));
+                        tileLocations.Add(tileLocation + new Vector2(0f, 1f));
+                        tileLocations.Add(tileLocation + new Vector2(1f, 1f));
+                        tileLocations.Add(tileLocation + new Vector2(2f, 1f));
+                    }
+                    if (power >= 5)
+                    {
+                        for (int k = tileLocations.Count - 1; k >= 0; k--)
+                        {
+                            tileLocations.Add(tileLocations[k] + new Vector2(3f, 0f));
+                        }
+                    }
+                    break;
+                case 2:
+                    if (power >= 6)
+                    {
+                        extremePowerPosition = new Vector2(tileLocation.X, tileLocation.Y + 2f);
+                        break;
+                    }
+                    if (power >= 2)
+                    {
+                        tileLocations.Add(tileLocation + new Vector2(0f, 1f));
+                        tileLocations.Add(tileLocation + new Vector2(0f, 2f));
+                    }
+                    if (power >= 3)
+                    {
+                        tileLocations.Add(tileLocation + new Vector2(0f, 3f));
+                        tileLocations.Add(tileLocation + new Vector2(0f, 4f));
+                    }
+                    if (power >= 4)
+                    {
+                        tileLocations.RemoveAt(tileLocations.Count - 1);
+                        tileLocations.RemoveAt(tileLocations.Count - 1);
+                        tileLocations.Add(tileLocation + new Vector2(1f, 2f));
+                        tileLocations.Add(tileLocation + new Vector2(1f, 1f));
+                        tileLocations.Add(tileLocation + new Vector2(1f, 0f));
+                        tileLocations.Add(tileLocation + new Vector2(-1f, 2f));
+                        tileLocations.Add(tileLocation + new Vector2(-1f, 1f));
+                        tileLocations.Add(tileLocation + new Vector2(-1f, 0f));
+                    }
+                    if (power >= 5)
+                    {
+                        for (int j = tileLocations.Count - 1; j >= 0; j--)
+                        {
+                            tileLocations.Add(tileLocations[j] + new Vector2(0f, 3f));
+                        }
+                    }
+                    break;
+                case 3:
+                    if (power >= 6)
+                    {
+                        extremePowerPosition = new Vector2(tileLocation.X - 2f, tileLocation.Y);
+                        break;
+                    }
+                    if (power >= 2)
+                    {
+                        tileLocations.Add(tileLocation + new Vector2(-1f, 0f));
+                        tileLocations.Add(tileLocation + new Vector2(-2f, 0f));
+                    }
+                    if (power >= 3)
+                    {
+                        tileLocations.Add(tileLocation + new Vector2(-3f, 0f));
+                        tileLocations.Add(tileLocation + new Vector2(-4f, 0f));
+                    }
+                    if (power >= 4)
+                    {
+                        tileLocations.RemoveAt(tileLocations.Count - 1);
+                        tileLocations.RemoveAt(tileLocations.Count - 1);
+                        tileLocations.Add(tileLocation + new Vector2(0f, -1f));
+                        tileLocations.Add(tileLocation + new Vector2(-1f, -1f));
+                        tileLocations.Add(tileLocation + new Vector2(-2f, -1f));
+                        tileLocations.Add(tileLocation + new Vector2(0f, 1f));
+                        tileLocations.Add(tileLocation + new Vector2(-1f, 1f));
+                        tileLocations.Add(tileLocation + new Vector2(-2f, 1f));
+                    }
+                    if (power >= 5)
+                    {
+                        for (int i = tileLocations.Count - 1; i >= 0; i--)
+                        {
+                            tileLocations.Add(tileLocations[i] + new Vector2(-3f, 0f));
+                        }
+                    }
+                    break;
+            }
+            if (power >= 6)
+            {
+                tileLocations.Clear();
+                for (int x = (int)extremePowerPosition.X - 2; (float)x <= extremePowerPosition.X + 2f; x++)
+                {
+                    for (int y = (int)extremePowerPosition.Y - 2; (float)y <= extremePowerPosition.Y + 2f; y++)
+                    {
+                        tileLocations.Add(new Vector2(x, y));
+                    }
+                }
+            }
+            return tileLocations;
+        }
+        private void WateringPoison()
+        {
+            //deactivate the poison with water
+            if (Game1.player.CurrentTool is WateringCan watercan && Game1.currentLocation != null)
+            {
+                Vector2 tileCoordinates = Game1.currentCursorTile;
+                int power = Game1.player.toolPower.Value;
+                float distance = Vector2.Distance(Game1.player.Tile, tileCoordinates);
+                if(distance < 3  && watercan.WaterLeft>0)
+                {
+                    List<Vector2> tileLocations = tilesAffected(new Vector2((int)tileCoordinates.X, (int)tileCoordinates.Y), power, Game1.player);
+                    //Monitor.Log("Tiles Affected: ", LogLevel.Info);
+                    foreach (Vector2 tile in tileLocations)
+                    {
+                        DeactivatePoisonTile((int)tile.X, (int)tile.Y);
+                        //Monitor.Log($"{tile}", LogLevel.Info);
+                    }
+                }
+            }
+        }
+        private void WateringPoisonRelease(object? sender, ButtonReleasedEventArgs e)
+        {
+            if (e.Button == SButton.MouseLeft)
+            {
+                isMouseLeftButtonDown = false;
+                WateringPoison();
+            }
+        }
         private void OnCursorMoved(object? sender, CursorMovedEventArgs e)
         {
             Vector2 mouseTile = Game1.currentCursorTile;
@@ -201,6 +440,7 @@ namespace HopeToRiseMod
                 Game1.currentLocation.removeTile(x, y, "Back");
             }
         }
+        #endregion
         #endregion
 
         #region // Warp Methods

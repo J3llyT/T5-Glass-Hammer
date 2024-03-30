@@ -23,16 +23,17 @@
                 // TODO: Add the teddy bear item instead of the placeholder boots
                 "HTR.ReceiveTeddyBearEvent/F/e GlassHammer.HTR_Hospital_event": "WizardSong/-1000 -1000/farmer 8 24 0 Wizard 10 15 2 Junimo -2000 -2000 2/skippable/showFrame Wizard 20/viewport 8 18 true/move farmer 0 -3 0/pause 2000/speak Wizard \"{{i18n: HTR.TeddyEvent_Wizard.01}}\"/pause 800/animate Wizard false false 100 20 21 22 0/playSound dwop/pause 1000/stopAnimation Wizard/move Wizard -2 0 3 false/move Wizard 0 2 2/pause 1500/speak Wizard \"{{i18n: HTR.TeddyEvent_Wizard.02}} #$b# {{i18n: HTR.TeddyEvent_Wizard.03}}#$b#{{i18n: HTR.TeddyEvent_Wizard.04}}#$b#{{i18n: HTR.TeddyEvent_Wizard.05}}#$b#{{i18n: HTR.TeddyEvent_Wizard.06}}\"/addItem (B)505 1 0/pause 600/end"
             }
-        } /*,
+        },
 
-        // DREAM WORLD EVENTS
-
-        // First Spawn Event
+        // Wizard House Event
+        // Hospital Event
         {
-            "Action": "Load",
-            "Target": "Data/Events",
-            "FromFile": ""
-        } */
+            "Action": "EditData",
+            "Target": "Data/Events/DreamWorldSpawn", 
+            "Entries": {
+                "HTR.DreamWorldSpawn_event/NpcVisible Vanna/Tile 14 7": "PinkPetals/-1000 -1000/farmer 14 7 0 Vanna 26 6 3/skippable/viewport 17 7 true/emote farmer 25/pause 300/move farmer -2 0 3/emote farmer 8/move Vanna -4 0 3/move farmer 0 3 2/move farmer 4 0 1/pause 300/jump Vanna/speak Vanna \"Dialogue\"/question null \"Do you know them?#I'm confused.#Aren't they supposed to be in a sleeping?#How did I get here?\"/pause 300/emote Vanna 27/speak Vanna \"Dialogue\"/question null \"Don't worry. You'll all get used to staying here.#But my crops!#How do we leave?\"/speak Vanna \"Dialogue\"/pause 600/end"
+            }
+        }
 
     ]
-}
+}     

@@ -24,8 +24,18 @@
       "Action": "Include",
       "FromFile": "other/shop.json"
     },
+    {
+      "Action": "Include",
+      "FromFile": "other/tree.json"
+    },
 
-    // LOAD
+    // LOADING DREAMWORLD EVENT DESTINATIONS
+    {
+      "Action": "Load",
+      "Target": "Data/Events/DreamWorldSpawn",
+      "FromFile": "blank.json"
+    },
+    // LOADING MAPS
     {
       "Action": "Load",
       "Target": "Maps/HopeToRise_DreamWorldTest",
@@ -82,9 +92,9 @@
       "FromFile": "assets/Potion.png"
     },
     {
-    "Action": "Load",
-    "Target": "TileSheets/DreamBoots",
-    "FromFile": "assets/DreamBoots.png"
+      "Action": "Load",
+      "Target": "TileSheets/DreamBoots",
+      "FromFile": "assets/DreamBoots.png"
     },
     {
       "Action": "Load",
@@ -106,6 +116,7 @@
       "Target": "TileSheets/Maidmer",
       "FromFile": "assets/Maidmer.PNG"
     },
+    
 
     // EDIT DATA
     {
@@ -349,7 +360,7 @@
         "DreamWorldNorthWest": {
           "DisplayName": "DreamWorldNorthWest",
           "DefaultArrivalTile": {
-            "X": 41,
+            "X": 23,
             "Y": 40
           },
           "ExcludeFromNpcPathfinding": false,
@@ -526,18 +537,18 @@
     //}
     //},
     {
-    // not wearable
-    "Action": "EditData",
-    "Target": "Data/Objects",
-    "Entries": {
-      "DreamBoots": {
-        "Name": "DreamBoots",
-        "DisplayName": "Dream Boots",
-        "Description": "These dream boots sparkle beautifully.",
-        "Price": 400,
-        "Texture": "TileSheets/DreamBoots",
-        "SpriteIndex": "0",
-        "CanBeLostOnDeath": "false"
+      // not wearable
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "Entries": {
+        "DreamBoots": {
+          "Name": "DreamBoots",
+          "DisplayName": "Dream Boots",
+          "Description": "These dream boots sparkle beautifully.",
+          "Price": 400,
+          "Texture": "TileSheets/DreamBoots",
+          "SpriteIndex": "0",
+          "CanBeLostOnDeath": "false"
         }
       }
     },
@@ -598,7 +609,9 @@
           "Name": "Maidmer",
           "DisplayName": "Maidmer",
           "Description": "Legendary creatures, but they look a bit strange.",
-          "Price": 90,
+          "Price": 80,
+          "Type": "Cooking",
+          "Edibility": 70,
           "Texture": "TileSheets/Maidmer",
           "SpriteIndex": "0",
           "CanBeLostOnDeath": "true"
