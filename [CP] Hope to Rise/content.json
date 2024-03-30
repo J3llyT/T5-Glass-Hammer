@@ -29,7 +29,13 @@
       "FromFile": "other/tree.json"
     },
 
-    // LOAD
+    // LOADING DREAMWORLD EVENT DESTINATIONS
+    {
+      "Action": "Load",
+      "Target": "Data/Events/DreamWorldSpawn",
+      "FromFile": "blank.json"
+    },
+    // LOADING MAPS
     {
       "Action": "Load",
       "Target": "Maps/HopeToRise_DreamWorldTest",
