@@ -319,6 +319,11 @@
                     "Id": "DreamBoots",
                     "ItemId": "DreamBoots",
                     "CatchLimit": 1
+                },
+                {
+                    "Chance": 0.80,
+                    "Id": "Maidmer",
+                    "ItemId": "Maidmer"
                 }
             ],
           "Forage": [],
