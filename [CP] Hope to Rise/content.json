@@ -597,7 +597,9 @@
           "Name": "Maidmer",
           "DisplayName": "Maidmer",
           "Description": "Legendary creatures, but they look a bit strange.",
-          "Price": 90,
+          "Price": 80,
+          "Type": "Cooking",
+          "Edibility": 70,
           "Texture": "TileSheets/Maidmer",
           "SpriteIndex": "0",
           "CanBeLostOnDeath": "true"
