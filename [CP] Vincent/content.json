@@ -1,0 +1,78 @@
+{
+	"Format": "2.0.0",
+	"Changes": [
+		{
+			// Disposition
+			"Logname": "TnecnivDispo",
+			"Action": "EditData",
+			"Target": "Data/Characters",
+			"Entries": {
+				"Tnecniv": {
+					"DisplayName": "Vincent",
+					"BirthSeason": "Spring",
+					"BirthDay": 10,
+					"HomeRegion": "Town",
+					"Gender": "Male",
+					"Age": "Teen",
+					"Manner": "Neutral",
+					"SocialAnxiety": "Outgoing",
+					"Optimism": "Positive",
+					"CanBeRomanced": false,
+					"CanVisitIsland": false,
+					"Calender": "HiddenUntilMet",
+					"SocialTab": "UnknownUntilMet",
+					"IntroductionsQuest": false,
+					"PerfectionScore": false,
+					"EndSlideShow": "TrailingGroup",
+					"WinterStarParticipant": false,
+					"Home": [
+						{
+							"Id": "DreamWorldSpawn",
+							"Location": "DreamWorldSpawn",
+							"Tile": {
+								"X": 12,
+								"Y": 12
+							},
+							"Direction": "Down"
+						}
+					],
+					"Appearance": [
+						{
+							"Id": "Default",
+							"Portrait": "Portraits/Tnecniv",
+							"Sprite": "Characters/Tnecniv"
+						}
+					]
+				}
+				}
+			},
+		{
+			// Portrait
+			"LogName": "TnecnivPortrait",
+			"Action": "Load",
+			"Target": "Portraits/Tnecniv",
+			"FromFile": "assets/Portrait/Tnecniv.png"
+		},
+		{
+			// Sprite
+			"LogName": "TnecnivSprite",
+			"Action": "Load",
+			"Target": "Characters/Tnecniv",
+			"FromFile": "assets/Character/Tnecniv.png"
+		},
+		{
+			// Schedule
+			"LogName": "TnecnivSchedule",
+			"Action": "Load",
+			"Target": "Characters/schedules/Tnecniv",
+			"FromFile": "assets/Schedules/schedule.json"
+		},
+		{
+			// Dialogue
+			"LogName": "TnecnivDialogue",
+			"Action": "Load",
+			"Target": "Characters/Dialogue/Tnecniv",
+			"FromFile": "assets/Dialogue/dialogue.json"
+		}
+	]
+}

@@ -324,7 +324,19 @@
           "CanPlantHere": false,
           "ArtifactSpots": [],
           "FishAreas": {},
-          "Fish": [],
+            "Fish": [
+                {
+                    "Chance": 0.20,
+                    "Id": "DreamBoots",
+                    "ItemId": "DreamBoots",
+                    "CatchLimit": 1
+                },
+                {
+                    "Chance": 0.80,
+                    "Id": "Maidmer",
+                    "ItemId": "Maidmer"
+                }
+            ],
           "Forage": [],
           "MinDailyWeeds": 2,
           "MaxDailyWeeds": 5,
@@ -597,7 +609,9 @@
           "Name": "Maidmer",
           "DisplayName": "Maidmer",
           "Description": "Legendary creatures, but they look a bit strange.",
-          "Price": 90,
+          "Price": 80,
+          "Type": "Cooking",
+          "Edibility": 70,
           "Texture": "TileSheets/Maidmer",
           "SpriteIndex": "0",
           "CanBeLostOnDeath": "true"

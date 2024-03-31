@@ -1,0 +1,11 @@
+{
+	"Name": "NPC - Saj",
+	"Author": "Glass Hammer",
+	"Version": "2.0.0",
+	"Description": ";)",
+	"UniqueID": "Saj.HopeToRise",
+	"UpdateKeys": [],
+	"ContentPackFor": {
+		"UniqueID": "Pathoschild.ContentPatcher"
+	}
+}
