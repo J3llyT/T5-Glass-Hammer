@@ -27,11 +27,12 @@
 
         // Wizard House Event
         // Hospital Event
+        // 0 - up       1 - right       2 - down        3 - left
         {
             "Action": "EditData",
             "Target": "Data/Events/DreamWorldSpawn", 
             "Entries": {
-                "HTR.DreamWorldSpawn_event/NpcVisible Vanna/Tile 14 7": "PinkPetals/-1000 -1000/farmer 14 7 0 Vanna 26 6 3/skippable/viewport 17 7 true/emote farmer 25/pause 300/move farmer -2 0 3/emote farmer 8/move Vanna -4 0 3/move farmer 0 3 2/move farmer 4 0 1/pause 300/jump Vanna/speak Vanna \"Dialogue\"/question null \"Do you know them?#I'm confused.#Aren't they supposed to be in a sleeping?#How did I get here?\"/pause 300/emote Vanna 27/speak Vanna \"Dialogue\"/question null \"Don't worry. You'll all get used to staying here.#But my crops!#How do we leave?\"/speak Vanna \"Dialogue\"/pause 600/end"
+                "HTR.DreamWorldSpawn_event/NpcVisible Vanna/Tile 14 7": "none/-100 -100/farmer 14 7 0 Vanna 5 12 2/skippable/viewport 15 8/emote farmer 24/pause 300/move farmer -2 0 2 Vanna 0 2 2/pause 200/showFrame 94/emote farmer 8/ showFrame 0/emote Vanna 32/pause 600/move farmer 0 2 2/viewport move -1 1 5000/pause 300/viewport 15 10/move farmer 0 3 2 Vanna 5 0 0/jump Vanna 4/jump farmer 8/speak Vanna \"{{i18n: HTR.DWSpawnEvent_Vanna.01}} #$4#$b# {{i18n: HTR.DWSpawnEvent_Vanna.02}} \"/pause 300/emote farmer 40/pause 200/speak Vanna \"Sleeping? #$b# {{i18n: HTR.DWSpawnEvent_Vanna.03}} #$b#$4# {{i18n: HTR.DWSpawnEvent_Vanna.04}}\"/emote farmer 12/pause 300/speak Vanna \"{{i18n: HTR.DWSpawnEvent_Vanna.05}} #$b# {{i18n: HTR.DWSpawnEvent_Vanna.06}}\"/pause 600/end"
             }
         }
 

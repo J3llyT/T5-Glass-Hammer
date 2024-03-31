@@ -39,7 +39,16 @@
     "HTR.TeddyEvent_Wizard.03": "Sleeping without protection can be dangerous.",
     "HTR.TeddyEvent_Wizard.04": "All these questions. Be patient and you will have your answers",
     "HTR.TeddyEvent_Wizard.05": "Rest assured, I will be alright. But you are vulnerable",
-    "HTR.TeddyEvent_Wizard.06": "Here...Take this. Keep it with you while you sleep."
+    "HTR.TeddyEvent_Wizard.06": "Here...Take this. Keep it with you while you sleep.",
     
+    /*******************************
+    DREAM WORLD SPAWN EVENT DIALOGUE
+    ********************************/
+    "HTR.DWSpawnEvent_Vanna.01": "Oh! Another Dreamer! That makes three this week.",
+    "HTR.DWSpawnEvent_Vanna.02": "The other two are playing around here somewhere...I think their names were Jas and Vincent.",
+    "HTR.DWSpawnEvent_Vanna.03": "Well, yes. We all are...This is the Dream World after all. Kind of hard to dream if you're awake.",
+    "HTR.DWSpawnEvent_Vanna.04": "Almost forgot...my name is Vanna...Don't worry, you'll get used to staying here eventually.",
+    "HTR.DWSpawnEvent_Vanna.05":"Hmm...Leaving can be a little difficult.",
+    "HTR.DWSpawnEvent_Vanna.06":"But if you have your heart set on it, you could always ask Lord Somnia for help. Though I'm not sure why anyone would want to leave."
 
 }

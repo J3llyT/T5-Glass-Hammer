@@ -163,8 +163,8 @@
         "DreamWorldSpawn": {
           "DisplayName": "DreamWorldSpawn",
           "DefaultArrivalTile": {
-            "X": 4,
-            "Y": 4
+            "X": 14,
+            "Y": 7
           },
           "ExcludeFromNpcPathfinding": false,
           "CreateOnLoad": {
