@@ -177,7 +177,7 @@ namespace HopeToRiseMod
                 isMouseLeftButtonDown = true;
                 if (lastMouseTile != Vector2.Zero)
                 {
-                    WateringPoison();
+                    if(isMouseLeftButtonDown) WateringPoison();
                     Vector2 tileCoordinates = Game1.currentCursorTile;
                     //for the tree in northwest
                     if (Game1.player.CurrentTool is Axe && Game1.currentLocation != null)
@@ -211,7 +211,7 @@ namespace HopeToRiseMod
                                 Game1.addHUDMessage(new HUDMessage("DIEEE!!!!!!!!!", 2));
                                 for(int i =0; i < 5;  i++)
                                 {
-                                    Monster temp = new Skeleton(new Vector2(16+i, 18));
+                                    Monster temp = new Skeleton(new Vector2(Game1.player.Position.X, Game1.player.Position.Y));
                                     temp.BuffForAdditionalDifficulty(1000);
                                     Game1.currentLocation.characters.Add(temp);
                                 }
@@ -221,7 +221,7 @@ namespace HopeToRiseMod
                                 Game1.addHUDMessage(new HUDMessage("DIEEE!!!!!!!!!", 2));
                                 for (int i = 0; i < 5; i++)
                                 {
-                                    Monster temp = new Skeleton(new Vector2(16 + i, 18));
+                                    Monster temp = new Skeleton(new Vector2(Game1.player.Position.X, Game1.player.Position.Y));
                                     temp.BuffForAdditionalDifficulty(1000);
                                     Game1.currentLocation.characters.Add(temp);
                                 }
@@ -397,24 +397,29 @@ namespace HopeToRiseMod
         }
         private void WateringPoison()
         {
-            //deactivate the poison with water
+            // Deactivate the poison with water
             if (Game1.player.CurrentTool is WateringCan watercan && Game1.currentLocation != null)
             {
-                Vector2 tileCoordinates = Game1.currentCursorTile;
-                int power = Game1.player.toolPower.Value;
-                float distance = Vector2.Distance(Game1.player.Tile, tileCoordinates);
-                if(distance < 3  && watercan.WaterLeft>0)
+                // Check if the current location is "DreamWorldBoss"
+                if (Game1.currentLocation.Name == "DreamWorldBoss")
                 {
-                    List<Vector2> tileLocations = tilesAffected(new Vector2((int)tileCoordinates.X, (int)tileCoordinates.Y), power, Game1.player);
-                    //Monitor.Log("Tiles Affected: ", LogLevel.Info);
-                    foreach (Vector2 tile in tileLocations)
+                    Vector2 tileCoordinates = Game1.currentCursorTile;
+                    float distance = Vector2.Distance(Game1.player.Tile, tileCoordinates);
+                    if (distance < 3 && watercan.WaterLeft > 0)
                     {
-                        DeactivatePoisonTile((int)tile.X, (int)tile.Y);
-                        //Monitor.Log($"{tile}", LogLevel.Info);
+                        List<Vector2> tileLocations = tilesAffected(new Vector2((int)tileCoordinates.X, (int)tileCoordinates.Y), Game1.player.toolPower.Value, Game1.player);
+                        Monitor.Log("Tiles Affected: ", LogLevel.Info);
+                        foreach (Vector2 tile in tileLocations)
+                        {
+                            DeactivatePoisonTile((int)tile.X, (int)tile.Y);
+                            Monitor.Log($"{tile}", LogLevel.Info);
+                        }
+                        tileLocations.Clear();
                     }
                 }
             }
         }
+
         private void WateringPoisonRelease(object? sender, ButtonReleasedEventArgs e)
         {
             if (e.Button == SButton.MouseLeft)
