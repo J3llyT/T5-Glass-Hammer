@@ -6,7 +6,7 @@
   <property name="Outdoors" value="T"/>
   <property name="Spring_Objects" value="T"/>
   <property name="Summer_Objects" value="T"/>
-  <property name="Warp" value="22 41 DreamWorldWest 21 1 23 41 DreamWorldWest 22 1 24 41 DreamWorldWest 23 1"/>
+  <property name="Warp" value="39 42 DreamWorldWest 23 1 40 42 DreamWorldWest 23 1 41 42 DreamWorldWest 23 1 42 42 DreamWorldWest 23 1 "/>
   <property name="Winter_Objects" value="T"/>
  </properties>
  <tileset firstgid="1" name="Paths" tilewidth="16" tileheight="16" tilecount="36" columns="4">
