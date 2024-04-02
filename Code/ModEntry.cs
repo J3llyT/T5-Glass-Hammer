@@ -20,6 +20,7 @@ using xTile.Dimensions;
 using xTile.ObjectModel;
 using xTile.Tiles;
 using xTile.Layers;
+using System.Threading;
 
 
 namespace HopeToRiseMod
@@ -42,6 +43,7 @@ namespace HopeToRiseMod
         private bool isMouseLeftButtonDown = false;
         private int clicks = 0;
         Random rng = new Random();
+        bool bossUnlock = false;
         /// <summary>The mod entry point, called after the mod is first loaded.</summary>
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
@@ -148,8 +150,18 @@ namespace HopeToRiseMod
             }
             #endregion
 
+            var seenEvents = Game1.eventsSeenSinceLastLocationChange;
+            if (seenEvents.Count > 0)
+            {
+                foreach (var eventId in seenEvents)
+                {
+                    Monitor.Log($"Seen event: {eventId}", LogLevel.Info);
+                    if (eventId == "HTR.DreamWorldSpawn_event") bossUnlock = true;
+                }
+            }
+            if (bossUnlock) BossBlock();
         }
-        //Mouse Methods
+        #region//Mouse Methods
         private void LeftClick(object? sender, ButtonPressedEventArgs e)
         {
             if (e.Button == SButton.MouseLeft)
@@ -162,8 +174,7 @@ namespace HopeToRiseMod
                     float distance = Vector2.Distance(Game1.player.Tile, tileCoordinates);
                     if (Game1.currentLocation!=null && Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "BossBlock", "Buildings") == "T" && distance <3)
                     {
-                        if (Game1.player.CurrentTool is Hoe) BossBlock();
-                        else Game1.addHUDMessage(new HUDMessage("They look like they're guarding something...", 2));
+                        Game1.addHUDMessage(new HUDMessage("They look like they're guarding something...", 2));
                     }
                     //for the trees in northwest
                     if (Game1.player.CurrentTool is Axe && Game1.currentLocation != null)
@@ -232,6 +243,8 @@ namespace HopeToRiseMod
                 }
             }
         }
+        #endregion
+
         #region // Tile Methods
         private void GiveBuff(GameLocation location, string[] args, Farmer player, Vector2 tile)
         {
@@ -497,18 +510,23 @@ namespace HopeToRiseMod
         }
         #endregion
 
-        //event methods
+        #region//event methods
         void BossBlock()
         {
-            //delete block after certain event
-            for(int i = 16; i < 19; i++)
+            if (Game1.currentLocation.Name == "DreamWorldHub")
             {
-                Game1.currentLocation.removeTileProperty(i, 0, "Buildings", "BossBlock");
-                Game1.currentLocation.removeTileProperty(i, 1, "Buildings", "BossBlock");
-                Game1.currentLocation.removeTile(i, 0, "Buildings");
-                Game1.currentLocation.removeTile(i, 1, "Buildings");
+                //delete block after certain event
+                for (int i = 16; i < 19; i++)
+                {
+                    Game1.currentLocation.removeTileProperty(i, 0, "Buildings", "BossBlock");
+                    Game1.currentLocation.removeTileProperty(i, 1, "Buildings", "BossBlock");
+                    Game1.currentLocation.removeTile(i, 0, "Buildings");
+                    Game1.currentLocation.removeTile(i, 1, "Buildings");
+                }
             }
         }
+        #endregion
+
         private void PlayerLocation()
         {
             try
@@ -545,6 +563,5 @@ namespace HopeToRiseMod
                 Monitor.Log($"Exception in PlayerLocation: {ex}", LogLevel.Error);
             }
         }
-
     }
 }

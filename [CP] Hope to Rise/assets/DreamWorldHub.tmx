@@ -558,7 +558,7 @@
   </object>
   <object id="14" name="TileData" x="128" y="336" width="16" height="16">
    <properties>
-    <property name="SpawnTree" value="wild FishTree8 5 5"/>
+    <property name="SpawnTree" value="wild FishTree1 5 5"/>
    </properties>
   </object>
   <object id="15" name="TileData" x="160" y="320" width="16" height="16">
