@@ -41,6 +41,7 @@ namespace HopeToRiseMod
 
         private bool isMouseLeftButtonDown = false;
         private int clicks = 0;
+        Random rng = new Random();
         /// <summary>The mod entry point, called after the mod is first loaded.</summary>
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
@@ -148,28 +149,7 @@ namespace HopeToRiseMod
             #endregion
 
         }
-        #region // Tile Methods
-        private void GiveBuff(GameLocation location, string[] args, Farmer player, Vector2 tile)
-        {
-            Buff buff = new Buff(
-                id: "poison",
-                displayName: "Poison",
-                iconTexture: this.Helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonBuff.png"),
-                iconSheetIndex: 0,
-                duration: 5_000,
-                effects: new BuffEffects()
-                {
-                    Speed = { -5 },
-                    Defense = { -3 }
-                }
-            );
-
-            player.applyBuff(buff);
-            if (args.Length > 1 && args[1] == "deactivatePoison")
-            {
-                DeactivatePoisonTile((int)tile.X, (int)tile.Y);
-            }
-        }
+        //Mouse Methods
         private void LeftClick(object? sender, ButtonPressedEventArgs e)
         {
             if (e.Button == SButton.MouseLeft)
@@ -177,11 +157,31 @@ namespace HopeToRiseMod
                 isMouseLeftButtonDown = true;
                 if (lastMouseTile != Vector2.Zero)
                 {
-                    if(isMouseLeftButtonDown) WateringPoison();
+                    if (isMouseLeftButtonDown) WateringPoison();
                     Vector2 tileCoordinates = Game1.currentCursorTile;
-                    //for the tree in northwest
+                    float distance = Vector2.Distance(Game1.player.Tile, tileCoordinates);
+                    if (Game1.currentLocation!=null && Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "BossBlock", "Buildings") == "T" && distance <3)
+                    {
+                        if (Game1.player.CurrentTool is Hoe) BossBlock();
+                        Game1.addHUDMessage(new HUDMessage("They look like they're guarding something...", 2));
+                    }
+                    //for the trees in northwest
                     if (Game1.player.CurrentTool is Axe && Game1.currentLocation != null)
                     {
+                        if (Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "SpawnTree", "Paths") == "wild FishTree 5 5" ||
+                           Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "SpawnTree", "Paths") == "wild FishTree1 5 5" ||
+                           Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "SpawnTree", "Paths") == "wild FishTree2 5 5" ||
+                           Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "SpawnTree", "Paths") == "wild FishTree3 5 5" ||
+                           Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "SpawnTree", "Paths") == "wild FishTree4 5 5" ||
+                           Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "SpawnTree", "Paths") == "wild FishTree5 5 5" ||
+                           Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "SpawnTree", "Paths") == "wild FishTree6 5 5" ||
+                           Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "SpawnTree", "Paths") == "wild FishTree7 5 5")
+                        {
+                            int rand = rng.Next(3);
+                            if (rand == 0) Game1.addHUDMessage(new HUDMessage("OW!!", 2));
+                            if (rand == 1) Game1.addHUDMessage(new HUDMessage("oww...", 2));
+                            if (rand == 2) Game1.addHUDMessage(new HUDMessage("meanie...", 2));
+                        }
                         if (Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "SpawnTree", "Paths") == "wild DreamTree 5 5")
                         {
                             if (clicks < 1)
@@ -209,7 +209,7 @@ namespace HopeToRiseMod
                             {
                                 Game1.addHUDMessage(new HUDMessage("HOW DID YOU EVEN GET ANOTHER AXE?!?!?", 2));
                                 Game1.addHUDMessage(new HUDMessage("DIEEE!!!!!!!!!", 2));
-                                for(int i =0; i < 5;  i++)
+                                for (int i = 0; i < 5; i++)
                                 {
                                     Monster temp = new Skeleton(new Vector2(Game1.player.Position.X, Game1.player.Position.Y));
                                     temp.BuffForAdditionalDifficulty(1000);
@@ -230,6 +230,28 @@ namespace HopeToRiseMod
                         }
                     }
                 }
+            }
+        }
+        #region // Tile Methods
+        private void GiveBuff(GameLocation location, string[] args, Farmer player, Vector2 tile)
+        {
+            Buff buff = new Buff(
+                id: "poison",
+                displayName: "Poison",
+                iconTexture: this.Helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonBuff.png"),
+                iconSheetIndex: 0,
+                duration: 5_000,
+                effects: new BuffEffects()
+                {
+                    Speed = { -5 },
+                    Defense = { -3 }
+                }
+            );
+
+            player.applyBuff(buff);
+            if (args.Length > 1 && args[1] == "deactivatePoison")
+            {
+                DeactivatePoisonTile((int)tile.X, (int)tile.Y);
             }
         }
         #region //Watering Can Methods
@@ -475,6 +497,18 @@ namespace HopeToRiseMod
         }
         #endregion
 
+        //event methods
+        void BossBlock()
+        {
+            //delete block after certain event
+            for(int i = 16; i < 19; i++)
+            {
+                Game1.currentLocation.removeTileProperty(i, 0, "Buildings", "BossBlock");
+                Game1.currentLocation.removeTileProperty(i, 1, "Buildings", "BossBlock");
+                Game1.currentLocation.removeTile(i, 0, "Buildings");
+                Game1.currentLocation.removeTile(i, 1, "Buildings");
+            }
+        }
         private void PlayerLocation()
         {
             try

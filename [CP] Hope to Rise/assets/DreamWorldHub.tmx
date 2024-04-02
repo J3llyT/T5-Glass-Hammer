@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="36" height="55" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="25">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="36" height="55" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="26">
  <properties>
   <property name="Fall_Objects" value="T"/>
   <property name="NPCWarp" value="12 8 Desert 18 27"/>
@@ -223,8 +223,8 @@
  </layer>
  <layer id="15" name="Buildings" width="36" height="55">
   <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,423,0,0,0,423,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,423,0,0,0,448,475,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,423,3069,3070,3071,423,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,423,3104,3105,3106,448,475,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,423,0,0,0,473,449,475,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,423,0,0,0,0,0,449,451,475,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,423,0,0,0,0,0,0,0,449,475,0,0,0,0,0,0,0,0,0,0,0,
@@ -521,6 +521,11 @@
   <object id="3" name="TileData" x="240" y="320" width="32" height="32">
    <properties>
     <property name="Action" value="OpenShop VannaShop down"/>
+   </properties>
+  </object>
+  <object id="25" name="TileData" x="256" y="0" width="48" height="32">
+   <properties>
+    <property name="BossBlock" value="T"/>
    </properties>
   </object>
  </objectgroup>
