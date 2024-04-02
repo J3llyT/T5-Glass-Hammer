@@ -163,7 +163,7 @@ namespace HopeToRiseMod
                     if (Game1.currentLocation!=null && Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "BossBlock", "Buildings") == "T" && distance <3)
                     {
                         if (Game1.player.CurrentTool is Hoe) BossBlock();
-                        Game1.addHUDMessage(new HUDMessage("They look like they're guarding something...", 2));
+                        else Game1.addHUDMessage(new HUDMessage("They look like they're guarding something...", 2));
                     }
                     //for the trees in northwest
                     if (Game1.player.CurrentTool is Axe && Game1.currentLocation != null)
