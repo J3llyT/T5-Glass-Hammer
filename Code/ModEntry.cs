@@ -156,7 +156,7 @@ namespace HopeToRiseMod
             {
                 foreach (var eventId in seenEvents)
                 {
-                    Monitor.Log($"Seen event: {eventId}", LogLevel.Info);
+                    //Monitor.Log($"Seen event: {eventId}", LogLevel.Info);
                     if (eventId == "HTR.DreamWorldSpawn_event") bossUnlock = true;
                 }
             }
@@ -443,19 +443,18 @@ namespace HopeToRiseMod
                     float distance = Vector2.Distance(Game1.player.Tile, tileCoordinates);
                     if (distance < 3 && watercan.WaterLeft > 0)
                     {
-                        List<Vector2> tileLocations = tilesAffected(new Vector2((int)tileCoordinates.X, (int)tileCoordinates.Y), Game1.player.toolPower.Value, Game1.player);
-                        Monitor.Log("Tiles Affected: ", LogLevel.Info);
+                        List<Vector2> tileLocations = tilesAffected(new Vector2((int)tileCoordinates.X, (int)tileCoordinates.Y), Game1.player.toolPower, Game1.player);
+                        //Monitor.Log("Tiles Affected: ", LogLevel.Info);
                         foreach (Vector2 tile in tileLocations)
                         {
                             DeactivatePoisonTile((int)tile.X, (int)tile.Y);
-                            Monitor.Log($"{tile}", LogLevel.Info);
+                            //Monitor.Log($"{tile}", LogLevel.Info);
                         }
                         tileLocations.Clear();
                     }
                 }
             }
         }
-
         private void WateringPoisonRelease(object? sender, ButtonReleasedEventArgs e)
         {
             if (e.Button == SButton.MouseLeft)
@@ -469,7 +468,6 @@ namespace HopeToRiseMod
             Vector2 mouseTile = Game1.currentCursorTile;
             lastMouseTile = mouseTile;
         }
-
         private void DeactivatePoisonTile(int x, int y)
         {
             if (Game1.currentLocation != null)
