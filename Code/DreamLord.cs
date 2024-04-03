@@ -454,6 +454,11 @@ namespace HopeToRiseMod.Monsters
 
         private void SetPoisonTile(int X, int Y)
         {
+            if (X < 0 || Y < 0 || X >= 32 || Y >= 24)
+            {
+                return;
+            }
+
             GameLocation currentLocation = Game1.currentLocation;
 
             currentLocation.setMapTileIndex(X, Y, 923467, "Back");
