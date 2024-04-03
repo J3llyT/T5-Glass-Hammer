@@ -33,34 +33,19 @@
               "AvailableStockLimit": "Player"
             },
             {
-                "Id": "Potion",
-                "ItemId": "Potion",
-                "Price": 100,
-                "AvailableStock": 10,
-                "AvailableStockLimit": "Player"
+              "Id": "Potion",
+              "ItemId": "Potion",
+              "Price": 100,
+              "AvailableStock": 10,
+              "AvailableStockLimit": "Player"
             },
-
-            //{
-            //  "Id": "DreamRing",
-            //  "ItemId": "DreamRing",
-            //  "Price": 500,
-            //  "AvailableStock": 1,
-            //  "AvailableStockLimit": "Player"
-            //},
-            //{
-            //  "Id": "TeddyBear",
-            //  "ItemId": "TeddyBear",
-            //  "Price": 100,
-            //  "AvailableStock": 1,
-            //  "AvailableStockLimit": "Player"
-            //},
-            //{
-            //  "Id": "DreamBoots",
-            //  "ItemId": "DreamBoots",
-            //  "Price": 400,
-            //  "AvailableStock": 1,
-            //  "AvailableStockLimit": "Player"
-            //}
+            {
+              "Id": "WakeUpWater",
+              "ItemId": "WakeUpWater",
+              "Price": 25,
+              "AvailableStock": 10,
+              "AvailableStockLimit": "Player"
+            }
           ]
         }
       }
