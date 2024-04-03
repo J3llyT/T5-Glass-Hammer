@@ -494,26 +494,42 @@
       }
     },
     {
-      "Action": "EditData",
-      "Target": "Data/Tools",
-      "Entries": {
-        "DreamCan": {
-          "ClassName": "WateringCan",
-          "Name": "DreamCan",
-          "DisplayName": "Dream Can",
-          "Description": "Magic watering can of your dreams.",
-          "Texture": "TileSheets/DreamCan",
-          "SpriteIndex": "308",
-          "UpgradeLevel": "4",
-          "ApplyUpgradeLevelToDisplayName": false,
-          "ConventionalUpgradeFrom": "(T)GoldWateringCan",
-          "CanBeLostOnDeath": "false",
-          "SetProperties": {
-            "IsEfficient": true,
-            "IsBottomless": true
-          }
+        "Action": "EditData",
+        "Target": "Data/Tools",
+        "Entries": {
+            "DreamCan": {
+                "ClassName": "WateringCan",
+                "Name": "DreamCan",
+                "DisplayName": "Dream Can",
+                "Description": "Magic watering can of your dreams.",
+                "Texture": "TileSheets/DreamCan",
+                "SpriteIndex": "308",
+                "UpgradeLevel": "4",
+                "ApplyUpgradeLevelToDisplayName": false,
+                "ConventionalUpgradeFrom": "(T)GoldWateringCan",
+                "CanBeLostOnDeath": "false",
+                "SetProperties": {
+                    "IsEfficient": true,
+                    "IsBottomless": true
+                }
+            }
         }
-      }
+    },
+    {
+        "Action": "EditData",
+        "Target": "Data/Objects",
+        "Entries": {
+            "WakeUpWater": {
+                "Name": "Wake Up Water",
+                "DisplayName": "Wake Up Water",
+                "Description": "Drains your stamina",
+                "Edibility": "-400",
+                "IsDrink": true,
+                "Price": 25,
+                "Texture": "TileSheets/Potion",
+                "SpriteIndex": 0
+            }
+        }
     },
     // wearable but the image of the boots does not show
     // use "debug createdebris 1024" to spawn the dream boots at current position
@@ -590,19 +606,19 @@
       }
     },
     {
-      "Action": "EditData",
-      "Target": "Data/Objects",
-      "Entries": {
-        "Maidmer": {
-          "Name": "Maidmer",
-          "DisplayName": "Maidmer",
-          "Description": "Legendary creatures, but they look a bit strange.",
-          "Price": 90,
-          "Texture": "TileSheets/Maidmer",
-          "SpriteIndex": "0",
-          "CanBeLostOnDeath": "true"
+        "Action": "EditData",
+        "Target": "Data/Objects",
+        "Entries": {
+            "Maidmer": {
+                "Name": "Maidmer",
+                "DisplayName": "Maidmer",
+                "Description": "Legendary creatures, but they look a bit strange.",
+                "Price": 90,
+                "Texture": "TileSheets/Maidmer",
+                "SpriteIndex": "0",
+                "CanBeLostOnDeath": "true"
+            }
         }
-      }
     }
   ]
 }

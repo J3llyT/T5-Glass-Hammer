@@ -77,6 +77,7 @@ namespace HopeToRiseMod
 
                 // Teleport the player to their last slept-in bed location (NEED TO FIND BED LOCATION)
                 Game1.warpHome();
+                Game1.NewDay(1);
                 // WarpPlayerToNewLocation("FarmHouse", (int)Game1.player.mostRecentBed.X, (int)Game1.player.mostRecentBed.Y);
                 // Game1.player.setTileLocation(Game1.player.mostRecentBed);
 

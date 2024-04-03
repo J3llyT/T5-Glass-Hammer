@@ -33,12 +33,13 @@
               "AvailableStockLimit": "Player"
             },
             {
-              "Id": "Potion",
-              "ItemId": "Potion",
-              "Price": 100,
-              "AvailableStock": 10,
-              "AvailableStockLimit": "Player"
-            }
+                "Id": "Potion",
+                "ItemId": "Potion",
+                "Price": 100,
+                "AvailableStock": 10,
+                "AvailableStockLimit": "Player"
+            },
+
             //{
             //  "Id": "DreamRing",
             //  "ItemId": "DreamRing",
