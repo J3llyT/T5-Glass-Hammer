@@ -11,6 +11,8 @@ using StardewValley;
 using StardewValley.Extensions;
 using StardewValley.Monsters;
 using StardewValley.Projectiles;
+using xTile.Layers;
+using xTile.Tiles;
 
 namespace HopeToRiseMod.Monsters
 {
@@ -19,7 +21,8 @@ namespace HopeToRiseMod.Monsters
         Idle = 0,
         SquidKid = 1,
         SpawnEnemies = 2,
-        Warp = 3
+        Warp = 3,
+        Poison = 4
     }
 
     public class DreamLord : Monster
@@ -89,13 +92,13 @@ namespace HopeToRiseMod.Monsters
             this.healthBar.height = 30; // Adjust the height of the health bar as needed
 
             // Add warp positions to list
-            warpPoints.Add(new Vector2(10, 5) * 64f);
-            warpPoints.Add(new Vector2(20, 5) * 64f);
+            warpPoints.Add(new Vector2(10, 8) * 64f);
+            warpPoints.Add(new Vector2(20, 8) * 64f);
             warpPoints.Add(new Vector2(15, 12) * 64f);
-            warpPoints.Add(new Vector2(10, 19) * 64f);
-            warpPoints.Add(new Vector2(20, 19) * 64f);
-            warpPoints.Add(new Vector2(5, 12) * 64f);
-            warpPoints.Add(new Vector2(26, 12) * 64f);
+            warpPoints.Add(new Vector2(10, 16) * 64f);
+            warpPoints.Add(new Vector2(20, 16) * 64f);
+            warpPoints.Add(new Vector2(7, 12) * 64f);
+            warpPoints.Add(new Vector2(24, 12) * 64f);
         }
 
         protected override void initNetFields()
@@ -341,12 +344,12 @@ namespace HopeToRiseMod.Monsters
             {
                 // Randomize behavior (Next generates up to but not including the max)
                 Behavior prevBehavior = behavior;
-                behavior = (Behavior) (Game1.random.Next(0, 4));
+                behavior = (Behavior) (Game1.random.Next(0, 5));
 
                 // Loop through and make sure the behavior is different from last time
                 while (behavior == prevBehavior)
                 {
-                    behavior = (Behavior)(Game1.random.Next(0, 4));
+                    behavior = (Behavior)(Game1.random.Next(0, 5));
                 }
 
                 switch (behavior)
@@ -376,6 +379,9 @@ namespace HopeToRiseMod.Monsters
                         base.DamageToFarmer = 0;
                         base.setInvincibleCountdown(800);
                         break;
+                    case Behavior.Poison:
+                        behaviorTimer = 6000;
+                        break;
                 }
             }
 
@@ -399,8 +405,69 @@ namespace HopeToRiseMod.Monsters
                 case Behavior.Warp:
                     WarpBehavior(time);
                     break;
+                case Behavior.Poison:
+                    PoisonBehavior(time);
+                    break;
             }
         }
+
+        private void PoisonBehavior(GameTime time)
+        {
+            // Wait for a bit, then spawn tiles (time for animation)
+            if (behaviorTimer <= 1000)
+            {
+                // Figure out player tile position
+                Vector2 playerTile = Game1.player.Position / 64.0f;
+                int playerX = (int)Math.Floor(playerTile.X);
+                int playerY = (int)Math.Floor(playerTile.Y);
+
+
+                // set those tiles to poison tiles
+                SetPoisonTile(playerX + 3, playerY);
+                SetPoisonTile(playerX + 3, playerY - 1);
+                SetPoisonTile(playerX + 3, playerY + 1);
+
+                SetPoisonTile(playerX, playerY + 3);
+                SetPoisonTile(playerX - 1, playerY + 3);
+                SetPoisonTile(playerX + 1, playerY + 3);
+
+                SetPoisonTile(playerX - 3, playerY);
+                SetPoisonTile(playerX - 3, playerY - 1);
+                SetPoisonTile(playerX - 3, playerY + 1);
+
+                SetPoisonTile(playerX, playerY - 3);
+                SetPoisonTile(playerX - 1, playerY - 3);
+                SetPoisonTile(playerX + 1, playerY - 3);
+
+                SetPoisonTile(playerX + 2, playerY + 2);
+                SetPoisonTile(playerX - 2, playerY + 2);
+                SetPoisonTile(playerX - 2, playerY - 2);
+                SetPoisonTile(playerX + 2, playerY - 2);
+
+
+
+
+                // Set timer to 0
+                behaviorTimer = 0;
+            }
+        }
+
+        private void SetPoisonTile(int X, int Y)
+        {
+            GameLocation currentLocation = Game1.currentLocation;
+
+            currentLocation.setMapTileIndex(X, Y, 923467, "Back");
+
+
+            currentLocation.removeTile(X, Y, "Back");
+
+            Layer layer = currentLocation.map.GetLayer("Back");
+            TileSheet tilesheet = currentLocation.map.GetTileSheet("z_PoisonTile");
+            layer.Tiles[X, Y] = new StaticTile(layer, tilesheet, BlendMode.Alpha, tileIndex: 0);
+
+            currentLocation.setTileProperty(X, Y, "Back", "TouchAction", "poison");
+        }
+
 
         private void WarpBehavior(GameTime time)
         {
