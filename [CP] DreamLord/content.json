@@ -32,8 +32,8 @@
 							"Id": "DreamWorldSpawn",
 							"Location": "DreamWorldSpawn",
 							"Tile": {
-								"X": 12,
-								"Y": 9
+								"X": 20,
+								"Y": 3
 							},
 							"Direction": "Down"
 						}
@@ -46,8 +46,6 @@
 						}
 					]
 				}
-				// LOCATION is null
-				//"DreamLord": "adult/rude/neutral/neutral/male/non-datable/null/Town/spring 1//LOCATION/{{i18n:DreamLord.DreamLordName}}"
 			}
 		},
 		{

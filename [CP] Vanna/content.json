@@ -32,8 +32,8 @@
 							"Id": "DreamWorldSpawn",
 							"Location": "DreamWorldSpawn",
 							"Tile": {
-								"X": 9,
-								"Y": 9
+								"X": 23,
+								"Y": 3
 							},
 							"Direction": "Down"
 						}
@@ -46,8 +46,6 @@
 						}
 					]
 				}
-					// LOCATION is null
-					//"Vanna": "adult/polite/neutral/neutral/female/non-datable/null/Town/winter 22//LOCATION/{{i18n:Vanna.VannaName}}"
 				}
 			},
 		{
