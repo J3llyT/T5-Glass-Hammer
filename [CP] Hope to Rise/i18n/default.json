@@ -30,13 +30,13 @@
     "HTR.HospitalEvent_Harvey.02": "Jas and Vincent are sleeping...No amount of shaking, prodding or yelling will wake them.",
     "HTR.HospitalEvent_Harvey.03": "$s I've examined them thoroughly and nothing's wrong with them medically. They're just...asleep!",
     "HTR.HospitalEvent_Harvey.04": "Anyway, I've been checking in with everyone to make sure they're okay.",
-    "HTR.HospitalEvent_Harvey.05": "Since you're okay, would you mind doing me a favor? Could you go talk to the Wizard?",
+    "HTR.HospitalEvent_Harvey.05": "Since you're here, would you mind doing me a favor? Could you go talk to the Wizard?",
     "HTR.HospitalEvent_Harvey.06": "$s I feel a little out of my depth. He might know what's going on.",
 
     // WIZARD TEDDY BEAR QUEST DIALOGUE
     "HTR.TeddyEvent_Wizard.01": "Ah yes, I was expecting you.",
     "HTR.TeddyEvent_Wizard.02": "It's unfortunate what's happening to Vincent and Jas",
-    "HTR.TeddyEvent_Wizard.03": "Sleeping without protection can be dangerous.",
+    "HTR.TeddyEvent_Wizard.03": "Sleeping without protection can be dangerous...Especially for children",
     "HTR.TeddyEvent_Wizard.04": "All these questions. Be patient and you will have your answers",
     "HTR.TeddyEvent_Wizard.05": "Rest assured, I will be alright. But you are vulnerable",
     "HTR.TeddyEvent_Wizard.06": "Here...Take this. Keep it with you while you sleep.",
@@ -44,11 +44,35 @@
     /*******************************
     DREAM WORLD SPAWN EVENT DIALOGUE
     ********************************/
-    "HTR.DWSpawnEvent_Vanna.01": "Oh! Another Dreamer! That makes three this week.",
+    "HTR.DWSpawnEvent_Vanna.01": "Oh! Another Dreamer! That makes three this week.$4",
     "HTR.DWSpawnEvent_Vanna.02": "The other two are playing around here somewhere...I think their names were Jas and Vincent.",
     "HTR.DWSpawnEvent_Vanna.03": "Well, yes. We all are...This is the Dream World after all. Kind of hard to dream if you're awake.",
     "HTR.DWSpawnEvent_Vanna.04": "Almost forgot...my name is Vanna...Don't worry, you'll get used to staying here eventually.",
     "HTR.DWSpawnEvent_Vanna.05":"Hmm...Leaving can be a little difficult.",
-    "HTR.DWSpawnEvent_Vanna.06":"But if you have your heart set on it, you could always ask Lord Somnia for help. Though I'm not sure why anyone would want to leave."
+    "HTR.DWSpawnEvent_Vanna.06":"But if you have your heart set on it, you could always ask Lord Somnia for help. Though I'm not sure why anyone would want to leave.",
+    "HTR.DWSpawnEvent_Vanna.07":"LORD SOMNIA!!",
+    "HTR.DWSpawnEvent_Vanna.08":"This is @, they wanted to leave.",
+
+    "HTR.DWSpawnEvent_DreamLord.01":"$2 Must you scream so loudly?",
+    "HTR.DWSpawnEvent_DreamLord.02":"Oh? Who's this? Another human?",
+    "HTR.DWSpawnEvent_DreamLord.03":"Well...under normal circumstances, leaving would be a challenge but you seem to bear protection.",
+    "HTR.DWSpawnEvent_DreamLord.04":"The same way you enter my realm is the same way you leave it...just sleep.",
+    "HTR.DWSpawnEvent_DreamLord.05":"The children...now that is a different matter. Come with me.",
+    "HTR.DWSpawnEvent_DreamLord.06":"Children do not process the world as adults do. They have a harder time differentiating dreams from reality. Here, they'll stay until they are ready to leave.",
+    "HTR.DWSpawnEvent_DreamLord.07":"I could not say...It's possible they wake up tomorrow...or they could be like Vanna and choose to stay for years.",
+    "HTR.DWSpawnEvent_DreamLord.08":"Normally, I would have no problem waking them up and sending them back to their parents. But I'm afraid my powers aren't what they used to be.",
+    "HTR.DWSpawnEvent_DreamLord.09":"Perhaps...Yes. Human, a few years ago I misplaced my regalia. There artifacts that can help boost my power. I'm too busy to search for them, but you on the other hand...",
+    "HTR.DWSpawnEvent_DreamLord.10":"Collect my regalia and I'll wake the children for you.",
+    "HTR.DWSpawnEvent_DreamLord.11":"Speak to Vanna, she can supply you with tools before you begin",
+
+
+    /*******************************
+    DREAM WORLD BOSS BATTLE DIALOGUE
+    ********************************/
+    "HTR.DwBossEvent_DreamLord.01": "I must extend my thanks, @. I can now entice more dreamers and trap them here.",
+    "HTR.DwBossEvent_DreamLord.02": "Regrettably, Vanna's time is running out. I cannot save her but I can gather others to take her place.",
+    "HTR.DwBossEvent_DreamLord.03": "Do not pretend like your world is better than mine. Here, you can be anything, do anything, dream anything.",
+    "HTR.DwBossEvent_DreamLord.04": "@, I have grown fond of your presence"
+    
 
 }
