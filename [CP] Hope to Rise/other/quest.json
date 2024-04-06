@@ -36,7 +36,9 @@
             "Action": "EditData",
             "Target": "Data/Quests",
             "Entries": {
-                "134": "ItemDelivery/Lord Somnia's Boots/Lord Somnia can wake up Vincent and Jas but he needs his full powers. Help him find his magic Artifacts/Deliver Lord Somnia's Boots./DreamLord DreamBoots 1/-1/0/-1/false/These boots have traversed many worlds with me. Thank you for returning them."
+                "134": "ItemDelivery/Lord Somnia's Boots/Lord Somnia can wake up Vincent and Jas but he needs his full powers. Help him find his magic boots/Find and Deliver Lord Somnia's Starlight Boots. Vanna might be able to point you in the right direction./DreamLord DreamBoots 1/135/0/-1/false/These boots have traversed many worlds with me. Thank you for returning them.",
+
+                "135": "ItemDelivery/Lord Somnia's Ring/Lord Somnia can wake up Vincent and Jas but he needs his full powers. Help him find his magic ring/Find and Deliver Lord Somnia's Night Ring. Vanna might be able to point you in the right direction./DreamLord DreamRing 1/-1/0/-1/false/Finally. I can't remember the last time I felt this powerful."
             }
         }
     ]
