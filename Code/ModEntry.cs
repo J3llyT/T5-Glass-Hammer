@@ -152,6 +152,7 @@ namespace HopeToRiseMod
             }
             #endregion
 
+            #region //Event Logic
             var seenEvents = Game1.eventsSeenSinceLastLocationChange;
             if (seenEvents.Count > 0)
             {
@@ -162,6 +163,7 @@ namespace HopeToRiseMod
                 }
             }
             if (bossUnlock) BossBlock();
+            #endregion
         }
         #region//Mouse Methods
         private void LeftClick(object? sender, ButtonPressedEventArgs e)
