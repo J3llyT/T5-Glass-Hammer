@@ -71,23 +71,32 @@ namespace HopeToRiseMod
         {
             #region // Warp Logic
             // NEED TO UPDATE TO ACCOMADATE FOR ALL OF THE LOCATIONS
-            if (Game1.player.stamina <= staminaThreshold && Game1.currentLocation != null
-                && Game1.currentLocation.Name == "DreamWorldSpawn")
+            if (Game1.player.stamina <= staminaThreshold && Game1.currentLocation != null)
             {
-                Monitor.Log("Player Passed Out!", LogLevel.Info);
+                if (Game1.currentLocation.Name is 
+                    "DreamWorldSpawn" or
+                    "DreamWorldHub" or
+                    "DreamWorldEast" or
+                    "DreamWorldNorthEast" or
+                    "DreamWorldWest" or
+                    "DreamWorldNorthWest" or
+                    "DreamWorldCore" or
+                    "DreamWorldBoss")
+                {
+                    Monitor.Log("Player Passed Out!", LogLevel.Info);
 
-                // Display a blackout screen
-                Game1.showGlobalMessage("You're waking up...");
+                    // Display a blackout screen
+                    Game1.showGlobalMessage("You're waking up...");
 
-                // Teleport the player to their last slept-in bed location (NEED TO FIND BED LOCATION)
-                Game1.warpHome();
-                Game1.NewDay(1);
-                // WarpPlayerToNewLocation("FarmHouse", (int)Game1.player.mostRecentBed.X, (int)Game1.player.mostRecentBed.Y);
-                // Game1.player.setTileLocation(Game1.player.mostRecentBed);
+                    // Teleport the player to their last slept-in bed location (NEED TO FIND BED LOCATION)
+                    Game1.warpHome();
+                    Game1.NewDay(1);
+                    // WarpPlayerToNewLocation("FarmHouse", (int)Game1.player.mostRecentBed.X, (int)Game1.player.mostRecentBed.Y);
+                    // Game1.player.setTileLocation(Game1.player.mostRecentBed);
 
-
-                // Reset the player's stamina to prevent further passouts
-                Game1.player.stamina = Game1.player.MaxStamina;
+                    // Reset the player's stamina to prevent further passouts
+                    Game1.player.stamina = Game1.player.MaxStamina;
+                }
             }
             #endregion
 
