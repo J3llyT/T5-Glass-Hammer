@@ -93,6 +93,11 @@
     },
     {
       "Action": "Load",
+      "Target": "TileSheets/Potion2",
+      "FromFile": "assets/Potion2.png"
+    },
+    {
+      "Action": "Load",
       "Target": "TileSheets/DreamBoots",
       "FromFile": "assets/DreamBoots.png"
     },
@@ -526,22 +531,12 @@
                 "Edibility": "-400",
                 "IsDrink": true,
                 "Price": 25,
-                "Texture": "TileSheets/Potion",
+                "Texture": "TileSheets/Potion2",
                 "SpriteIndex": 0
             }
         }
     },
-    // wearable but the image of the boots does not show
-    // use "debug createdebris 1024" to spawn the dream boots at current position
-    //{
-    //"Action": "EditData",
-    //"Target": "Data/Boots",
-    //"Entries": {
-    //"1024": "Dream Boots/These dream boots sparkle beautifully./400/5/5/10",
-    //}
-    //},
     {
-      // not wearable
       "Action": "EditData",
       "Target": "Data/Objects",
       "Entries": {
@@ -552,7 +547,10 @@
           "Price": 400,
           "Texture": "TileSheets/DreamBoots",
           "SpriteIndex": "0",
-          "CanBeLostOnDeath": "false"
+          "CanBeLostOnDeath": "false",
+          "ContextTags": [
+            "not_giftable"
+          ]
         }
       }
     },
@@ -586,6 +584,7 @@
           "Texture": "TileSheets/DreamRing",
           "SpriteIndex": "0",
           "CanBeLostOnDeath": "false"
+          // "type: ring" is not giftable as default
         }
       }
     },
@@ -601,7 +600,10 @@
           "Price": 100,
           "Texture": "TileSheets/TeddyBear",
           "SpriteIndex": "0",
-          "CanBeLostOnDeath": "false"
+          "CanBeLostOnDeath": "false",
+          "ContextTags": [
+            "not_giftable"
+          ]
         }
       }
     },
