@@ -506,12 +506,12 @@ namespace HopeToRiseMod
         {
             if (whichAnswer is "Yes")
             {
-                WarpPlayerToNewLocation("dreamworldspawn", 4, 4);
+                WarpPlayerToNewLocation("dreamworldspawn", 14, 7);
             }
         }
         #endregion
 
-        #region//event methods
+        #region//Event Methods
         void BossBlock()
         {
             if (Game1.currentLocation.Name == "DreamWorldHub")

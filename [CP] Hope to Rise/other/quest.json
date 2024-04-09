@@ -34,11 +34,21 @@
         },
 
         // Adding Item Delivery Test
+        //{
+        //    "Action": "EditData",
+        //    "Target": "Data/Quests",
+        //    "Entries": {
+        //        "133": "ItemDelivery/Harvey's Favor/Harvey has a favor to ask./Deliver Harvey a Parsnip/Harvey 24/-1/0/-1/false/ Thanks!"
+        //    }
+        //}
+
+        // Adding Item Delivery Quest for Lord Somnia
         {
             "Action": "EditData",
             "Target": "Data/Quests",
             "Entries": {
-                "133": "ItemDelivery/Harvey's Favor/Harvey has a favor to ask./Deliver Harvey a Parsnip/Harvey 24/-1/0/-1/false/ Thanks!"
+                "133": "ItemDelivery/Lord Somnia's Item Delivery/It's for a good cause!'./Deliver Lord Somnia the Dream Ring/DreamLord DreamRing/134/0/-1/false/ Thanks!",
+                "134": "ItemDelivery/Lord Somnia's Item Delivery/It's for a good cause!'./Deliver Lord Somnia the Dream Boots/DreamLord DreamBoots/-1/0/-1/false/ Thanks!"
             }
         }
     ]

@@ -39,6 +39,13 @@
                 "AvailableStock": 10,
                 "AvailableStockLimit": "Player"
             },
+            {
+                "Id": "WakeUpWater",
+                "ItemId": "WakeUpWater",
+                "Price": 25,
+                "AvailableStock": 50,
+                "AvailableStockLimit": "Player"
+            }
 
             //{
             //  "Id": "DreamRing",
