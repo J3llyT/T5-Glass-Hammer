@@ -44,6 +44,7 @@ namespace HopeToRiseMod
         private int clicks = 0;
         Random rng = new Random();
         bool bossUnlock = false;
+        int timer = 0;
         /// <summary>The mod entry point, called after the mod is first loaded.</summary>
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
@@ -151,16 +152,18 @@ namespace HopeToRiseMod
             }
             #endregion
 
+            #region //Event Logic
             var seenEvents = Game1.eventsSeenSinceLastLocationChange;
             if (seenEvents.Count > 0)
             {
                 foreach (var eventId in seenEvents)
                 {
-                    Monitor.Log($"Seen event: {eventId}", LogLevel.Info);
+                    //Monitor.Log($"Seen event: {eventId}", LogLevel.Info);
                     if (eventId == "HTR.DreamWorldSpawn_event") bossUnlock = true;
                 }
             }
             if (bossUnlock) BossBlock();
+            #endregion
         }
         #region//Mouse Methods
         private void LeftClick(object? sender, ButtonPressedEventArgs e)
@@ -178,6 +181,7 @@ namespace HopeToRiseMod
                         Game1.addHUDMessage(new HUDMessage("They look like they're guarding something...", 2));
                     }
                     //for the trees in northwest
+
                     if (Game1.player.CurrentTool is Axe && Game1.currentLocation != null)
                     {
                         if (Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "SpawnTree", "Paths") == "wild FishTree 5 5" ||
@@ -217,9 +221,9 @@ namespace HopeToRiseMod
                                 Game1.addHUDMessage(new HUDMessage("OKAY THAT'S IT! NO MORE AXE FOR MEANIES LIKE YOU!", 2));
                                 Game1.player.CurrentTool = new WateringCan();
                             }
-                            else if (clicks < 6)
+                            else if (clicks < 7)
                             {
-                                Game1.addHUDMessage(new HUDMessage("HOW DID YOU EVEN GET ANOTHER AXE?!?!?", 2));
+                                Game1.addHUDMessage(new HUDMessage("BETRAYER TRAITOR LIAR FRAUDDD", 2));
                                 Game1.addHUDMessage(new HUDMessage("DIEEE!!!!!!!!!", 2));
                                 for (int i = 0; i < 5; i++)
                                 {
@@ -237,6 +241,22 @@ namespace HopeToRiseMod
                                     temp.BuffForAdditionalDifficulty(1000);
                                     Game1.currentLocation.characters.Add(temp);
                                 }
+                            }
+                            clicks++;
+                        }
+                    }
+                    else if (Game1.player.CurrentTool is WateringCan && Game1.currentLocation != null && Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "SpawnTree", "Paths") == "wild DreamTree 5 5")
+                    {
+                        Game1.addHUDMessage(new HUDMessage("Oh why thank you :)", 2));
+                        if (clicks == 5)
+                        {
+                            Game1.addHUDMessage(new HUDMessage("I guess you can have your axe back now.", 2));
+                            //need to make the game wait a bit to give 
+                            timer++;
+                            if (timer > 0)
+                            {
+                                Game1.player.CurrentTool = new Axe();
+                                timer = 0;
                             }
                             clicks++;
                         }
@@ -443,19 +463,18 @@ namespace HopeToRiseMod
                     float distance = Vector2.Distance(Game1.player.Tile, tileCoordinates);
                     if (distance < 3 && watercan.WaterLeft > 0)
                     {
-                        List<Vector2> tileLocations = tilesAffected(new Vector2((int)tileCoordinates.X, (int)tileCoordinates.Y), Game1.player.toolPower.Value, Game1.player);
-                        Monitor.Log("Tiles Affected: ", LogLevel.Info);
+                        List<Vector2> tileLocations = tilesAffected(new Vector2((int)tileCoordinates.X, (int)tileCoordinates.Y), Game1.player.toolPower, Game1.player);
+                        //Monitor.Log("Tiles Affected: ", LogLevel.Info);
                         foreach (Vector2 tile in tileLocations)
                         {
                             DeactivatePoisonTile((int)tile.X, (int)tile.Y);
-                            Monitor.Log($"{tile}", LogLevel.Info);
+                            //Monitor.Log($"{tile}", LogLevel.Info);
                         }
                         tileLocations.Clear();
                     }
                 }
             }
         }
-
         private void WateringPoisonRelease(object? sender, ButtonReleasedEventArgs e)
         {
             if (e.Button == SButton.MouseLeft)
@@ -469,7 +488,6 @@ namespace HopeToRiseMod
             Vector2 mouseTile = Game1.currentCursorTile;
             lastMouseTile = mouseTile;
         }
-
         private void DeactivatePoisonTile(int x, int y)
         {
             if (Game1.currentLocation != null)

@@ -1,24 +1,22 @@
 {
     "Changes": [
-        // ADDING QUEST TO JOURNAL
+        // CUSTOM QUEST
 
-        // Adds the 1st quest: Visit Harvey
-        // This quest get's activated when the player recieves letter from Harvey. Check MFM_HTR
+        // VISIT HARVEY: Triggered after opening letter sent from Harvey using the MFM
         {
             "Action": "EditData",
             "Target": "Data/Quests",
             "Entries": {
-                "131": "Location/Visit Harvey/You recieved a letter from Dr. Harvey requesting your presence. It sounded urgent./Speak to Harvey at the Hospital/Hospital/-1/0/-1/false"
+                "131": "Location/Visit Harvey/You received a letter from Dr. Harvey requesting your presence. It sounded urgent./Speak to Harvey at the Hospital/Hospital/-1/0/-1/false"
             }
         },
 
-        // Adds the 1st quest: Visit Harvey
-        // This quest get's activated when the player recieves letter from Harvey. Check MFM_HTR
+        // VISIT WIZARD: Triggers after completing Visit Harvey. The player will recieve their teddy bear
         {
             "Action": "EditData",
             "Target": "Data/Quests",
             "Entries": {
-                "132": "Location/Visit Wizard/ Harvey asked that you go check on the Wizard. He might know something./Speak to the Wizard/WizardHouse/-1/0/-1/false"
+                "132": "Location/Visit The Wizard/ Harvey asked that you go check on the Wizard. He might know something./Speak to the Wizard/WizardHouse/-1/0/-1/false"
             }
         },
 
@@ -43,12 +41,27 @@
         //}
 
         // Adding Item Delivery Quest for Lord Somnia
+        // PROTECTED SLEEP: Recieved after visiting the Wizard. Must equip the teddy bear then say YES to sleeping. Completes when the player transports to the dreamworld
+        //TODO: Might need to change DreamWorldSpawn to PLAYER_LOCATION_NAME Current DreamWorldSpawn
         {
             "Action": "EditData",
             "Target": "Data/Quests",
             "Entries": {
                 "133": "ItemDelivery/Lord Somnia's Item Delivery/It's for a good cause!'./Deliver Lord Somnia the Dream Ring/DreamLord DreamRing/134/0/-1/false/ Thanks!",
                 "134": "ItemDelivery/Lord Somnia's Item Delivery/It's for a good cause!'./Deliver Lord Somnia the Dream Boots/DreamLord DreamBoots/-1/0/-1/false/ Thanks!"
+                "133": "Basic/Protected Sleep/The Wizard has given you a special stuffy. He says it'll protect you when you sleep./Hold the Bear when you go to sleep./DreamWorldSpawn/-1/0/-1/false"
+            }
+        },
+
+        // Adding Item Delivery Lord Somnia's Boots
+        // TODO: Change the item id to match the dream boots
+        {
+            "Action": "EditData",
+            "Target": "Data/Quests",
+            "Entries": {
+                "134": "ItemDelivery/Lord Somnia's Boots/Lord Somnia can wake up Vincent and Jas but he needs his full powers. Help him find his magic boots/Find and Deliver Lord Somnia's Starlight Boots. Vanna might be able to point you in the right direction./DreamLord DreamBoots 1/135/0/-1/false/These boots have traversed many worlds with me. Thank you for returning them.",
+
+                "135": "ItemDelivery/Lord Somnia's Ring/Lord Somnia can wake up Vincent and Jas but he needs his full powers. Help him find his magic ring/Find and Deliver Lord Somnia's Night Ring. Vanna might be able to point you in the right direction./DreamLord DreamRing 1/-1/0/-1/false/Finally. I can't remember the last time I felt this powerful."
             }
         }
     ]

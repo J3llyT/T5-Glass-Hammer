@@ -1,6 +1,6 @@
 {
     // TO DO
-    "spring": "610 BusStop 14 17 2",
+    "spring": "610 DreamWorldSpawn 20 3 2",
     "summer": "GOTO spring",
     "fall": "GOTO spring",
     "winter": "GOTO spring"
