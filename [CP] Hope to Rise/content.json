@@ -536,16 +536,19 @@
         "Action": "EditData",
         "Target": "Data/Objects",
         "Entries": {
-            "WakeUpWater": {
-                "Name": "Wake Up Water",
-                "DisplayName": "Wake Up Water",
-                "Description": "Drains your stamina",
-                "Edibility": "-400",
-                "IsDrink": true,
-                "Price": 25,
-                "Texture": "TileSheets/Potion2",
-                "SpriteIndex": 0
+          "WakeUpWater": {
+            "Name": "Wake Up Water",
+            "DisplayName": "Wake Up Water",
+            "Description": "Drains your stamina",
+            //"Edibility": "0",
+            "IsDrink": true,
+            "Price": 25,
+            "Texture": "TileSheets/Potion2",
+            "SpriteIndex": 0,
+            "CustomFields": {
+              "drinkToWake":  "idkWhatGoesHere"
             }
+          }
         }
     },
     {

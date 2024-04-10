@@ -24,6 +24,7 @@ using System.Threading;
 using Microsoft.Xna.Framework.Input;
 using static StardewValley.GameLocation;
 using static StardewValley.Minigames.CraneGame;
+using StardewValley.GameData.Objects;
 
 
 namespace HopeToRiseMod
@@ -61,13 +62,14 @@ namespace HopeToRiseMod
             helper.Events.Input.CursorMoved += OnCursorMoved;
             helper.Events.Input.ButtonPressed += LeftClick;
             helper.Events.Input.ButtonReleased += WateringPoisonRelease;
+            helper.Events.Input.ButtonPressed += drink;
 
             //loading in textures
             PoisonTile = helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonTile.png");
             //PoisonTileCooled = helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonTileCooled.png");
         }
 
-
+        int haveDrink = 0;
         /// <summary>Raised after the player presses a button on the keyboard, controller, or mouse.</summary>
         /// <param name="sender">The event sender.</param>
         /// <param name="e">The event data.</param>
@@ -281,7 +283,31 @@ namespace HopeToRiseMod
         #endregion
 
         #region //question dialogue
-
+        private void drink(object? sender, ButtonPressedEventArgs e)
+        {
+            if (e.Button == SButton.MouseRight && Game1.player.CurrentItem != null)
+            {
+                if (Game1.player.CurrentItem.Name == "Wake Up Water")
+                {
+                    question("Would you like to return to reality?",
+                         new Response[2]
+                         {
+                    new Response("Yes", Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_Yes")).SetHotKey(Keys.Y),
+                    new Response("No", Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_No")).SetHotKey(Keys.Escape)
+                         }
+                         , delegate (Farmer who, string whichAnswer)
+                         {
+                             if (whichAnswer == "Yes")
+                             {
+                                 Game1.showGlobalMessage("You're waking up...");
+                                 Game1.warpHome();
+                                 Game1.player.stamina = Game1.player.MaxStamina;
+                             }
+                         });
+                    Game1.player.removeItemFromInventory(Game1.player.CurrentItem);
+                }
+            }
+        }
         private void ReturnToBed(GameLocation location, string[] args, Farmer player, Vector2 tile)
         {
             question("Would you like to return to reality?",
