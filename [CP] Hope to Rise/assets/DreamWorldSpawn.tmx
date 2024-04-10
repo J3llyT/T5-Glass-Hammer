@@ -203,11 +203,6 @@
   </object>
  </objectgroup>
  <objectgroup id="7" name="Buildings">
-  <object id="10" name="TileData" x="80" y="48" width="32" height="32">
-   <properties>
-    <property name="Action" value="OpenShop VannaShop down"/>
-   </properties>
-  </object>
   <object id="20" name="TileData" x="16" y="160" width="16" height="80">
    <properties>
     <property name="Passable" value="T"/>
