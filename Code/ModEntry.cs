@@ -21,6 +21,9 @@ using xTile.ObjectModel;
 using xTile.Tiles;
 using xTile.Layers;
 using System.Threading;
+using Microsoft.Xna.Framework.Input;
+using static StardewValley.GameLocation;
+using static StardewValley.Minigames.CraneGame;
 
 
 namespace HopeToRiseMod
@@ -50,6 +53,7 @@ namespace HopeToRiseMod
         public override void Entry(IModHelper helper)
         {
             GameLocation.RegisterTouchAction("poison", GiveBuff);
+            GameLocation.RegisterTouchAction("returnHome", ReturnToBed);
             helper.Events.GameLoop.UpdateTicked += OnUpdateTicked;
             helper.Events.Display.MenuChanged += OnMenuChanged;
 
@@ -62,7 +66,7 @@ namespace HopeToRiseMod
             PoisonTile = helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonTile.png");
             //PoisonTileCooled = helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonTileCooled.png");
         }
-        
+
 
         /// <summary>Raised after the player presses a button on the keyboard, controller, or mouse.</summary>
         /// <param name="sender">The event sender.</param>
@@ -73,7 +77,7 @@ namespace HopeToRiseMod
             // NEED TO UPDATE TO ACCOMADATE FOR ALL OF THE LOCATIONS
             if (Game1.player.stamina <= staminaThreshold && Game1.currentLocation != null)
             {
-                if (Game1.currentLocation.Name is 
+                if (Game1.currentLocation.Name is
                     "DreamWorldSpawn" or
                     "DreamWorldHub" or
                     "DreamWorldEast" or
@@ -107,11 +111,11 @@ namespace HopeToRiseMod
             if (Game1.currentLocation != null && Game1.currentLocation.Name == "DreamWorldBoss" && !bossSpawned)
             {
                 bossSpawned = true;
-                
+
                 somnia = new DreamLord(new Vector2(15f, 12f) * 64f);
                 Game1.currentLocation.characters.Add(somnia);
             }
-            if (Game1.currentLocation != null &&  Game1.currentLocation.characters.Contains(somnia))
+            if (Game1.currentLocation != null && Game1.currentLocation.characters.Contains(somnia))
             {
                 //Monitor.Log(somnia.numHitsToStagger.ToString());
                 //Monitor.Log(somnia.behavior.ToString());
@@ -145,7 +149,7 @@ namespace HopeToRiseMod
                         // Change the tile at the randomly selected position
                         currentLocation.setMapTileIndex(randomX, randomY, 923467, "Back");
                         //add the poison to the tile
-                        
+
 
                         currentLocation.removeTile(randomX, randomY, "Back");
 
@@ -173,6 +177,7 @@ namespace HopeToRiseMod
             }
             if (bossUnlock) BossBlock();
             #endregion
+
         }
         #region//Mouse Methods
         private void LeftClick(object? sender, ButtonPressedEventArgs e)
@@ -185,7 +190,7 @@ namespace HopeToRiseMod
                     if (isMouseLeftButtonDown) WateringPoison();
                     Vector2 tileCoordinates = Game1.currentCursorTile;
                     float distance = Vector2.Distance(Game1.player.Tile, tileCoordinates);
-                    if (Game1.currentLocation!=null && Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "BossBlock", "Buildings") == "T" && distance <3)
+                    if (Game1.currentLocation != null && Game1.currentLocation.doesTileHaveProperty((int)tileCoordinates.X, (int)tileCoordinates.Y, "BossBlock", "Buildings") == "T" && distance < 3)
                     {
                         Game1.addHUDMessage(new HUDMessage("They look like they're guarding something...", 2));
                     }
@@ -271,6 +276,38 @@ namespace HopeToRiseMod
                         }
                     }
                 }
+            }
+        }
+        #endregion
+
+        #region //question dialogue
+
+        private void ReturnToBed(GameLocation location, string[] args, Farmer player, Vector2 tile)
+        {
+            question("Would you like to return to reality?",
+                 new Response[2]
+                 {
+                    new Response("Yes", Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_Yes")).SetHotKey(Keys.Y),
+                    new Response("No", Game1.content.LoadString("Strings\\Lexicon:QuestionDialogue_No")).SetHotKey(Keys.Escape)
+                 }
+                 , delegate (Farmer who, string whichAnswer)
+                 {
+                     if (whichAnswer == "Yes")
+                     {
+                         Game1.showGlobalMessage("You're waking up...");
+                         Game1.warpHome();
+                         Game1.player.stamina = Game1.player.MaxStamina;
+                     }
+                 });
+        }
+        public void question(string question, Response[] answerChoices, afterQuestionBehavior afterDialogueBehavior, NPC speaker = null)
+        {
+            Game1.currentLocation.lastQuestionKey = null;
+            Game1.currentLocation.afterQuestion = afterDialogueBehavior;
+            Game1.drawObjectQuestionDialogue(question, answerChoices);
+            if (speaker != null)
+            {
+                Game1.objectDialoguePortraitPerson = speaker;
             }
         }
         #endregion
