@@ -48,7 +48,7 @@
   <image source="Shop2.png" width="64" height="48"/>
  </tileset>
  <tileset firstgid="6777" name="z_Castle" tilewidth="16" tileheight="16" tilecount="156" columns="12">
-  <image source="E:/SteamLibrary/steamapps/common/Stardew Valley/Mods/[CP] Hope to Rise/assets/Castle.png" width="192" height="208"/>
+  <image source="Castle.png" width="192" height="208"/>
  </tileset>
  <layer id="12" name="Back-2" width="36" height="55">
   <data encoding="csv">

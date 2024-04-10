@@ -25,6 +25,13 @@ namespace HopeToRiseMod.Monsters
         Poison = 4
     }
 
+    public enum Phase
+    {
+        Healthy,
+        Half,
+        Critical
+    }
+
     public class DreamLord : Monster
     {
         // Fields
@@ -63,6 +70,11 @@ namespace HopeToRiseMod.Monsters
 
         private int warpIndex;
 
+        // Field ralted to poison attack
+        private bool didPoison = false;
+
+        public Phase phase = Phase.Healthy;
+
         // Constructors
         public DreamLord()
         {
@@ -81,6 +93,9 @@ namespace HopeToRiseMod.Monsters
             // Set behavior to Idle
             behavior = Behavior.Idle;
             behaviorTimer = 1000;
+
+            // Set phase
+            phase = Phase.Healthy;
 
             // Set the initial numHitsToStagger
             numHitsToStagger = nextMaxStagger;
@@ -172,6 +187,16 @@ namespace HopeToRiseMod.Monsters
                 {
                     base.deathAnimation();
                 }
+            }
+
+            // After damage has been done, update phase based on max hp
+            if (base.Health <= base.MaxHealth / 2)
+            {
+                phase = Phase.Half;
+            }
+            else if (base.Health <= base.MaxHealth / 4)
+            {
+                phase = Phase.Critical;
             }
 
             return actualDamage;
@@ -344,12 +369,29 @@ namespace HopeToRiseMod.Monsters
             {
                 // Randomize behavior (Next generates up to but not including the max)
                 Behavior prevBehavior = behavior;
-                behavior = (Behavior) (Game1.random.Next(0, 5));
+
+                // Only do poison attack below half
+                if (phase == Phase.Healthy)
+                {
+                    behavior = (Behavior)(Game1.random.Next(0, 4));
+                }
+                else
+                {
+                    behavior = (Behavior)(Game1.random.Next(0, 5));
+                }
+                
 
                 // Loop through and make sure the behavior is different from last time
                 while (behavior == prevBehavior)
                 {
-                    behavior = (Behavior)(Game1.random.Next(0, 5));
+                    if (phase == Phase.Healthy)
+                    {
+                        behavior = (Behavior)(Game1.random.Next(0, 4));
+                    }
+                    else
+                    {
+                        behavior = (Behavior)(Game1.random.Next(0, 5));
+                    }
                 }
 
                 switch (behavior)
@@ -380,7 +422,8 @@ namespace HopeToRiseMod.Monsters
                         base.setInvincibleCountdown(800);
                         break;
                     case Behavior.Poison:
-                        behaviorTimer = 6000;
+                        behaviorTimer = 7000;
+                        didPoison = false;
                         break;
                 }
             }
@@ -390,16 +433,13 @@ namespace HopeToRiseMod.Monsters
             {
                 // Idle
                 case Behavior.Idle:
-                    // Do nothing and set behavior timer for 1000 millisecond
                     break;
                 // SquidKid 
                 case Behavior.SquidKid:
-                    // Set timer for a decent amount of time and let it play out
                     SquidKidBehavior(time);
                     break;
                 // Spawn Enemies
                 case Behavior.SpawnEnemies:
-                    // Wait for a few moments, then summon bats
                     SpawnMonsterBehavior(time);
                     break;
                 case Behavior.Warp:
@@ -414,7 +454,7 @@ namespace HopeToRiseMod.Monsters
         private void PoisonBehavior(GameTime time)
         {
             // Wait for a bit, then spawn tiles (time for animation)
-            if (behaviorTimer <= 1000)
+            if (behaviorTimer <= 2000 && !didPoison)
             {
                 // Figure out player tile position
                 Vector2 playerTile = Game1.player.Position / 64.0f;
@@ -422,33 +462,44 @@ namespace HopeToRiseMod.Monsters
                 int playerY = (int)Math.Floor(playerTile.Y);
 
 
+                int exclude = Game1.random.Next(0, 3);
+
                 // set those tiles to poison tiles
-                SetPoisonTile(playerX + 3, playerY);
-                SetPoisonTile(playerX + 3, playerY - 1);
-                SetPoisonTile(playerX + 3, playerY + 1);
+                if (exclude != 0)
+                {
+                    SetPoisonTile(playerX + 3, playerY);
+                    SetPoisonTile(playerX + 3, playerY - 1);
+                    SetPoisonTile(playerX + 3, playerY + 1);
+                }
 
-                SetPoisonTile(playerX, playerY + 3);
-                SetPoisonTile(playerX - 1, playerY + 3);
-                SetPoisonTile(playerX + 1, playerY + 3);
-
-                SetPoisonTile(playerX - 3, playerY);
-                SetPoisonTile(playerX - 3, playerY - 1);
-                SetPoisonTile(playerX - 3, playerY + 1);
-
-                SetPoisonTile(playerX, playerY - 3);
-                SetPoisonTile(playerX - 1, playerY - 3);
-                SetPoisonTile(playerX + 1, playerY - 3);
-
+                if (exclude != 1)
+                {
+                    SetPoisonTile(playerX, playerY + 3);
+                    SetPoisonTile(playerX - 1, playerY + 3);
+                    SetPoisonTile(playerX + 1, playerY + 3);
+                }
+                
+                if (exclude != 2)
+                {
+                    SetPoisonTile(playerX - 3, playerY);
+                    SetPoisonTile(playerX - 3, playerY - 1);
+                    SetPoisonTile(playerX - 3, playerY + 1);
+                }
+                
+                if (exclude != 3)
+                {
+                    SetPoisonTile(playerX, playerY - 3);
+                    SetPoisonTile(playerX - 1, playerY - 3);
+                    SetPoisonTile(playerX + 1, playerY - 3);
+                }
+                
                 SetPoisonTile(playerX + 2, playerY + 2);
                 SetPoisonTile(playerX - 2, playerY + 2);
                 SetPoisonTile(playerX - 2, playerY - 2);
                 SetPoisonTile(playerX + 2, playerY - 2);
 
 
-
-
-                // Set timer to 0
-                behaviorTimer = 0;
+                didPoison = true;
             }
         }
 
