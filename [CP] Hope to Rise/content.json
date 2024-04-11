@@ -35,6 +35,11 @@
       "Target": "Data/Events/DreamWorldSpawn",
       "FromFile": "blank.json"
     },
+    {
+      "Action": "Load",
+      "Target": "Data/Events/DreamWorldHub",
+      "FromFile": "blank.json"
+    },
     // LOADING MAPS
     {
       "Action": "Load",
