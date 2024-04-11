@@ -522,7 +522,7 @@
             "DreamCan": {
                 "ClassName": "WateringCan",
                 "Name": "DreamCan",
-                "DisplayName": "Dream Can",
+                "DisplayName": "Starlight Watering Can",
                 "Description": "Magic watering can of your dreams.",
                 "Texture": "TileSheets/DreamCan",
                 "SpriteIndex": "308",
@@ -543,8 +543,8 @@
         "Entries": {
           "WakeUpWater": {
             "Name": "Wake Up Water",
-            "DisplayName": "Wake Up Water",
-            "Description": "Drains your stamina",
+            "DisplayName": "Awaken ",
+            "Description": "A potion that drains your stamina and wakes you back up.",
             //"Edibility": "0",
             "IsDrink": true,
             "Price": 25,
@@ -562,8 +562,8 @@
       "Entries": {
         "DreamBoots": {
           "Name": "DreamBoots",
-          "DisplayName": "Dream Boots",
-          "Description": "These dream boots sparkle beautifully.",
+          "DisplayName": "Starlight Boots",
+          "Description": "These boots sparkle beautifully. They belong to Lord Somnia and should be returned to him.",
           "Price": 400,
           "Texture": "TileSheets/DreamBoots",
           "SpriteIndex": "0",
@@ -598,8 +598,8 @@
         "DreamRing": {
           "Name": "DreamRing",
           "Type": "Ring",
-          "DisplayName": "Dream Ring",
-          "Description": "A ring made of a special material.",
+          "DisplayName": "Night Ring",
+          "Description": "This ring buzzes with energy. It belongs to Lord Somnia and should be returned to him.",
           "Price": 500,
           "Texture": "TileSheets/DreamRing",
           "SpriteIndex": "0",
@@ -616,7 +616,7 @@
           "Name": "TeddyBear",
           "Type": "Basic",
           "DisplayName": "Teddy Bear",
-          "Description": "It looks like a teddy bear.",
+          "Description": "A cute teddy bear. This item allows passage into your dreams. Make sure to hold it when you choose to sleep.",
           "Price": 100,
           "Texture": "TileSheets/TeddyBear",
           "SpriteIndex": "0",
