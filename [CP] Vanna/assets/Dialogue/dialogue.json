@@ -1,23 +1,34 @@
 {
     // Weekly Generic
-    "Mon": "It's Monday. Nobody is happy on Monday.",
-    "Tue": "Hey, @. I always try to stay as far away from people as possible..",
-    "Wed": "*sigh*#$b#How about..?#$b#Oh, I was just talking to myself.",
-    "Thu": "The weekend's coming up!",
+    "Mon": "Sometimes, I wish I could stay here forever...Endlessly dreaming a good dream.",
+    "Tue": "Lord Somnia's bad at making friends, but he's pretty sweet once you get to know him.",
+    "Wed": "I prefer dreams to reality. #$q 0Vr/1Vr dreamquestion_followup#What about you? #$r 0Vr 30 dreamquestion_yes#Yeah, reality can be harsh. #$r 1Vr 10 dreamquestion_sorry#Dreams can be nice, but you can't hide from reality. #$r 1Vr -5 dreamquestion_no#Reality is better than any dream.",
+    "dreamquestion_yes": "Exactly! That's why I don't want to leave.",
+    "dreamquestion_sorry": "You'd be surprised.",
+    "dreamquestion_no": "Spoken like someone who's lived a nice life. $2",
+    "dreamquestion_followup":"$p 0Vr #You should think about staying here. Lord Somnia could use the company. | Must be nice to live a good life.",
+    "Thu": "Vincent and Jas made me play hide and seek. It was nice to be a kid again.",
     "Fri": "Hey, @.#$e#Hm? Oh, sorry, I was lost in thought.#$e#...",
-    "Sat": "It's Saturday.#$e#I'm starting to miss my family...",
-    "Sun": "It's gonna be a new week again...",
+    "Sat": "Sometimes, I remember things from when I was awake. #$b# Then I wished I hadn't.",
+    "Sun": "This world can be dangerous sometimes, so make sure you have the right tools.",
+
+
     
     // Special 
-    "spring_5": "I don't know if you know this, but Harvey actually loves coffee and wine..",
+    "spring_5": "I don't know if you know this, but Lord Somnia actually loves humans.",
 
     // Birthdays
-    "winter_22": "It's my birthday today.. I wish I had someone with me.",
-    "winter_14": "It's Harvey's birthday today and I really hope he has a wonderful day.",
+    "winter_22": "It's my birthday today..Lord Somnia makes sure I never forget.",
+    "winter_14": "I don't think Lord Somnia has an actual birthday, but every year, I bake him a treat with a candle on top.",
 
     // Festivals
-    "spring_12": "I hadn't heard of anything like the egg festival until I moved.#$e#I think I'd rather stay home.",
-    "spring_23": "You said today is the flower dance..#$e#No, I'm not going.#$e#I like to dance, but when no one else is around.$s",
-    "summer_28": "(whispering to herself) But there's gonna be so many people there...$s#$e#Huh? Did you say something?$4",
-    "winter_25": "Happy Winter Star!#$e#It's so cold outside."
+    "spring_12": "Festival? I haven't been to one since. . .#$s#$b#It doesn't matter. You should go enjoy it.",
+    "spring_23": "GOTO spring_12",
+    "summer_28": "GOTO spring_12",
+    "winter_25": "GOTO spring_12",
+
+    // Conversation Topics 
+    "FindTheBoots": "Lord Somnia used to spend a lot of time near the lakes. He liked to take his shoes off and wade in the water. #$b# I wouldn't be surprised if his boots were being used as fish's new home.",
+    "FindTheRing": "I heard you're looking for Lord Somnia's Regalia. #$b# He used to have this beautiful ring but he lost it. #$b# Try checking the trees. They can be real tricky sometimes.",
+    "FirstSpawn": "You should buy some supplies at my shop. You'll probably need them."
 }

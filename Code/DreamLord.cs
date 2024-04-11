@@ -454,7 +454,7 @@ namespace HopeToRiseMod.Monsters
         private void PoisonBehavior(GameTime time)
         {
             // Wait for a bit, then spawn tiles (time for animation)
-            if (behaviorTimer <= 2000 && !didPoison)
+            if (behaviorTimer <= 4000 && !didPoison)
             {
                 // Figure out player tile position
                 Vector2 playerTile = Game1.player.Position / 64.0f;
@@ -553,7 +553,7 @@ namespace HopeToRiseMod.Monsters
         private void SpawnMonsterBehavior(GameTime time)
         {
             // Wait until half the time to spawn enemy
-            if (behaviorTimer <= 1500 && monsterList.Count <= 2)
+            if (behaviorTimer <= 1500 && monsterList.Count <= 1)
             {
                 // Get the boss's position
                 Vector2 bossPosition = this.Position;
@@ -626,7 +626,7 @@ namespace HopeToRiseMod.Monsters
                     // If there are no fireballs left, set a delay till next one can be fired
                     if (this.numFireballsLeft <= 0)
                     {
-                        this.lastFireball = Game1.random.Next(1500, 3250);
+                        this.lastFireball = Game1.random.Next(600, 1000);
                     }
                 }
             }
@@ -648,7 +648,7 @@ namespace HopeToRiseMod.Monsters
                 projectile2.height.Value = 48f;
                 base.currentLocation.projectiles.Add(projectile2);
                 base.currentLocation.playSound("fireball");
-                this.lastFireball = Game1.random.Next(600, 1750);
+                this.lastFireball = Game1.random.Next(1000, 1750);
             }
             // If the player is not nearby, check for movement opportunity and move
             else if (this.lastFireball != 0f)
