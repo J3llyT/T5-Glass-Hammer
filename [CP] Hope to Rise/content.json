@@ -544,10 +544,7 @@
             "IsDrink": true,
             "Price": 25,
             "Texture": "TileSheets/Potion2",
-            "SpriteIndex": 0,
-            "CustomFields": {
-              "drinkToWake":  "idkWhatGoesHere"
-            }
+            "SpriteIndex": 0
           }
         }
     },
@@ -626,15 +623,17 @@
         "Action": "EditData",
         "Target": "Data/Objects",
         "Entries": {
-            "Maidmer": {
-                "Name": "Maidmer",
-                "DisplayName": "Maidmer",
-                "Description": "Legendary creatures, but they look a bit strange.",
-                "Price": 90,
-                "Texture": "TileSheets/Maidmer",
-                "SpriteIndex": "0",
-                "CanBeLostOnDeath": "true"
-            }
+          "Maidmer": {
+            "Name": "Maidmer",
+            "DisplayName": "Maidmer",
+            "Description": "Legendary creatures, but they look a bit strange.",
+            "Price": 90,
+            "Texture": "TileSheets/Maidmer",
+            "SpriteIndex": "0",
+            "CanBeLostOnDeath": "true",
+            "Category": -18,
+            "sellAtPierresAndMarnies": "true"
+          }
         }
     }
   ]
