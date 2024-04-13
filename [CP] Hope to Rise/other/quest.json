@@ -46,7 +46,7 @@
             "Action": "EditData",
             "Target": "Data/Quests",
             "Entries": {
-                "133": "Basic/Protected Sleep/The Wizard has given you a special stuffy. He says it'll protect you when you sleep./Hold the Bear when you go to sleep./DreamWorldSpawn/-1/0/-1/false"
+                "133": "Location/Protected Sleep/The Wizard has given you a special stuffy. He says it'll protect you when you sleep./Hold the Bear when you go to sleep./DreamWorldSpawn/-1/0/-1/false"
             }
         },
 
