@@ -594,14 +594,16 @@
       "Entries": {
         "DreamRing": {
           "Name": "DreamRing",
-          "Type": "Ring",
+          "Type": "Basic",
           "DisplayName": "Night Ring",
           "Description": "This ring buzzes with energy. It belongs to Lord Somnia and should be returned to him.",
           "Price": 500,
           "Texture": "TileSheets/DreamRing",
           "SpriteIndex": "0",
-          "CanBeLostOnDeath": "false"
-          // "type: ring" is not giftable as default
+          "CanBeLostOnDeath": "false",
+          "ContextTags": [
+            "not_giftable"
+          ]
         }
       }
     },
