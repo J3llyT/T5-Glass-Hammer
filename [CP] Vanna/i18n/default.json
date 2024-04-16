@@ -6,9 +6,12 @@
   "Vanna.GiftLike": "Thanks.. But I have nothing to give you as a gift.",
   "Vanna.GiftDislike": "Is this the most popular item right now, anyway thanks.",
   "Vanna.GiftHate": "What am I supposed to do with this?",
-  "Vanna.GiftNeutral": "Thanks."
-  
-  // TO DO
+  "Vanna.GiftNeutral": "Thanks.",
+
   // 2 Heart Event
-  // 4 Heart Event
+  "Vanna.2H01": "Isn't it beautiful here?#$b#This is where I spend most of my time.#$b#This place makes me feel calm.",
+  "Vanna.2H02": "Sorry... I'm talking to myself again.",
+  "Vanna.2H03": "You know, lately I've been feeling like...#$b#like I'm forgetting something important.#$b#It's as if everything I've been through is slipping away, like it's becoming a distant fog.",
+  "Vanna.2H04": "Every day just feels... the same, you know?#$b#Like I'm stuck in some endless loop.",
+  "Vanna.2H05": "Back then, I didn't have anyone to confide in, anyone to share my struggles with.#$b#But hey, things are different now.#$b#I'm grateful for our friendship."
 }

@@ -89,9 +89,18 @@
 			"Action": "Load",
 			"Target": "Characters/Dialogue/Vanna",
 			"FromFile": "assets/Dialogue/dialogue.json"
+		},
+		{
+			// 2 Heart Event
+			"LogName": "Vanna2Heart",
+			"Action": "EditData",
+			"Target": "Data/Events/DreamworldHub",
+			"Entries": {
+				// event ID
+				// requires 2 hearts with Vanna
+				// between 06:00 and 26:00 everyday
+				"HTR.Vanna_2Heart_event/f Vanna 500/t 600 2600": "none/17 23/Vanna 18 25 2 farmer 20 26 2/skippable/move Vanna 0 -2 2/move Vanna -2 0 2/move farmer -3 0 2/move farmer 0 -3 2/faceDirection farmer 3/pause 500/speak Vanna \"{{i18n:Vanna.2H01}}\"/pause 500/emote farmer 56/pause 500/speak Vanna \"{{i18n:Vanna.2H02}}\"/pause 500/emote Vanna 12/pause 500/speak Vanna \"{{i18n:Vanna.2H03}}\"/pause 500/jump farmer 8/pause 1000/speak Vanna \"{{i18n:Vanna.2H04}}\"/pause 500/emote Vanna 28/pause 1000/speak Vanna \"{{i18n:Vanna.2H05}}\"/pause 500/emote farmer 60/pause 1000/emote Vanna 32/pause 1000/globalFade/viewport -1000 -1000/end"
+			}
 		}
-		// TO DO
-		// 2 Heart Event
-		// 4 Heart Event
 	]
 }

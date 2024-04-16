@@ -89,9 +89,18 @@
 			"Action": "Load",
 			"Target": "Characters/Dialogue/DreamLord",
 			"FromFile": "assets/Dialogue/dialogue.json"
+		},
+		{
+			// 2 Heart Event
+			"LogName": "DreamLord2Heart",
+			"Action": "EditData",
+			"Target": "Data/Events/DreamworldHub",
+			"Entries": {
+				// event ID
+				// requires 2 hearts with the Dream Lord
+				// between 06:00 and 26:00 everyday
+				"HTR.DreamLord_2Heart_event/f DreamLord 500/t 600 2600": "none/11 27/DreamLord 6 30 2 farmer 4 31 2/skippable/speak DreamLord \"{{i18n:DreamLord.2H01}}\"/pause 500/move DreamLord 4 0 2/pause 500/move farmer 4 0 2/move farmer 0 -1 2/move farmer 1 0 2/faceDirection farmer 1/pause 500/emote farmer 56/pause 500/speak DreamLord \"{{i18n:DreamLord.2H02}}\"/pause 1000/emote farmer 32/pause 500/speak DreamLord \"{{i18n:DreamLord.2H03}}\"/pause 2000/emote DreamLord 28/pause 1000/emote farmer 8/pause 500/speak DreamLord \"{{i18n:DreamLord.2H04}}\"/pause 1000/speak DreamLord \"{{i18n:DreamLord.2H05}}\"/pause 2000/emote farmer 28/pause 1000/speak DreamLord \"{{i18n:DreamLord.2H06}}\"/pause 1000/emote DreamLord 12/pause 1000/emote farmer 40/pause 1000/speak DreamLord \"{{i18n:DreamLord.2H07}}\"/pause 1000/jump farmer 8/pause 1000/emote farmer 20/pause 1000/emote DreamLord 32/pause 1000/globalFade/viewport -1000 -1000/end"
+			}
 		}
-		// TO DO
-		// 2 Heart Event
-		// 4 Heart Event
 	]
 }
