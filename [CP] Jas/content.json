@@ -30,7 +30,7 @@
 							"Id": "DreamWorldSpawn",
 							"Location": "DreamWorldSpawn",
 							"Tile": {
-								"X": 13,
+								"X": 11,
 								"Y": 13
 							},
 							"Direction": "Down"

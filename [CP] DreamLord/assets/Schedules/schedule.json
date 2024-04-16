@@ -1,6 +1,6 @@
 {
     // TO DO
-    "spring": "610 DreamWorldHub 23 33 2/700 DreamWorldHub 9 30/",
+    "spring": "900 DreamWorldHub 23 33 2/1200 DreamWorldHub 9 30/1500 DreamWorldHub 20 7/1700 DreamWorldHub 9 30/",
     "summer": "GOTO spring",
     "fall": "GOTO spring",
     "winter": "GOTO spring"
