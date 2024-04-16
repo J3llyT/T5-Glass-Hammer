@@ -25,6 +25,7 @@ using Microsoft.Xna.Framework.Input;
 using static StardewValley.GameLocation;
 using static StardewValley.Minigames.CraneGame;
 using StardewValley.GameData.Objects;
+using StardewValley.Quests;
 
 
 namespace HopeToRiseMod
@@ -122,6 +123,7 @@ namespace HopeToRiseMod
                 //Monitor.Log(somnia.numHitsToStagger.ToString());
                 //Monitor.Log(somnia.behavior.ToString());
             }
+            DefeatedBoss();
             #endregion
 
             #region // Tile Logic
@@ -174,10 +176,12 @@ namespace HopeToRiseMod
                 foreach (var eventId in seenEvents)
                 {
                     //Monitor.Log($"Seen event: {eventId}", LogLevel.Info);
-                    if (eventId == "HTR.DreamWorldSpawn_event") bossUnlock = true;
+                    if (eventId == "HTR.DreamWorldBoss_event") bossUnlock = true;
                 }
             }
             if (bossUnlock) BossBlock();
+
+            if(!seenEvents.Contains("EventID")) PlayFirstBossEvent();
             #endregion
 
 
@@ -603,7 +607,7 @@ namespace HopeToRiseMod
         #endregion
 
         #region//Event Methods
-        void BossBlock()
+        private void BossBlock()
         {
             if (Game1.currentLocation.Name == "DreamWorldHub")
             {
@@ -614,6 +618,32 @@ namespace HopeToRiseMod
                     Game1.currentLocation.removeTileProperty(i, 1, "Buildings", "BossBlock");
                     Game1.currentLocation.removeTile(i, 0, "Buildings");
                     Game1.currentLocation.removeTile(i, 1, "Buildings");
+                }
+            }
+        }
+
+        private void PlayFirstBossEvent()
+        {
+            if(Quest.getQuestFromId("ID").checkIfComplete() && Quest.getQuestFromId("ID").checkIfComplete())
+            {
+                Game1.PlayEvent("EventID");
+            }
+        }
+        #endregion
+
+        #region //DreamLord Defeat Methods
+        /// <summary>
+        /// Handles Game behavior for when the player
+        /// defeats the Lord Somnia
+        /// </summary>
+        void DefeatedBoss()
+        {
+            if (Game1.currentLocation != null && Game1.currentLocation.Name == "DreamWorldBoss")
+            {
+                if (somnia.Health == 0 && !Quest.getQuestFromId("QuestID").checkIfComplete())
+                {
+                    Game1.player.completeQuest("QuestID");
+                    Game1.PlayEvent("eventID");
                 }
             }
         }

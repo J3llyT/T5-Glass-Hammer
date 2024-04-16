@@ -20,33 +20,13 @@
             }
         },
 
-
-        // ADDING DIALOGUE FOR QUEST
-        // Edit the weekly dialogue for villagers during the duration of the quest
-        {
-            "Action": "EditData",
-            "Target": "Characters/Dialogue/Harvey, Characters/Dialogue/Shane",
-            "Entries": {
-                "Mon": "I had the strangest dream last night"
-            }
-        },
-
-        // Adding Item Delivery Test
-        //{
-        //    "Action": "EditData",
-        //    "Target": "Data/Quests",
-        //    "Entries": {
-        //        "133": "ItemDelivery/Harvey's Favor/Harvey has a favor to ask./Deliver Harvey a Parsnip/Harvey 24/-1/0/-1/false/ Thanks!"
-        //    }
-        //}
-
         // PROTECTED SLEEP: Recieved after visiting the Wizard. Must equip the teddy bear then say YES to sleeping. Completes when the player transports to the dreamworld
         //TODO: Might need to change DreamWorldSpawn to PLAYER_LOCATION_NAME Current DreamWorldSpawn
         {
             "Action": "EditData",
             "Target": "Data/Quests",
             "Entries": {
-                "133": "Location/Protected Sleep/The Wizard has given you a special stuffy. He says it'll protect you when you sleep./Hold the Bear when you go to sleep./DreamWorldSpawn/-1/0/-1/false"
+                "133": "Location/Protected Sleep/The Wizard has given you a special stuffy. He says it'll protect you when you sleep./Hold the Bear above your head when you sleep./DreamWorldSpawn/-1/0/-1/false"
             }
         },
 
@@ -58,6 +38,17 @@
             "Entries": {
                 "134": "ItemDelivery/Lord Somnia's Boots/Lord Somnia can wake up Vincent and Jas but he needs his full powers. Help him find his magic boots/Find and Deliver Lord Somnia's Starlight Boots. Vanna might be able to point you in the right direction./DreamLord DreamBoots 1/135/0/-1/false/These boots have traversed many worlds with me. Thank you for returning them.",
                 "135": "ItemDelivery/Lord Somnia's Ring/Lord Somnia can wake up Vincent and Jas but he needs his full powers. Help him find his magic ring/Find and Deliver Lord Somnia's Night Ring. Vanna might be able to point you in the right direction./DreamLord DreamRing 1/-1/0/-1/false/Finally. I can't remember the last time I felt this powerful."
+            }
+        },
+
+        // Adding the Stop Lord Somnia Quest
+        {
+            "Action": "EditData",
+            "Target": "Data/Quests",
+            "Entries": {
+                "HTR.BossQuest1": "Location/Stop Lord Somnia Part 1/Lord Somnia was supposed to wake up Vincent and Jas, but instead he plans to use his new found powers to trap more people./Follow Lord Somnia past where the gnomes use to stand guard/DreamWorldBoss/-1/0/-1/false",
+
+                "HTR.BossQuest2": "Basic/Stop Lord Somnia Part 2/Lord Somnia won't listen to reason, so you'll have to stop him by force. Use your watering can and sword to fight him./Defeat Lord Somnia/null/-1/0/-1/false"
             }
         }
     ]

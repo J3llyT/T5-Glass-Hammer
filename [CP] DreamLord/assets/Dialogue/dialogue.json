@@ -3,18 +3,27 @@
     "Mon": "The best way to fight a nightmare is to look it right in the eyes.",
     "Tue": "My realm hasn't had this much company in a long time. Humans don't dream the way they used to.",
     "Wed": "I often wonder if life would be more interesting as a human.",
-    "Thu": "At my full power, I can do things you'd only imagine in your dreams.",
+    "Thu": "At my full power, I can do things you'd only dream of.",
     "Fri": "I'm the Lord of Dreams but sometimes I wish I was a god...Then I could make everyone's dream a reality.",
-    "Sat": "The Dream World is more real than you think. Take care not to be too reckless.",
-    "Sun": "Do come back, human. I'm counting on you.",
+    "Sat": "My realm is more real than you think. Take care not to be too reckless.",
+    "Sun": "I'm curious, @... #$q 0Vr/1Vr dq_followup#Do you prefer day dreams, or night dreams? #$r 0Vr 30 dq_day#Day dreaming is the best. #$r 1Vr 30 dq_night#I prefer to do my dreaming at night. #$r 1Vr -5 dq_neither#I hate dreaming.",
+    "dq_day": "Day dreamers are often the most creative.",
+    "dq_neither": "You must live a sad existence, human.",
+    "dq_night": "Yes, dreams at night can be thrilling and terrifying.",
+    "dq_followup":"$p 0Vr #Some day dreams are so powerful they make there way to my realm. | Night dreams can be filled with terrors but facing them is the best way forward.",
     
     // Birthdays
-    "spring_1": "Hi, @. It's my birthday today!",
+    "winter_14": "I've told Vanna multiple times, that I have no date of birth. I simply exist.",
+    "winter_22": "You should present Vanna with a gift. It is her day of birth.",
 
     // Festivals
-    "spring_12": "The crowd was really enjoying the egg festival.#$e#I love how the energy makes me feel alive.",
-    "summer_10": "Tomorrow is the luau!#$b#Aren't you excited about this?",
-    "fall_27": "Boo!$6#$b#Sorry, I thought that'd be funny.$4",
-    "winter_25": "People did enjoy the Winter Star...#$e#Should I have the people in the dream hold that as well?",
-    "winter_26": "Happy Winter Star!$h#$b#Wait, it ended yesterday?$4"
+    "spring_12": "Festivals hold no meaning to me.",
+    "spring_23": "GOTO spring_12",
+    "summer_28": "GOTO spring_12",
+    "winter_25": "GOTO spring_12",
+
+    // Conversation Topics
+    "FindTheBoots": "Have you found my Starlight Boots?#$b# Try fishing them out of the lake.",
+    "FindTheRing": "The last time I saw my ring, I was talking to the trees in the garden."
+
 }

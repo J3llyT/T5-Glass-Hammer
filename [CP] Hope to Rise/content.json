@@ -542,11 +542,11 @@
         "Entries": {
           "WakeUpWater": {
             "Name": "Wake Up Water",
-            "DisplayName": "Awaken ",
-            "Description": "A potion that drains your stamina and wakes you back up.",
+            "DisplayName": "Awaken Potion",
+            "Description": "A potion that wakes you up from your dreams.",
             //"Edibility": "0",
             "IsDrink": true,
-            "Price": 25,
+            "Price": 100,
             "Texture": "TileSheets/Potion2",
             "SpriteIndex": 0
           }
@@ -615,7 +615,7 @@
           "Type": "Basic",
           "DisplayName": "Teddy Bear",
           "Description": "A cute teddy bear. This item allows passage into your dreams. Make sure to hold it when you choose to sleep.",
-          "Price": 100,
+          "Price": 10000,
           "Texture": "TileSheets/TeddyBear",
           "SpriteIndex": "0",
           "CanBeLostOnDeath": "false",

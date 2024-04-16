@@ -33,12 +33,33 @@
             }
         },
 
-        // Dream World Boss Reveal Event
+         // Dream World Boss Reveal Event
+        // 0 - up       1 - right       2 - down        3 - left
         {
             "Action": "EditData",
-            "Target": "Data/Events/DreamWorldBoss", 
+            "Target": "Data/Events/DreamWorldHub", 
             "Entries": {
-                "HTR.DreamWorldBoss_event/NpcVisible DreamLord": "none/-1000 -1000/farmer "
+                "HTR.DreamWorldBoss_event": "none/17 10/farmer 10 16 1 DreamLord 19 13 3/advancedMove DreamLord false -1 0 0 -6/advancedMove farmer false 4 0 0 -1 3 0 0 -3/speak DreamLord \"Much time has passed since the last time I was in possession both ring and boots. #$b# Hmm...Let's see if I remember how to do this. \"/pause 300/stopAdvancedMoves/faceDirection farmer 0/emote farmer 8/shake DreamLord 2000/startJittering/emote farmer 16/glow 84 75 219/playSound thunder/screenFlash 0.5/pause 600/glow 84 75 219/playSound thunder/screenFlash 0.5/pause 600/stopJittering/ambientLight 0 100 0/pause 800/faceDirection DreamLord 2 false/pause 300/speak DreamLord \"@, do not be frightened. Come closer.\"/pause 300/move farmer 0 -3 0/pause 300/speak DreamLord \"You have my thanks. #$b# Because of you, Vanna's passing will be somewhat bearable. #$b# I may not be able to save her, but I can save myself from isolation.\"/pause 300/emote farmer 8/pause 300/speak DreamLord \"$y Tell me, @. 'Now that you've spent time here, you like my realm, yes?_Of course._It pleases me to here that._Not really._That's unfortunate.' \"/pause 300/speak DreamLord \"Regardless, I'm sure you and the two children will have a more pleasant stay when I bring over others.#$b# I can start with your neighbors from Stardew Valley.\"/emote farmer 16/speak DreamLord \"In the past, I was too weak to hold Vanna's family here. #$b# But now I can hold everyone in the dream realm for as long as they live and it's all thanks to you. $1 \"/pause 300/emote farmer 40/pause 300/speak DreamLord \"Forget about waking them up. You're all going to live an endless dream here with me. $2\"/pause 300/viewport move 0 -5 5000/move DreamLord 0 -5 2/move farmer 0 -6 1/emote farmer 12/speak DreamLord \"Soon you'll see this is for the best. Don't try and stop me. $2\"/glow 84 75 219/playSound thunder/screenFlash 0.8/warp DreamLord 0 0/addQuest HTR.BossQuest1/pause 600/end position 17 3"
+            }
+        },
+
+        // Battle Pre-Cursor: This event triggers when the player enters the boss arena
+        // It explains how the player will have to fight the DreamLord and it gives them free
+        // health potions and the quest to defeat the boss
+        {
+            "Action": "EditData",
+            "Target": "Data/Events/DreamWorldBoss",
+            "Entries": {
+                "HTR.DreamWorldBoss_btlEvent": "bigDrums/15 12/DreamLord 15 11 0 farmer 14 2 2/textAboveHead DreamLord \"Somnia sua re nova fac. Animam eorum imaginationi da. Animas eorum in mundo\"/glow 84 75 219/move farmer 0 6/faceDirection DreamLord 0/glow 84 75 219/pause 300/emote farmer 12/emote DreamLord 12/speak DreamLord \"Do not pretend like your world is better than mine. $b Here, you can be anything, do anything, dream anything. $b Your world is ruled by cruel beings. Even now, Vanna is being taken by death. Leaving me alone.\"/pause 300/emote farmer 16/pause 300/glow 84 75 219/playSound thunder/speak DreamLord\"Enough! It's obvious you can't be reasoned with. $b Spare yourself the effort and just submit.\"/removeItem WakeUpWater/pause 600/message \"Lord Somnia can't be reasoned with. You'll have to use force to stop his plans. $b To defeat him, you'll need to use the Dream Sword and Watering Can. $b Vincent's and Jas's lives depend on you. Good luck.\"/itemAboveHead sword/addItem itemID Count/addItem itemID count/pause 300/addQuest HTR.BossQuest2/end position 16 11"
+            }
+        },
+
+        // This quest takes place after the Dream Lord is defeated. 
+        {
+            "Action": "EditData",
+            "Target": "Data/Events/DreamWorldBoss",
+            "Entries": {
+                "HTR.DreamWorldDefeated_event": "none/15 12/DreamLord x y D farmer x y d/textAboveHead DreamLord \"Text\"/Move player/faceDirection DreamLord 0/pause 300/emote DreamLord 12/speak DreamLord \"\"/pause 300/speak DreamLord\"\"/pause 600/message \"Message Text\"/pause 300/end position 16 11"
             }
         }
     ]
