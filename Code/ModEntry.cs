@@ -37,6 +37,7 @@ namespace HopeToRiseMod
 
         private bool bossSpawned = false;
         private bool poisonTilesSpawned = false;
+        private bool enemiesSpawned = false;
 
         private DreamLord somnia;
 
@@ -181,10 +182,27 @@ namespace HopeToRiseMod
             }
             if (bossUnlock) BossBlock();
 
-            if(!seenEvents.Contains("EventID")) PlayFirstBossEvent();
+            //if(!seenEvents.Contains("EventID")) PlayFirstBossEvent();
             #endregion
 
-
+            #region //Enemy Logic
+            if(Game1.currentLocation != null && Game1.currentLocation.Name == "DreamWorldNorthWest" &&!enemiesSpawned)
+            {
+                Monster temp = new Bat(new Vector2(28 *64, 14*64));
+                if (temp != null) Game1.currentLocation.characters.Add(temp);
+                temp = new Bat(new Vector2(28 * 64, 25 * 64));
+                if (temp != null) Game1.currentLocation.characters.Add(temp);
+                temp = new Bat(new Vector2(9 * 64, 27 * 64));
+                if (temp != null) Game1.currentLocation.characters.Add(temp);
+                temp = new Bat(new Vector2(6 * 64, 20 * 64));
+                if (temp != null) Game1.currentLocation.characters.Add(temp);
+                temp = new Bat(new Vector2(9 * 64, 11 * 64));
+                if (temp != null) Game1.currentLocation.characters.Add(temp);
+                temp = new Bat(new Vector2(18 * 64, 21 * 64));
+                if (temp != null) Game1.currentLocation.characters.Add(temp);
+                enemiesSpawned = true;
+            }
+            #endregion
         }
         #region//Mouse Methods
         private void LeftClick(object? sender, ButtonPressedEventArgs e)
@@ -534,7 +552,7 @@ namespace HopeToRiseMod
             if (Game1.player.CurrentTool is WateringCan watercan && Game1.currentLocation != null)
             {
                 // Check if the current location is "DreamWorldBoss"
-                if (Game1.currentLocation.Name == "DreamWorldBoss")
+                if (Game1.currentLocation.Name == "DreamWorldBoss" || Game1.currentLocation.Name == "DreamWorldWest")
                 {
                     Vector2 tileCoordinates = Game1.currentCursorTile;
                     float distance = Vector2.Distance(Game1.player.Tile, tileCoordinates);
@@ -670,7 +688,7 @@ namespace HopeToRiseMod
 
                 if (playerTileCoordinates.X < 0 || playerTileCoordinates.Y < 0)
                 {
-                    Monitor.Log("Invalid player tile coordinates.", LogLevel.Warn);
+                    //Monitor.Log("Invalid player tile coordinates.", LogLevel.Warn);
                     return;
                 }
 
