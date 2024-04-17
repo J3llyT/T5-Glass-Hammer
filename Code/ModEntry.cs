@@ -188,17 +188,17 @@ namespace HopeToRiseMod
             #region //Enemy Logic
             if(Game1.currentLocation != null && Game1.currentLocation.Name == "DreamWorldNorthWest" &&!enemiesSpawned)
             {
-                Monster temp = new Bat(new Vector2(28 *64, 14*64));
+                Monster temp = new GreenSlime(new Vector2(28 *64, 14*64));
                 if (temp != null) Game1.currentLocation.characters.Add(temp);
-                temp = new Bat(new Vector2(28 * 64, 25 * 64));
+                temp = new GreenSlime(new Vector2(28 * 64, 25 * 64));
                 if (temp != null) Game1.currentLocation.characters.Add(temp);
-                temp = new Bat(new Vector2(9 * 64, 27 * 64));
+                temp = new GreenSlime(new Vector2(9 * 64, 27 * 64));
                 if (temp != null) Game1.currentLocation.characters.Add(temp);
-                temp = new Bat(new Vector2(6 * 64, 20 * 64));
+                temp = new GreenSlime(new Vector2(6 * 64, 20 * 64));
                 if (temp != null) Game1.currentLocation.characters.Add(temp);
-                temp = new Bat(new Vector2(9 * 64, 11 * 64));
+                temp = new GreenSlime(new Vector2(9 * 64, 11 * 64));
                 if (temp != null) Game1.currentLocation.characters.Add(temp);
-                temp = new Bat(new Vector2(18 * 64, 21 * 64));
+                temp = new GreenSlime(new Vector2(18 * 64, 21 * 64));
                 if (temp != null) Game1.currentLocation.characters.Add(temp);
                 enemiesSpawned = true;
             }
