@@ -638,11 +638,12 @@ namespace HopeToRiseMod
         {
             if (Game1.currentLocation != null)
             {
-                Game1.currentLocation.removeTileProperty(x, y, "Back", "TouchAction");
-                //asset needs to be changed back from the poison tile
-                //int originalIndex = 0; 
-                //Game1.currentLocation.setMapTileIndex(x, y, originalIndex, "Back");
-                Game1.currentLocation.removeTile(x, y, "Back");
+                if (Game1.currentLocation.Name == "DreamWorldBoss" && x <= 31 && x >= 0 && y <= 23 && y >= 0 ||
+                    Game1.currentLocation.Name == "DreamWorldWest" && x <= 53 && x >= 0 && y <= 41 && y >= 0)
+                {
+                    Game1.currentLocation.removeTileProperty(x, y, "Back", "TouchAction");
+                    Game1.currentLocation.removeTile(x, y, "Back");
+                }
             }
         }
         #endregion
