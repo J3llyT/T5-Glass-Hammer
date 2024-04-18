@@ -1,10 +1,10 @@
 {
     // Weekly Generic
-    "Mon": "Things aren't quite right...",
-    "Tue": "It feels a little strange here.",
+    "Mon": "I just saw a fish with legs. This place is awesome.",
+    "Tue": "Be careful of those bats. They do not like people getting close to them.",
     "Wed": "Sam..? Sounds familiar. Do I know him?",
-    "Thu": "It feels a little strange here.",
-    "Fri": "I seem to forget something...",
-    "Sat": "It feels a little strange here.",
+    "Thu": "GOTO Fri | GOTO Mon",
+    "Fri": "That Lord Somnia man said he can only be hurt by a special sword, but I don't believe him.",
+    "Sat": "That purple stuff on the floor is gross. $b I had to wash it off my shoes with water.",
     "Sun": "It feels a little strange here."
 }

@@ -1,10 +1,10 @@
 {
     // Weekly Generic
-    "Mon": "It feels a little strange here.",
-    "Tue": "Marnie..? Sounds familiar. Do I know her?",
+    "Mon": "This place is so silly. I think I saw a fish in a tree.",
+    "Tue": "Marnie?...Sounds familiar. Do I know her?",
     "Wed": "It feels a little strange here.",
-    "Thu": "I'm feeling a little tired...",
-    "Fri": "It feels a little strange here.",
-    "Sat": "I seem to forget something...",
-    "Sun": "Things aren't quite right..."
+    "Thu": "GOTO Sun",
+    "Fri": "Vanna is super nice.",
+    "Sat": "I feel like I'm forgetting something...",
+    "Sun": "That dark purple stuff on the floor is so sticky. $b But you can wash it away with water."
 }

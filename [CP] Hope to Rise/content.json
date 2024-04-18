@@ -576,7 +576,7 @@
       "Entries": {
         "Potion": {
           "Name": "Potion",
-          "DisplayName": "Potion",
+          "DisplayName": "Sun Tea",
           "Description": "Red liquid that looks toxic, but tastes good.",
           "Price": 100,
           "Type": "Cooking",
