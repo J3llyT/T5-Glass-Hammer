@@ -36,7 +36,8 @@ namespace HopeToRiseMod
         private int staminaThreshold = 3; // Adjust this value as needed
 
         private bool bossSpawned = false;
-        private bool poisonTilesSpawned = false;
+        private bool poisonTilesSpawnedBoss = false;
+        private bool poisonTilesSpawnedWest = false;
         private bool enemiesSpawned = false;
 
         private DreamLord somnia;
@@ -128,7 +129,7 @@ namespace HopeToRiseMod
             #endregion
 
             #region // Tile Logic
-            if (bossSpawned && Game1.currentLocation != null && Game1.currentLocation.Name == "DreamWorldBoss" && !poisonTilesSpawned)
+            if (bossSpawned && Game1.currentLocation != null && Game1.currentLocation.Name == "DreamWorldBoss" && !poisonTilesSpawnedBoss)
             {
                 // Access the current game location
                 GameLocation currentLocation = Game1.currentLocation;
@@ -139,7 +140,7 @@ namespace HopeToRiseMod
                 int areaSize = 10;
 
                 // Define the number of tiles to replace
-                int numTilesToReplace = 75;
+                int numTilesToReplace = 50;
 
                 // Randomly select tiles within the target area and replace them
                 Random random = new Random();
@@ -151,23 +152,73 @@ namespace HopeToRiseMod
                     // Check if the randomly selected tile is within the target area
                     if (randomX >= targetX - areaSize && randomX <= targetX + areaSize && randomY >= targetY - areaSize && randomY <= targetY + areaSize)
                     {
-                        // Change the tile at the randomly selected position
-                        currentLocation.setMapTileIndex(randomX, randomY, 923467, "Back");
-                        //add the poison to the tile
-
-
-                        currentLocation.removeTile(randomX, randomY, "Back");
-
-                        Layer layer = currentLocation.map.GetLayer("Back");
-                        TileSheet tilesheet = currentLocation.map.GetTileSheet("z_PoisonTile");
-                        layer.Tiles[randomX, randomY] = new StaticTile(layer, tilesheet, BlendMode.Alpha, tileIndex: 0);
-
-                        currentLocation.setTileProperty(randomX, randomY, "Back", "TouchAction", "poison");
+                        SpawnPoisonTile(randomX, randomY);
                     }
                 }
 
-                poisonTilesSpawned = true;
+                poisonTilesSpawnedBoss = true;
             }
+
+            if (Game1.currentLocation != null && Game1.currentLocation.Name == "DreamWorldWest" && !poisonTilesSpawnedWest)
+            {
+                SpawnPoisonTile(45, 19);
+
+                // Upper path
+                SpawnPoisonTile(33, 13);
+                SpawnPoisonTile(33, 12);
+                SpawnPoisonTile(34, 12);
+                SpawnPoisonTile(35, 12);
+                SpawnPoisonTile(32, 11);
+                SpawnPoisonTile(33, 11);
+                SpawnPoisonTile(34, 11);
+                SpawnPoisonTile(36, 11);
+                SpawnPoisonTile(34, 10);
+                SpawnPoisonTile(35, 10);
+                SpawnPoisonTile(36, 10);
+                SpawnPoisonTile(35, 9);
+                SpawnPoisonTile(36, 9);
+                SpawnPoisonTile(37, 9);
+                SpawnPoisonTile(35, 8);
+                SpawnPoisonTile(36, 8);
+                SpawnPoisonTile(37, 8);
+
+                // Lower path 
+                SpawnPoisonTile(29, 29);
+                SpawnPoisonTile(30, 29);
+                SpawnPoisonTile(28, 30);
+                SpawnPoisonTile(30, 30);
+                SpawnPoisonTile(31, 30);
+                SpawnPoisonTile(29, 31);
+                SpawnPoisonTile(27, 32);
+                SpawnPoisonTile(30, 32);
+                SpawnPoisonTile(28, 33);
+                SpawnPoisonTile(29, 33);
+                SpawnPoisonTile(31, 33);
+                SpawnPoisonTile(30, 34);
+                SpawnPoisonTile(31, 34);
+
+                SpawnPoisonTile(20, 34);
+                SpawnPoisonTile(20, 35);
+                SpawnPoisonTile(21, 33);
+
+                // Upper left
+                SpawnPoisonTile(12, 8);
+                SpawnPoisonTile(10, 9);
+                SpawnPoisonTile(11, 9);
+                SpawnPoisonTile(9, 10);
+                SpawnPoisonTile(11, 10);
+                SpawnPoisonTile(10, 11);
+                SpawnPoisonTile(11, 11);
+                SpawnPoisonTile(9, 12);
+                SpawnPoisonTile(10, 12);
+                SpawnPoisonTile(12, 12);
+                SpawnPoisonTile(11, 13);
+                SpawnPoisonTile(12, 14);
+                SpawnPoisonTile(13, 14);
+
+                poisonTilesSpawnedWest = true;
+            }
+
             #endregion
 
             #region //Event Logic
@@ -587,11 +638,12 @@ namespace HopeToRiseMod
         {
             if (Game1.currentLocation != null)
             {
-                Game1.currentLocation.removeTileProperty(x, y, "Back", "TouchAction");
-                //asset needs to be changed back from the poison tile
-                //int originalIndex = 0; 
-                //Game1.currentLocation.setMapTileIndex(x, y, originalIndex, "Back");
-                Game1.currentLocation.removeTile(x, y, "Back");
+                if (Game1.currentLocation.Name == "DreamWorldBoss" && x <= 31 && x >= 0 && y <= 23 && y >= 0 ||
+                    Game1.currentLocation.Name == "DreamWorldWest" && x <= 53 && x >= 0 && y <= 41 && y >= 0)
+                {
+                    Game1.currentLocation.removeTileProperty(x, y, "Back", "TouchAction");
+                    Game1.currentLocation.removeTile(x, y, "Back");
+                }
             }
         }
         #endregion
@@ -667,6 +719,25 @@ namespace HopeToRiseMod
             }
         }
         #endregion
+
+        private void SpawnPoisonTile(int x, int y)
+        {
+            // Access the current game location
+            GameLocation currentLocation = Game1.currentLocation;
+
+            // Change the tile at the randomly selected position
+            currentLocation.setMapTileIndex(x, y, 923467, "Back");
+            //add the poison to the tile
+
+
+            currentLocation.removeTile(x, y, "Back");
+
+            Layer layer = currentLocation.map.GetLayer("Back");
+            TileSheet tilesheet = currentLocation.map.GetTileSheet("z_PoisonTile");
+            layer.Tiles[x, y] = new StaticTile(layer, tilesheet, BlendMode.Alpha, tileIndex: 0);
+
+            currentLocation.setTileProperty(x, y, "Back", "TouchAction", "poison");
+        }
 
         private void PlayerLocation()
         {
