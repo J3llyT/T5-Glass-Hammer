@@ -114,6 +114,9 @@ namespace HopeToRiseMod.Monsters
             warpPoints.Add(new Vector2(20, 16) * 64f);
             warpPoints.Add(new Vector2(7, 12) * 64f);
             warpPoints.Add(new Vector2(24, 12) * 64f);
+
+            // Change music
+            Game1.changeMusicTrack("cowboy_boss");
         }
 
         protected override void initNetFields()
@@ -158,6 +161,9 @@ namespace HopeToRiseMod.Monsters
             // If there are no hits left to stagger, stagger boss
             if (numHitsToStagger <= 0)
             {
+                // Play sound
+                Game1.playSound("serpentDie");
+
                 staggerTimer = Game1.random.Next(6000, 9500);
 
                 // Increase numTimesStaggered
@@ -422,6 +428,9 @@ namespace HopeToRiseMod.Monsters
                         base.setInvincibleCountdown(800);
                         break;
                     case Behavior.Poison:
+                        // Play warning sound
+                        Game1.playSound("coldSpell");
+
                         behaviorTimer = 7000;
                         didPoison = false;
                         break;
@@ -456,6 +465,9 @@ namespace HopeToRiseMod.Monsters
             // Wait for a bit, then spawn tiles (time for animation)
             if (behaviorTimer <= 4000 && !didPoison)
             {
+                // Sound plays here
+                Game1.playSound("debuffSpell");
+
                 // Figure out player tile position
                 Vector2 playerTile = Game1.player.Position / 64.0f;
                 int playerX = (int)Math.Floor(playerTile.X);
@@ -530,6 +542,9 @@ namespace HopeToRiseMod.Monsters
             // Wait for a moment then warp
             if (behaviorTimer <= 800)
             {
+                // Play sound 
+                Game1.playSound("squid_move");
+
                 // Warp (move really quickly to) the determined warp point
                 //base.position.Set(warpPoints[warpIndex]);
                 Point standingTile = base.StandingPixel;
@@ -555,6 +570,9 @@ namespace HopeToRiseMod.Monsters
             // Wait until half the time to spawn enemy
             if (behaviorTimer <= 1500 && monsterList.Count <= 1)
             {
+                // Play sound
+                Game1.playSound("batScreech");
+
                 // Get the boss's position
                 Vector2 bossPosition = this.Position;
                 // Spawn the monsters around the boss

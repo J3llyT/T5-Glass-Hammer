@@ -620,6 +620,7 @@ namespace HopeToRiseMod
             if (whichAnswer is "Yes")
             {
                 WarpPlayerToNewLocation("dreamworldspawn", 14, 7);
+                Game1.playSound("horse_flute");
             }
         }
         #endregion
