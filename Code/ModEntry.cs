@@ -52,6 +52,7 @@ namespace HopeToRiseMod
         Random rng = new Random();
         bool bossUnlock = false;
         int timer = 0;
+
         /// <summary>The mod entry point, called after the mod is first loaded.</summary>
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
@@ -70,6 +71,7 @@ namespace HopeToRiseMod
             //loading in textures
             PoisonTile = helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonTile.png");
             //PoisonTileCooled = helper.ModContent.Load<Texture2D>("../[CP] Hope to Rise/assets/PoisonTileCooled.png");
+
         }
 
         int haveDrink = 0;
@@ -254,6 +256,8 @@ namespace HopeToRiseMod
                 enemiesSpawned = true;
             }
             #endregion
+
+
         }
         #region//Mouse Methods
         private void LeftClick(object? sender, ButtonPressedEventArgs e)
