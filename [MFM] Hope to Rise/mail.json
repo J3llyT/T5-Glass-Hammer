@@ -20,5 +20,24 @@
 		// TODO: Add GlassHammer.HopeToRise as a required mod
 		"HasMods": [ "SMAPI.ConsoleCommands", "SMAPI.SaveBackup" ], // Require one of the mods to be loaded. Should be the mod UniqueID.
 		"RequireAllMods": false // If true, require that all the mods in the "HasMods" list to have been loaded. Default is false.
+	},
+	{
+		"Id": "MFM_HTR.FinishLetter", // Letter id. It's important to be an unique string to avoid conflicts. Also it shouldn't have space characters.
+		"GroupId": "MFM_HTR.QuestLetter", // Letter group id. Letters with the same group id are never delivered in the same day. Letters registered first have priority, unless the group id ends with ".Random", in that case, a random letter will be chosen. Default is null.
+		"Title": "....", // Letter title. Will be shown in the collections menu. Set it null or remove the line if you don't want the letter to appear in the collection. If an translation file is provide, you should put a translation key here, but you can still leave if null for no Title.
+		"Text": "@^^........^^- ??? %item quest 131 true %%", // Text of the letter. You can use @ to put the players name and ^ for line breaks. You can also use the base game commands to add money, items and stuff. If an translation file is provide, you should put a translation key here.
+		"AdditionalMailReceived": [ "MFM_HTR.AnotherMailId", "VANILLA_FLAG" ], // Use this to add additional text to the MailReceived list. Can be useful to add vanilla flags or other MFM letter ids.
+		"WhichBG": 0, //The id of the letter background. 0 = classic, 1 = notepad, 2 = pyramids
+		"CustomTextColorName": "White", //The color of the text.[http://www.foszor.com/blog/xna-color-chart/] Default will use the TextColor property.
+		"Repeatable": false, // If true the mod won't check it the letter Id has already been delivered. Default is false.
+		"AutoOpen": false, // If true the mod will open the letter at the begin of the day after the conditions are met. The letter id will be marked as read and if there is a recipe set, it will be learned. Since the letter will never show, visual properties like title, text, background... will never be used, as well as the attachments.
+		// CONDITIONS FOR DELIVERY
+		//Below are conditions for the delivery. Remove any of the lines if you don't want to check that condition.
+		"RequireAllMailReceived": false, // If true, require that all mails in the "MailReceived" list to have been received. Default is false.
+		"EventsSeen": [ "HTR.DreamWorldDefeated_event" ],
+		"RequireAllEventsSeen": true,
+		// TODO: Add GlassHammer.HopeToRise as a required mod
+		"HasMods": [ "SMAPI.ConsoleCommands", "SMAPI.SaveBackup" ], // Require one of the mods to be loaded. Should be the mod UniqueID.
+		"RequireAllMods": false // If true, require that all the mods in the "HasMods" list to have been loaded. Default is false.
 	}
 ]

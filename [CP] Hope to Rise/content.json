@@ -1,11 +1,5 @@
 {
   "Format": "2.0.0",
-  "ConfigSchema": {
-    "EnableNPCSleep": {
-      "AllowValues": "true, false",
-      "Default": true
-    }
-  },
   "Changes": [
     // INCLUDES
     {
@@ -131,7 +125,7 @@
       "Target": "TileSheets/Maidmer",
       "FromFile": "assets/Maidmer.PNG"
     },
-    
+
     // EDIT DATA
     {
       "Action": "EditData",
@@ -338,19 +332,19 @@
           "CanPlantHere": false,
           "ArtifactSpots": [],
           "FishAreas": {},
-            "Fish": [
-                {
-                    "Chance": 0.20,
-                    "Id": "DreamBoots",
-                    "ItemId": "DreamBoots",
-                    "CatchLimit": 1
-                },
-                {
-                    "Chance": 0.80,
-                    "Id": "Maidmer",
-                    "ItemId": "Maidmer"
-                }
-            ],
+          "Fish": [
+            {
+              "Chance": 0.20,
+              "Id": "DreamBoots",
+              "ItemId": "DreamBoots",
+              "CatchLimit": 1
+            },
+            {
+              "Chance": 0.80,
+              "Id": "Maidmer",
+              "ItemId": "Maidmer"
+            }
+          ],
           "Forage": [],
           "MinDailyWeeds": 2,
           "MaxDailyWeeds": 5,
@@ -520,42 +514,42 @@
       }
     },
     {
-        "Action": "EditData",
-        "Target": "Data/Tools",
-        "Entries": {
-            "DreamCan": {
-                "ClassName": "WateringCan",
-                "Name": "DreamCan",
-                "DisplayName": "Starlight Watering Can",
-                "Description": "Magic watering can of your dreams.",
-                "Texture": "TileSheets/DreamCan",
-                "SpriteIndex": "308",
-                "UpgradeLevel": "4",
-                "ApplyUpgradeLevelToDisplayName": false,
-                "ConventionalUpgradeFrom": "(T)GoldWateringCan",
-                "CanBeLostOnDeath": "false",
-                "SetProperties": {
-                    "IsEfficient": true,
-                    "IsBottomless": true
-                }
-            }
-        }
-    },
-    {
-        "Action": "EditData",
-        "Target": "Data/Objects",
-        "Entries": {
-          "WakeUpWater": {
-            "Name": "Wake Up Water",
-            "DisplayName": "Awaken Potion",
-            "Description": "A potion that wakes you up from your dreams.",
-            //"Edibility": "0",
-            "IsDrink": true,
-            "Price": 100,
-            "Texture": "TileSheets/Potion2",
-            "SpriteIndex": 0
+      "Action": "EditData",
+      "Target": "Data/Tools",
+      "Entries": {
+        "DreamCan": {
+          "ClassName": "WateringCan",
+          "Name": "DreamCan",
+          "DisplayName": "Starlight Watering Can",
+          "Description": "Magic watering can of your dreams.",
+          "Texture": "TileSheets/DreamCan",
+          "SpriteIndex": "308",
+          "UpgradeLevel": "4",
+          "ApplyUpgradeLevelToDisplayName": false,
+          "ConventionalUpgradeFrom": "(T)GoldWateringCan",
+          "CanBeLostOnDeath": "false",
+          "SetProperties": {
+            "IsEfficient": true,
+            "IsBottomless": true
           }
         }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "Entries": {
+        "WakeUpWater": {
+          "Name": "Wake Up Water",
+          "DisplayName": "Awaken Potion",
+          "Description": "A potion that wakes you up from your dreams.",
+          //"Edibility": "0",
+          "IsDrink": true,
+          "Price": 100,
+          "Texture": "TileSheets/Potion2",
+          "SpriteIndex": 0
+        }
+      }
     },
     {
       "Action": "EditData",
@@ -631,21 +625,21 @@
       }
     },
     {
-        "Action": "EditData",
-        "Target": "Data/Objects",
-        "Entries": {
-          "Maidmer": {
-            "Name": "Maidmer",
-            "DisplayName": "Maidmer",
-            "Description": "Legendary creatures, but they look a bit strange.",
-            "Price": 90,
-            "Texture": "TileSheets/Maidmer",
-            "SpriteIndex": "0",
-            "CanBeLostOnDeath": "true",
-            "Category": -18,
-            "sellAtPierresAndMarnies": "true"
-          }
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "Entries": {
+        "Maidmer": {
+          "Name": "Maidmer",
+          "DisplayName": "Maidmer",
+          "Description": "Legendary creatures, but they look a bit strange.",
+          "Price": 90,
+          "Texture": "TileSheets/Maidmer",
+          "SpriteIndex": "0",
+          "CanBeLostOnDeath": "true",
+          "Category": -18,
+          "sellAtPierresAndMarnies": "true"
         }
+      }
     }
   ]
 }
