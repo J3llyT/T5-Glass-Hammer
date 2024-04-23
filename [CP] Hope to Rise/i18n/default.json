@@ -41,6 +41,15 @@
     "HTR.TeddyEvent_Wizard.05": "Rest assured, I will be alright. But you are vulnerable",
     "HTR.TeddyEvent_Wizard.06": "Here...Take this. Keep it with you while you sleep.",
     
+    // END EVENT DIALOGUE
+    "HTR.EndEvent.01": "In all my immortal years, I never fathomed this day would dawn,#$b#and yet here I stand, bearing witness to my failure...",
+    "HTR.EndEvent.02": "Perhaps amidst my noble intentions, I've veered astray, losing sight of my initial purpose with each passing step.",
+    "HTR.EndEvent.03": "In conceding my defeat, I find that this dream realm,#$b#once so dear and brimming with memories, now holds little sway over my heart.",
+    "HTR.EndEvent.04": "From now on, you can go back and forth between the dream world and the real world without restriction.#$b#As for myself, I've resolved to take my leave for an indefinite period henceforth.",
+    "HTR.EndEvent.05": "Hi, @! ..Wait, where am I?",
+    "HTR.EndEvent.06": "I'm so sleepy...#$b#I just wanna go home and cuddle my teddy bear.",
+    "HTR.EndEvent.07": "Yeah! Let's stick together and follow @!#$b#@ always know the way out of tricky places.",
+
     /*******************************
     DREAM WORLD SPAWN EVENT DIALOGUE
     ********************************/
@@ -65,7 +74,6 @@
     "HTR.DWSpawnEvent_DreamLord.10":"Collect my regalia and I'll wake the children for you.",
     "HTR.DWSpawnEvent_DreamLord.11":"Speak to Vanna, she can supply you with tools before you begin",
 
-
     /*******************************
     DREAM WORLD BOSS BATTLE DIALOGUE
     ********************************/
@@ -73,6 +81,4 @@
     "HTR.DwBossEvent_DreamLord.02": "Regrettably, Vanna's time is running out. I cannot save her but I can gather others to take her place.",
     "HTR.DwBossEvent_DreamLord.03": "Do not pretend like your world is better than mine. Here, you can be anything, do anything, dream anything.",
     "HTR.DwBossEvent_DreamLord.04": "@, I have grown fond of your presence"
-    
-
 }

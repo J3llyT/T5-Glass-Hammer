@@ -54,12 +54,13 @@
             }
         },
 
+        // End Event
         // This quest takes place after the Dream Lord is defeated. 
         {
             "Action": "EditData",
             "Target": "Data/Events/DreamWorldBoss",
             "Entries": {
-                "HTR.DreamWorldDefeated_event": "none/15 12/DreamLord x y D farmer x y d/textAboveHead DreamLord \"Text\"/Move player/faceDirection DreamLord 0/pause 300/emote DreamLord 12/speak DreamLord \"\"/pause 300/speak DreamLord\"\"/pause 600/message \"Message Text\"/pause 300/end position 16 11"
+                "HTR.DreamWorldDefeated_event": "none/14 13/farmer 20 12 2 DreamLord 11 20 2 Saj 3 18 2 Tnecniv 27 18 2/skippable/move DreamLord 0 -7 1/move DreamLord 2 0 1/faceDirection DreamLord 1/move farmer 0 1 2/move farmer -5 0 3/faceDirection farmer 3/pause 300/emote DreamLord 40/pause 300/speak DreamLord \"{{i18n:HTR.EndEvent.01}}\"/pause 500/emote DreamLord 28/pause 300/jump farmer 8/pause 300/speak DreamLord \"{{i18n:HTR.EndEvent.02}}\"/pause 500/emote farmer 28/pause 300/speak DreamLord \"{{i18n:HTR.EndEvent.03}}\"/pause 500/speak DreamLord \"{{i18n:HTR.EndEvent.04}}\"/pause 500/emote farmer 20/pause 300/move DreamLord 0 -11 0/pause 300/viewport 15 20/move Saj 11 0 2/move farmer 0 6 2/move Tnecniv -11 0 2/emote Saj 20/emote Tnecniv 20/emote farmer 56/pause 300/speak Tnecniv \"{{i18n:HTR.EndEvent.05}}\"/pause 500/emote Tnecniv 12/pause 300/speak Saj \"{{i18n:HTR.EndEvent.06}}\"/pause 500/emote Tnecniv 24/pause 300/speak Tnecniv \"{{i18n:HTR.EndEvent.07}}\"/pause 500/emote farmer 20/pause 300/globalFade/viewport -1000 -1000/end"
             }
         }
     ]
