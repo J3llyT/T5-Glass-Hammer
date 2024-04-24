@@ -1,0 +1,42 @@
+{
+    // Marnie, Shane, Jodi, Kent, Sam, Wizard, 
+    "Changes": [
+        // JAS'S CONNECTIONS
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Marnie",
+            "Entries": {
+                "SleepingKids": "I'm really worried about Jas.$s#$bI just want her to open her eyes.$s"
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Shane",
+            "Entries": {
+                "SleepingKids": "It's quite without those two kids running around.$bIt's not as enjoyable as I thought it would be."
+            }
+        },
+        // VINCENT'S CONNECTIONS
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Jodi",
+            "Entries": {
+                "SleepingKids": "It's always hard waking Vincent in the morning, but when he didn't wake up at all...$s#$bI just want him to wake up."
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Kent",
+            "Entries": {
+                "SleepingKids": "Dr. Harvey told me there's nothing I can for Vincent, right now.$bIt's killing me."
+            }
+        },
+        {
+            "Action": "EditData",
+            "Target": "Characters/Dialogue/Sam",
+            "Entries": {
+                "SleepingKids": "Hey, @. I'm trying to stay positive, but it's difficult.$s#$bWhat if my mom doesn't wake up tomorrow either?"
+            }
+        }  
+    ]
+}

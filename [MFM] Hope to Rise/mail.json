@@ -11,11 +11,8 @@
 		"AutoOpen": false, // If true the mod will open the letter at the begin of the day after the conditions are met. The letter id will be marked as read and if there is a recipe set, it will be learned. Since the letter will never show, visual properties like title, text, background... will never be used, as well as the attachments.
 		// CONDITIONS FOR DELIVERY
 		//Below are conditions for the delivery. Remove any of the lines if you don't want to check that condition.
+		"Date": "5 spring Y2", // Must be that date or after it. The format is "[1-28] [spring|summer|fall|winter] Y[1-999]".
 		"RequireAllMailReceived": false, // If true, require that all mails in the "MailReceived" list to have been received. Default is false.
-		"SkillConditions": // Each skill of the list must have a level equal or higher what is defined. Can use all coded skills in the vanilla game, including Luck. Can't use custom skills.
-		[
-			{ "SkillName": "Combat", "SkillLevel": 1 }
-		],
 		"EventsSeen": [ "112" ], // Require one of the events to have been seen by the player. Should be a string, but will also work as an integer for retro compatibility.
 		// TODO: Add GlassHammer.HopeToRise as a required mod
 		"HasMods": [ "SMAPI.ConsoleCommands", "SMAPI.SaveBackup" ], // Require one of the mods to be loaded. Should be the mod UniqueID.

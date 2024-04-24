@@ -1,9 +1,9 @@
 ﻿{
 	"Name": "MFM_HTR",
-	"Author": "Tanessa",
+	"Author": "GlassHammer",
 	"Version": "1.0.0",
 	"Description": "Adds custom mails for my mod.",
-	"UniqueID": "Tanessa.MFM_HTR",
+	"UniqueID": "GlassHammer.MFM_HTR",
 	"MinimumApiVersion": "3.8.0",
 	"UpdateKeys": [],
 	"Dependencies": [],

@@ -235,7 +235,12 @@ namespace HopeToRiseMod
             }
             if (bossUnlock) BossBlock();
 
-            //if(!seenEvents.Contains("EventID")) PlayFirstBossEvent();
+            // Checks if the item quest were both completed and plays the next event if they were
+            if(Quest.getQuestFromId("134").checkIfComplete() && Quest.getQuestFromId("135").checkIfComplete())
+            {
+                Game1.PlayEvent("HTR.DreamWorldBoss_btlEvent");
+            }
+
             #endregion
 
             #region //Enemy Logic
@@ -257,6 +262,12 @@ namespace HopeToRiseMod
             }
             #endregion
 
+            #region //Quest Logic
+            if(Quest.getQuestFromId("134").checkIfComplete())
+            {
+                Game1.player.activeDialogueEvents.TryAdd("FindTheRing",1);
+            }
+            #endregion
 
         }
         #region//Mouse Methods
@@ -697,13 +708,6 @@ namespace HopeToRiseMod
             }
         }
 
-        private void PlayFirstBossEvent()
-        {
-            if(Quest.getQuestFromId("ID").checkIfComplete() && Quest.getQuestFromId("ID").checkIfComplete())
-            {
-                Game1.PlayEvent("EventID");
-            }
-        }
         #endregion
 
         #region //DreamLord Defeat Methods
@@ -715,10 +719,10 @@ namespace HopeToRiseMod
         {
             if (Game1.currentLocation != null && Game1.currentLocation.Name == "DreamWorldBoss")
             {
-                if (somnia.Health == 0 && !Quest.getQuestFromId("QuestID").checkIfComplete())
+                if (somnia.Health == 0 && !Quest.getQuestFromId("HTR.BossQuest2").checkIfComplete())
                 {
-                    Game1.player.completeQuest("QuestID");
-                    Game1.PlayEvent("eventID");
+                    Game1.player.completeQuest("HTR.BossQuest2");
+                    Game1.PlayEvent("HTR.DreamWorldDefeated_event");
                 }
             }
         }
