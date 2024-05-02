@@ -22,7 +22,10 @@
       "Action": "Include",
       "FromFile": "other/tree.json"
     },
-
+    {
+      "Action": "Include",
+      "FromFile": "other/dialogue.json"
+    },
     // LOADING DREAMWORLD EVENT DESTINATIONS
     {
       "Action": "Load",
@@ -521,7 +524,7 @@
           "ClassName": "WateringCan",
           "Name": "DreamCan",
           "DisplayName": "Starlight Watering Can",
-          "Description": "Magic watering can of your dreams.",
+          "Description": "Magic watering can of your dreams. Covers a lot of ground.",
           "Texture": "TileSheets/DreamCan",
           "SpriteIndex": "308",
           "UpgradeLevel": "4",

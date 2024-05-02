@@ -365,7 +365,7 @@
 0,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,35,0,0,35,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,35,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,35,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,35,0,0,0,0,0,35,0,0,0,0,0,0,0,0,0,0,35,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,35,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -602,11 +602,6 @@
     <property name="SpawnTree" value="wild FishTree2 5 5"/>
    </properties>
   </object>
-  <object id="24" name="TileData" x="496" y="288" width="16" height="16">
-   <properties>
-    <property name="SpawnTree" value="wild FishTree7 5 5"/>
-   </properties>
-  </object>
   <object id="17" name="TileData" x="336" y="320" width="16" height="16">
    <properties>
     <property name="SpawnTree" value="wild FishTree3 5 5"/>
@@ -634,7 +629,7 @@
   </object>
   <object id="8" name="TileData" x="240" y="464" width="16" height="16">
    <properties>
-    <property name="SpawnTree" value="wild FishTree8 5 5"/>
+    <property name="SpawnTree" value="wild FishTree7 5 5"/>
    </properties>
   </object>
   <object id="9" name="TileData" x="48" y="512" width="16" height="16">
