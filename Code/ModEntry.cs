@@ -127,7 +127,9 @@ namespace HopeToRiseMod
                 //Monitor.Log(somnia.numHitsToStagger.ToString());
                 //Monitor.Log(somnia.behavior.ToString());
             }
+            
             DefeatedBoss();
+
             #endregion
 
             #region // Tile Logic
@@ -234,13 +236,6 @@ namespace HopeToRiseMod
                 }
             }
             if (bossUnlock) BossBlock();
-
-            // Checks if the item quest were both completed and plays the next event if they were
-            if(Quest.getQuestFromId("134").checkIfComplete() && Quest.getQuestFromId("135").checkIfComplete())
-            {
-                Game1.PlayEvent("HTR.DreamWorldBoss_btlEvent");
-            }
-
             #endregion
 
             #region //Enemy Logic
@@ -262,14 +257,8 @@ namespace HopeToRiseMod
             }
             #endregion
 
-            #region //Quest Logic
-            if(Quest.getQuestFromId("134").checkIfComplete())
-            {
-                Game1.player.activeDialogueEvents.TryAdd("FindTheRing",1);
-            }
-            #endregion
-
         }
+
         #region//Mouse Methods
         private void LeftClick(object? sender, ButtonPressedEventArgs e)
         {
@@ -719,12 +708,18 @@ namespace HopeToRiseMod
         {
             if (Game1.currentLocation != null && Game1.currentLocation.Name == "DreamWorldBoss")
             {
-                if (somnia.Health == 0 && !Quest.getQuestFromId("HTR.BossQuest2").checkIfComplete())
+                if (somnia.Health <= 0)
                 {
-                    Game1.player.completeQuest("HTR.BossQuest2");
-                    Game1.PlayEvent("HTR.DreamWorldDefeated_event");
+                    //Monitor.Log("Killed the boss");
+                    if(!Quest.getQuestFromId("HTR.BossQuest2").checkIfComplete())
+                    {
+                        Game1.player.completeQuest("HTR.BossQuest2");
+                        //Game1.player.addEvent("Somnia", 1);
+                    }
                 }
+               
             }
+            
         }
         #endregion
 

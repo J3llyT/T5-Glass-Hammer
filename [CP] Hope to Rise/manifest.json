@@ -1,7 +1,7 @@
 {
   "Name": "CP_HTR",
   "Author": "Glass Hammer",
-  "Description": "All of the Content Patcher dependent JSONS will live here",
+  "Description": "Hope To Rise is a mod that adds a unique questline.",
   "Version": "1.0.0",
   "UniqueID": "GlassHammer.CP_HTR",
   "ContentPackFor": {

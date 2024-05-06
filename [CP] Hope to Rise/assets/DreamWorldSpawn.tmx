@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="30" height="18" tilewidth="16" tileheight="16" infinite="0" nextlayerid="12" nextobjectid="28">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="30" height="18" tilewidth="16" tileheight="16" infinite="0" nextlayerid="12" nextobjectid="31">
  <properties>
   <property name="Fall_Objects" value="T"/>
   <property name="NPCWarp" value="12 8 Desert 18 27"/>

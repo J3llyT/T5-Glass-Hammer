@@ -36,8 +36,9 @@
             "Action": "EditData",
             "Target": "Data/Quests",
             "Entries": {
-                "134": "ItemDelivery/Lord Somnia's Boots/Lord Somnia can wake up Vincent and Jas but he needs his full powers. Help him find his magic boots/Find and Deliver Lord Somnia's Starlight Boots. Vanna might be able to point you in the right direction./DreamLord DreamBoots 1/135/0/-1/false/These boots have traversed many worlds with me. Thank you for returning them.",
-                "135": "ItemDelivery/Lord Somnia's Ring/Lord Somnia can wake up Vincent and Jas but he needs his full powers. Help him find his magic ring/Find and Deliver Lord Somnia's Night Ring. Vanna might be able to point you in the right direction./DreamLord DreamRing 1/-1/0/-1/false/Finally. I can't remember the last time I felt this powerful."
+                "134": "ItemDelivery/Lord Somnia's Boots/Lord Somnia can wake up Vincent and Jas but he needs his full powers. Help him find his magic boots/Find and Deliver Lord Somnia's Starlight Boots. Vanna might be able to point you in the right direction./DreamLord DreamBoots 1/135/0/-1/false/These boots have traversed many worlds with me. Thank you for returning them.#$action addConversationTopic FindTheRing#$action AddItem RisenBlade",
+                
+                "135": "ItemDelivery/Lord Somnia's Ring/Lord Somnia can wake up Vincent and Jas but he needs his full powers. Help him find his magic ring/Find and Deliver Lord Somnia's Night Ring. Vanna might be able to point you in the right direction./DreamLord DreamRing 1/-1/0/-1/false/Finally. I can't remember the last time I felt this powerful.#$v HTR.DreamWorldBoss_event"
             }
         },
 
@@ -48,7 +49,9 @@
             "Entries": {
                 "HTR.BossQuest1": "Location/Stop Lord Somnia Part 1/Lord Somnia was supposed to wake up Vincent and Jas, but instead he plans to use his new found powers to trap more people./Follow Lord Somnia past where the gnomes use to stand guard/DreamWorldBoss/-1/0/-1/false",
 
-                "HTR.BossQuest2": "Basic/Stop Lord Somnia Part 2/Lord Somnia won't listen to reason, so you'll have to stop him by force. Use your watering can and sword to fight him./Defeat Lord Somnia/null/-1/0/-1/false"
+                "HTR.BossQuest2": "Basic/Stop Lord Somnia Part 2/Lord Somnia won't listen to reason, so you'll have to stop him by force. Use your watering can and sword to fight him./Defeat Lord Somnia/null/HTR.BossQuest3/0/-1/false",
+
+                "HTR.BossQuest3":"Basic/End It/You've successfully defeated Lord Somnia./Interact with one of the Totems in the four corners of the room to continue/null/-1/0/-1/false"
             }
         }
     ]
